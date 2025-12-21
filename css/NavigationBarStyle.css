@@ -1,0 +1,166 @@
+:root {
+  --nav-bg: #2d3344;
+  --nav-border: #374151;
+  --link-color: #d1d5db;
+  --link-hover: #ffffff;
+  --chip-bg: #1f2937;
+}
+
+.navbar {
+  top: 0; left: 0; right: 0;
+  z-index: 999;
+  background-color: var(--nav-bg);
+  border-bottom: 1px solid var(--nav-border);
+  backdrop-filter: blur(8px);
+  direction: rtl;
+}
+
+.nav-container {
+  max-width: 112rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.nav-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+/* צדדים */
+.nav-side {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* צד שמאל (ל־actions) */
+.actions {
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+
+/* צד ימין (לוגו) */
+.brand {
+  justify-content: flex-end;
+}
+.brand img {
+  height: 50px;
+}
+
+/* אמצע */
+.nav-center {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+}
+
+/* קישורים */
+.nav-link {
+  padding: .5rem 1rem;
+  border-radius: .5rem;
+  font-weight: 500;
+  font-size: .95rem;
+  color: var(--link-color);
+  text-decoration: none;
+  transition: .2s ease-in-out;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: var(--link-hover);
+  background: var(--chip-bg);
+}
+
+/* אייקונים */
+.icon-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--link-color);
+  cursor: pointer;
+  transition: .2s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-btn:hover {
+  background: var(--chip-bg);
+  color: #fff;
+}
+
+/* כפתור תפריט מובייל */
+.mobile-toggle {
+  display: inline-flex;
+}
+
+@media (min-width: 768px) {
+  .mobile-toggle {
+    display: none;
+  }
+}
+
+.mobile-menu {
+  display: none;
+  background: var(--nav-bg);
+  border-top: 1px solid var(--nav-border);
+}
+
+.mobile-menu.open {
+  display: block;
+}
+
+.mobile-menu a {
+  display: block;
+  padding: .75rem .9rem;
+  margin: .25rem .5rem;
+  border-radius: .6rem;
+  color: var(--link-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: .2s;
+}
+
+.mobile-menu a:hover {
+  color: #fff;
+  background: var(--chip-bg);
+}
+
+
+
+
+/* --- רספונסיביות למסכים קטנים --- */
+@media (max-width: 767px) {
+  /* מסתיר את הקישורים העליונים במובייל */
+  .nav-center {
+    display: none;
+  }
+
+  /* מסדר צדדים במובייל */
+  .nav-row {
+    justify-content: space-between;
+  }
+
+  .actions {
+    gap: .25rem;
+  }
+
+  .brand img {
+    height: 40px; /* לוגו קטן יותר במובייל */
+  }
+
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+  }
+
+  .mobile-menu.open {
+    display: flex; /* כשנפתח */
+  }
+}

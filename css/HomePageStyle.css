@@ -1,0 +1,55 @@
+
+
+
+.icon-row {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.icon-item {
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon-item img {
+  width: 150px;
+  height: 150px;
+  transition: transform 0.3s ease;
+}
+
+.icon-item:hover img {
+  transform: scale(1.2);
+}
+
+.icon-item span {
+  margin-top: 8px;
+  font-size: 50px;
+  direction: rtl;
+  color: #F0E87D;
+}
+
+.blue-box {
+    padding: 20px; 
+    background-color: #3C7BCD; 
+    color: white; 
+}
+
+.banner-container {
+    width: 100% ;
+    height: 350px ; 
+}
+
+.banner-image {
+    width: 100% ;
+    height: 100% ;
+    object-fit: cover;
+}
+
+

@@ -1,0 +1,1268 @@
+<html><head>
+	<title>גלצ פלוס</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;display=swap" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&amp;display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&amp;display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&amp;family=Rubik:ital,wght@0,300..900;1,300..900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/HomePageStyle.css">
+    <link rel="stylesheet" href="css/HomeStyle.css">
+    <link rel="stylesheet" href="css/podcastGridStyle.css">
+    <link rel="stylesheet" href="css/NavigationBarStyle.css">
+
+
+<!-- Bootstrap CSS -->
+
+	<!-- Bootstrap JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body>
+	<link rel="stylesheet" href="css/NavigationBarStyle.css">
+
+<nav class="navbar" role="navigation" aria-label="Main Navigation">
+  <div class="nav-container">
+    <div class="nav-row">
+
+      <div class="nav-side brand">
+        <a href="/">
+          <img src="media/screenshot_2025-08-10_183245-removebg-preview-1.png" alt="logo" style="width: 90px; height: 60px; margin-left: 10;">
+        </a>
+      </div>
+
+
+      <!-- אמצע – הקישורים -->
+      <div class="nav-center nav-links">
+        <a class="nav-link" href="/קטגוריות/מוזיקה/">מוזיקה</a>
+        <a class="nav-link" href="/הסכתים/">הסכתים</a>
+        <a class="nav-link" href="/קטגוריות/סדרות-רשת/">סדרות רשת</a>
+        <a class="nav-link" href="/תרבות-ופנאי/">תרבות ופנאי</a>
+        <a class="nav-link" href="/קטגוריות/ילדים-ונוער/">ילדים ונוער</a>
+        <a class="nav-link" href="/ארכיון/">ארכיון</a>
+      </div>
+
+
+      <!-- שמאל – כפתורים -->
+      <div class="nav-side actions mr-1">
+        <a href="/חיפוש" style="color: none; text-decoration: none;" class="icon-btn" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass" style="font-size: 24px;"></i>
+        </a>
+
+        <a href="/מועדפים" style="color: none; text-decoration: none;" class="icon-btn" aria-label="Favorites">
+          <i class="fa-regular fa-heart" style="font-size: 24px;"></i>
+        </a>
+
+        <button class="icon-btn mobile-toggle" id="mobileMenuBtn" aria-expanded="false" aria-controls="mobileMenu">
+          <i class="fa-solid fa-bars" id="mobileMenuIcon"></i>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="mobileMenu" class="mobile-menu">
+    <a href="/קטגוריות/מוזיקה/" data-close="">מוזיקה</a>
+    <a href="/הסכתים/" data-close="">הסכתים</a>
+    <a href="/קטגוריות/סדרות-רשת/" data-close="">סדרות רשת</a>
+    <a href="/תרבות-ופנאי/" data-close="">תרבות ופנאי</a>
+    <a href="/קטגוריות/ילדים-ונוער/" data-close="">ילדים ונוער</a>
+    <a href="/ארכיון/" data-close="">ארכיון</a>
+  </div>
+</nav>
+
+<script>
+  const mobileBtn = document.getElementById("mobileMenuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const mobileIcon = document.getElementById("mobileMenuIcon");
+
+  mobileBtn.addEventListener("click", () => {
+    const isOpen = mobileMenu.classList.toggle("open");
+    mobileBtn.setAttribute("aria-expanded", isOpen);
+    mobileIcon.classList.toggle("fa-bars", !isOpen);
+    mobileIcon.classList.toggle("fa-xmark", isOpen);
+  });
+
+  // סגירה אוטומטית בלחיצה על לינק עם data-close
+  document.querySelectorAll("#mobileMenu a[data-close]").forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.remove("open");
+      mobileBtn.setAttribute("aria-expanded", false);
+      mobileIcon.classList.add("fa-bars");
+      mobileIcon.classList.remove("fa-xmark");
+    });
+  });
+</script>
+
+<!-- רווח עליון לתוכן כדי למנוע חפיפה -->
+<!-- <div style="height:84px;" > </div> -->
+
+	
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<link rel="stylesheet" href="/css/HomePageStyle.css">
+<link rel="stylesheet" href="/css/HomeStyle.css">
+<link rel="stylesheet" href="/css/podcastGridStyle.css">
+
+
+
+
+
+
+  <div class="banner-container">
+    <img src="media/באנר-2.png" alt="Banner" class="banner-image">
+  </div>
+
+<div class="blue-box">
+  <div>
+    <div class="icon-row">
+          <div class="icon-item">
+            <a href="/ארכיון/">
+              <img src="media/ארכיון.png" alt="ארכיון">
+            </a>
+            <h3>ארכיון</h3>
+          </div>
+          <div class="icon-item">
+            <a href="/קטגוריות/ילדים-ונוער/">
+              <img src="media/ילדים-ונוער.png" alt="ילדים ונוער">
+            </a>
+            <h3>ילדים ונוער</h3>
+          </div>
+          <div class="icon-item">
+            <a href="/תרבות-ופנאי/">
+              <img src="media/תרבות-ופנאי.png" alt="תרבות ופנאי">
+            </a>
+            <h3>תרבות ופנאי</h3>
+          </div>
+          <div class="icon-item">
+            <a href="/קטגוריות/סדרות-רשת/">
+              <img src="media/סדרות-רשת-0d-1.png" alt="סדרות רשת">
+            </a>
+            <h3>סדרות רשת</h3>
+          </div>
+          <div class="icon-item">
+            <a href="/הסכתים/">
+              <img src="media/הסכתים.png" alt="הסכתים">
+            </a>
+            <h3>הסכתים</h3>
+          </div>
+          <div class="icon-item">
+            <a href="/קטגוריות/מוזיקה/">
+              <img src="media/מוזיקה.png" alt="מוזיקה">
+            </a>
+            <h3>מוזיקה</h3>
+          </div>
+    </div>
+  </div>
+
+
+
+  <!-- ✅ גרסה מתוקנת של אזור הווידאו והתכניות -->
+  <div class="video-programs-section">
+
+    <div class="programs-grid">
+          <a href="/תכניות/אי-אמון/" class="program-card">
+            <img src="media/בתןך-הפודקאסט-פי-2-3.png" alt="תכנית">
+            <div class="play-button">
+              <i class="bi bi-play-circle-fill"></i>
+            </div>
+          </a>
+          <a href="/תכניות/פודקאסט-על-מוזיקה-וטכנולוגיה/" class="program-card">
+            <img src="media/בתןך-הפודקאסט-פי-2-1.jpg" alt="תכנית">
+            <div class="play-button">
+              <i class="bi bi-play-circle-fill"></i>
+            </div>
+          </a>
+          <a href="/תכניות/קולה-של-אמא-ההסכת/" class="program-card">
+            <img src="media/בתןך-הפודקאסט-פי-2-2.jpg" alt="תכנית">
+            <div class="play-button">
+              <i class="bi bi-play-circle-fill"></i>
+            </div>
+          </a>
+          <a href="/תכניות/מלך-בלייצר-חיים/" class="program-card">
+            <img src="media/אבי.jpg" alt="תכנית">
+            <div class="play-button">
+              <i class="bi bi-play-circle-fill"></i>
+            </div>
+          </a>
+    </div>
+
+    <div class="video-frame">
+        <iframe src="https://www.youtube.com/embed/Aj517Jlx1go?si=BIxaojpVNrnVORyx" frameborder="0" allowfullscreen=""></iframe>
+    </div>
+
+  </div>
+
+
+</div>
+
+
+
+
+
+<div style="margin:0px;">
+
+
+
+
+<div>
+  <section class="promo-section">
+    <div class="promo-container">
+      <div class="promo-text">
+          <h2>30 שנים ללכתו של סשה ארגוב</h2>
+          <div class="promo-description">השירים של סשה ארגוב מלווים אותנו כבר עשרות שנים אבל אף פעם לא שמענו אותם ככה.  גלי צה"ל מציינת 30 שנה ללכתו של אחד מגדולי המלחינים בזמר העברי. נועם קליינשטיין, ניר כנען, ואלרי חמאתי, יגל אושרי ורוני וגיל בר הדס בביצועים חדשים לשיריו הגדולים.</div>
+        <a href="https://www.youtube.com/watch?v=f-frZ5XF-IU&amp;list=PLx4jClAH_07x9CG4a37tyAuV74QBVMS9K" target="_blank" rel="noopener noreferrer" class="promo-btn">לפלייליסט השירים המיוחד על סשה ארגוב</a>
+      </div>
+      <div class="promo-video">
+          <!-- <video controls width="100%" poster="/media/0helh5da/&#x5D8;&#x5D0;&#x5D1;-&#x5E0;&#x5D5;&#x5E2;&#x5DD;.jpg">
+                                                                                                                                                                                              <source src="YMxDjuyYcvE?si=VCzHPP0T2H8r7gNU" type="video/mp4">
+                                                                                                                                                                                              הדפדפן שלך לא תומך בניגון וידאו.
+                                                                                                                                                                                          </video> -->
+<iframe
+  width="100%"
+  height="315"
+  src="https://www.youtube.com/embed/YMxDjuyYcvE?si=VCzHPP0T2H8r7gNU"
+  allowfullscreen
+  class="rounded shadow-sm">
+</iframe>      </div>
+    </div>
+  </section>
+</div>
+<style>
+  .container,
+  .container-fluid,
+  .row {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+
+  .promo-section {
+    background-color: transparent;
+    background-image: linear-gradient(86deg, #003357 0%, #000914 100%);
+    color: white;
+    direction: rtl;
+    padding: 50px 0;
+    margin-bottom: 1px;
+  }
+
+
+  .promo-container {
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+
+  .promo-video {
+    flex: 1;
+    min-width: 300px;
+    /* אפשר להקטין עבור מסכים קטנים */
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+    /* שומר על יחס 16:9 */
+  }
+
+
+  .promo-video iframe {
+    width: 100%;
+    height: 100%;
+  }
+
+
+  .promo-text {
+    flex: 1;
+    min-width: 300px;
+  }
+
+
+  .promo-text h2 {
+    margin-bottom: 15px;
+    text-align: right;
+    color: #FFFFFF;
+    font-family: "Assistant", Sans-serif;
+    font-size: 46px;
+    font-weight: 900;
+  }
+
+
+  .promo-description {
+    margin-bottom: 20px;
+    text-align: right;
+    color: #FFFFFF;
+    font-family: "Assistant", Sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: 40px;
+  }
+
+
+  .promo-btn {
+    font-family: "Assistant", Sans-serif;
+    font-weight: 800;
+    background-color: #3947a3;
+    color: #fff;
+    font-size: 15px;
+    padding: 12px 24px;
+    line-height: 1;
+    border-radius: 6px;
+    text-align: center;
+    display: inline-block;
+    transition: all 0.3s ease;
+    border: 4px solid white;
+    box-shadow: none;
+    outline: none;
+    text-decoration: none;
+    cursor: pointer;
+    float: right;
+  }
+
+
+  .promo-btn:hover,
+  .promo-btn:focus,
+  .promo-btn:active {
+    color: #fff;
+    text-decoration: none;
+    outline: none;
+  }
+
+
+  .promo-btn:hover {
+    transform: scale(1.08);
+  }
+
+  a {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    background: none;
+  }
+
+
+  .podcastsClass {
+    background-color: white;
+  }
+</style>
+
+
+
+
+
+
+
+
+<section class="podcastsClass">
+  <h1 class="text-center page-title">הסכתי גל"צ</h1>
+
+
+  <div class="row podcast-grid">
+          <div class="col-6 col-md-4 col-lg-3 mb-5">
+            <a href="/תכניות/פודקאסט-על-מוזיקה-וטכנולוגיה/" class="program-link program-card-image">
+              <img src="media/בתןך-הפודקאסט-פי-2-1.jpg" alt="פודקאסט על מוזיקה וטכנולוגיה" class="program-image">
+            </a>
+            <h6 class="program-title mt-2" title="פודקאסט על מוזיקה וטכנולוגיה">פודקאסט על מוזיקה וטכנולוגיה</h6>
+            <p class="program-description">"פודקאסט על מוזיקה וטכנולוגיה" מיועד לכל מי שסקרן להבין את מהפכת המוזיקה והתרבות, ולהכיר כיצד היא משקפת את הקצב המשתנה של העולם הדיגיטלי. יחד נצלול לעומק המפגש בין מוסיקה לטכנולוגיה, נחקור כיצד הטכנולוגיה משנה את פני התעשייה, מהן ההזדמנויות ומהם האתגרים, ונשמע סיפורים אישיים מיוצרות, יזמים ואנשי טכנולוגיה שחיים את השטח.</p>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 mb-5">
+            <a href="/תכניות/הבית-של-יעל/" class="program-link program-card-image">
+              <img src="media/יעל.png" alt="הבית של יעל" class="program-image">
+            </a>
+            <h6 class="program-title mt-2" title="הבית של יעל">הבית של יעל</h6>
+            <p class="program-description">בית הוא מרחב לשיתוף והקשבה אך בתקופה האחרונה הבתים של כולנו חוו טלטלה.
+לפוסט טראומה יש פנים רבות, בבסיסה היא איום קיומי מתמיד שרבים מאיתנו מתמודדים איתו מאז תחילתה של המלחמה האחרונה.
+בבית של יעל מתוך שיחות עם מרואיינים מתמודדי פוסט טראומה נלמד איך להכיר את הטראומה, להחזיק את הכאב ולהתמודד איתו יחד.</p>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 mb-5">
+            <a href="/תכניות/שלוש-שתיים-אחת/" class="program-link program-card-image">
+              <img src="media/בתןך-הפודקאסט-פי-2.png" alt="שלוש שתיים אחת" class="program-image">
+            </a>
+            <h6 class="program-title mt-2" title="שלוש שתיים אחת">שלוש שתיים אחת</h6>
+            <p class="program-description">שלושה פרקים. שלוש נשים. ושאלה אחת- מה מחזיק אותנו יחד דווקא כשהכול מתפרק? מיה מורנו ולילך גדול, ששתיהן התמודדו עם שכול אישי, יוצאות למסע מרגש ואינטימי בעקבות האנשים שמרכיבים את הפנים של התקווה, הכוח והחמלה הישראלית.</p>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 mb-5">
+            <a href="/תכניות/standup4israel/" class="program-link program-card-image">
+              <img src="media/2.png" alt="עם שחר חסון ויוחאי ספונדר StandUp4Israel " class="program-image">
+            </a>
+            <h6 class="program-title mt-2" title="עם שחר חסון ויוחאי ספונדר StandUp4Israel ">עם שחר חסון ויוחאי ספונדר StandUp4Israel </h6>
+            <p class="program-description">נראה שהעולם לא לגמרי מבין מה קורה בישראל. אז צריך שמישהו יסביר לו. באנגלית. יוסף חדאד היה עסוק, אז נאלצנו להתפשר על שני האנשים הכי (לא) מתאימים למשימה - הסטנדאפיסטים שחר חסון ויוחאי ספונדר.</p>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 mb-5">
+            <a href="/תכניות/הצריף-הנודד/" class="program-link program-card-image">
+              <img src="media/whatsapp-image-2024-12-08-at-130852.jpeg" alt="הצריף הנודד" class="program-image">
+            </a>
+            <h6 class="program-title mt-2" title="הצריף הנודד">הצריף הנודד</h6>
+            <p class="program-description">הצטרפו אלינו למסע מרתק יחד עם "הצריף הנודד" אל ליבת מורשתו של האיש שהקים את מדינת ישראל – דוד בן-גוריון. נצא יחד לשטח, נשוטט בין ערים ויישובים מצפון ועד דרום, בכל מקום נתמקד בנושא אחד שעליו נדבר עם הציבור ברחוב ועם מומחים ומומחיות מהתחום ונפגוש גם את נקודת מבטו של דוד בן-גוריון. ביחד ננסה להבין כיצד החזון הישראלי של בן-גוריון מתממש כיום. בין הנושאים והמקומות: על גיוס לצה"ל – בלשכת הגיוס, על חזון הנגב – בצריף בן-גוריון, על חברת מופת – בחיפה, על ממלכתיות – בירושלים והסיכום – בשדרות שבנגב המערבי</p>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 mb-5">
+            <a href="/תכניות/החצר-האחורית/" class="program-link program-card-image">
+              <img src="media/בתןך-הפודקאסט-פי-2-1-1.png" alt="החצר האחורית" class="program-image">
+            </a>
+            <h6 class="program-title mt-2" title="החצר האחורית">החצר האחורית</h6>
+            <p class="program-description">בכל פרק, יוצרות ויוצרים עכשוויים יצללו לגיבורים מהתרבות האחרת של ישראל.&nbsp;ממציאת הג'אז התימני (שבאה מהוליווד); השחקן שעזב את "הבימה" כדי להופיע בגובה העיניים (מילולית); וגם ברווז אחד - הם רק חלק מהדמויות שתפגשו כאן, ב-"החצר האחורית".  חלקם מוערכים עד היום; וחלקם נאלמו ונעלמו.&nbsp;אבל המשותף לכל גיבורים אלה הוא אחד - הם יצרו משהו חדשני, שובר מוסכמות ואמיץ, שלא היה פה לפניהם בארצנו הקטנטונת</p>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 mb-5">
+            <a href="/תכניות/דור-הביט/" class="program-link program-card-image">
+              <img src="media/עותק-של-image00002.png" alt="דור הביט" class="program-image">
+            </a>
+            <h6 class="program-title mt-2" title="דור הביט">דור הביט</h6>
+            <p class="program-description">לירון תאני וחברים מדברים על עלייתו ונפילתו ועלייתו של העוף המוזר שנקרא "היפ הופ ישראלי". סדרת-בת של הפודקאסט החצר האחורית בגלצ תודה מיוחדת לעידו מימון על אות הפתיחה</p>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 mb-5">
+            <a href="/תכניות/סיפורי-חיים/" class="program-link program-card-image">
+              <img src="media/סיפורי-חייים.jpg" alt="סיפורי חיים" class="program-image">
+            </a>
+            <h6 class="program-title mt-2" title="סיפורי חיים">סיפורי חיים</h6>
+            <p class="program-description">בהסכת נביא את הקטעים, הספרים, היומנים והסיפורים של שבעה כותבים אשר נפלו ונרצחו במלחמת "חרבות ברזל".  עודד בן עמי, הדר מרקס, לי בירן, נועם קליינשטיין, דור הררי, עומר ירדני ועוד נשות ואנשי תרבות נבחרים, ממחיזים את הקטעים המרגשים והיפים שהשאירו האהובים שאינם עוד.</p>
+          </div>
+  </div>
+</section>
+
+
+
+
+<style>
+  :root {
+    --hero-bg: url("media/artboard-2.png");
+    --accent-yellow: #f5d643;
+    ;
+    --white-semi: rgba(255, 255, 255, 0.95);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .hero {
+    background-image: var(--hero-bg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 85px 35px;
+    line-height: 1.5;
+    font-family: "Assistant", sans-serif;
+    height: 700px;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 1;
+  }
+
+  .hero-inner {
+    position: relative;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: clamp(80px, 10vw, 160px);
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1280px;
+    margin: auto;
+    z-index: 2;
+    flex-wrap: wrap;
+  }
+
+  .hero-col {
+    flex: 1 1 480px;
+    min-width: 320px;
+  }
+
+  .hero-title-wrap {
+    color: var(--accent-yellow);
+    font-family: "Assistant", sans-serif;
+    font-size: 70px;
+    font-weight: 800;
+    text-shadow: 4px 0px 0px rgba(0, 0, 0, 0.4);
+    transform: rotate(-4deg);
+    transform-origin: right top;
+    margin-bottom: 50px;
+    direction: rtl;
+    text-align: right;
+  }
+
+  .video-frame-wrap-alt iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+
+
+  .hero-title-wrap span {
+    display: block;
+    line-height: 1.1;
+  }
+
+  .hero-sub {
+    max-width: 600px;
+    direction: rtl;
+    text-align: right;
+
+    color: #FFFFFF;
+    font-family: "Assistant", Sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    text-shadow: 0px 0px 10px #000000;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 20px;
+    background: var(--white-semi);
+    color: #111;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 6px;
+    border: 2px solid #fff;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+    text-align: right;
+  }
+
+.video-frame-wrap {
+  width: 100%;
+  max-width: 1000px;       /* רוחב מקסימלי רצוי */
+  aspect-ratio: 16/9;      /* שמירה על יחס 16:9 */
+  overflow: hidden;
+  border-radius: 12px;
+  border: 4px solid #fff;  /* מסגרת לבנה */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  margin: auto;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;               /* ביטול מסגרת ברירת מחדל */
+  display: block;
+}
+
+
+  .video-caption {
+    font-family: "Assistant", Sans-serif;
+    text-align: right;
+    color: #fff;
+    margin-top: 12px;
+    font-size: 30px;
+    direction: rtl;
+  }
+
+  .a-div {
+    text-align: right;
+  }
+
+  @media (max-width: 900px) {
+    .hero-inner {
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .hero-title-wrap {
+      text-align: center;
+      transform: none;
+    }
+
+    .hero-sub {
+      text-align: center;
+    }
+
+    .video-caption {
+      text-align: center;
+    }
+  }
+</style>
+
+<section class="hero">
+  <div class="hero-inner">
+
+    <!-- טקסט -->
+    <div class="hero-col">
+      <div class="hero-title-wrap">
+        <span>מסע כומתה קומנדו</span>
+        <span style="margin-right: 85px;">אוג' 24 ???</span>
+      </div>
+      <p class="hero-sub">
+        אוג' 24 כבר לא צעירים?? אז זהו שלא. ממש לא אפילו.
+        השבוע הגענו למסע כומתה של עוצבת הקומנדו כדי לגלות מי העניק כומתה למי? כמה גאים ההורים? ואיזה חייל עשה את המסע
+        כומתה בקפיצות? הצטרפו, הולך להיות אדום!
+      </p>
+      <div class="a-div">
+        <a class="hero-cta" href="/תכניות/מסע-כומתות/">לצפייה בכל הפרקים</a>
+      </div>
+    </div>
+
+    <!-- וידאו -->
+    <div class="hero-col">
+      <div class="video-frame-wrap">
+        <iframe src="https://www.youtube.com/embed/PnS5d-5C5ZA?controls=1&amp;rel=0&amp;modestbranding=1" title="מסע כומתות | מסע כומתה עוצבת הקומנדו" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" style="border-style: solid; border-color: #FFFFFF;"></iframe>
+      </div>
+      <div class="video-caption">מסע כומתות | מסע כומתה עוצבת הקומנדו</div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<div style="height: 10px;"> </div>
+
+
+
+
+<section class="podcastsClass">
+  <h1 class="text-center page-title">תרבות ופנאי</h1>
+
+
+  <div class="row podcast-grid">
+          <div class="col-6 col-md-4 col-lg-3 mb-5">
+            <a href="/תכניות/האחיות-גרים/" class="program-link program-card-image">
+              <img src="media/2-8.png" alt="האחיות גרים" class="program-image">
+            </a>
+            <h6 class="program-title mt-2" title="האחיות גרים" style="direction:rtl;">האחיות גרים</h6>
+            <p class="program-description">נועה מנהיים ואיילת טריאסט יוצאות לשוטט במרחבי הפרא של התרבות המערבית ומדברות על היצירות והדמויות שעיצבו אותה – מהמיתוסים הקדומים דרך הספרות העכשווית ועד הוליווד ונטפליקס. ממפלצות לרובוטים, מערפדים למכשפות, מבתולות ים לחדי קרן, ועוד.</p>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 mb-5">
+            <a href="/תכניות/בטלים-בשישי/" class="program-link program-card-image">
+              <img src="media/בתןך-הפודקאסט-פי-2-4.png" alt="בטלים בשישי" class="program-image">
+            </a>
+            <h6 class="program-title mt-2" title="בטלים בשישי" style="direction:rtl;">בטלים בשישי</h6>
+            <p class="program-description">הם נשמעים כמו זוג נשוי (אבל הם לא) הם אוהבים ורבים (אחרת מה זה מעניין?) הם מדברים על הנושאים הבוערים מהשבוע שחלף (אבל בעצם על השטויות הקטנות בחיים של כולנו)... הם צוברים וצוברים ובכל שבוע אודיה קורן ונתן דטנר נפגשים כדי לפרוק, ואנחנו מוזמנים להיות זבוב על הקיר, בשיחת הסלון הכי טובה ברדיו!</p>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 mb-5">
+            <a href="/תכניות/באופן-מילולי/" class="program-link program-card-image">
+              <img src="media/בתןך-הפודקאסט-פי-2-1-2.png" alt="באופן מילולי" class="program-image">
+            </a>
+            <h6 class="program-title mt-2" title="באופן מילולי" style="direction:rtl;">באופן מילולי</h6>
+            <p class="program-description">סיור יומי בנופי העברית לתקופותיה בתנ"ך, במשנה, בעברית המדוברת ובלשונם של העולים לארץ ישראל, וכן השוואת שמות ישובים ללשון האחות, הערבית. הפינה מלווה בקטעי נאומים וראיונות ששודרו בתוכניות גלצ ובקטעי שירים עבריים המרחיבים את הנושא ומשמחים כל לב</p>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 mb-5">
+            <a href="/תכניות/טוב-שבאתם/" class="program-link program-card-image">
+              <img src="media/בתןך-הפודקאסט-פי-2-1.png" alt="טוב שבאתם" class="program-image">
+            </a>
+            <h6 class="program-title mt-2" title="טוב שבאתם" style="direction:rtl;">טוב שבאתם</h6>
+            <p class="program-description">טוב שבאתם! תכנית הצהריים החדשה של גלי צה"ל עם שלמור שטרוזמן, מירב פלדמן ואדם גבאי. מחכים לכם עם האירוחים הכי מעניינים וכל מה שאולי פספסתם וכדאי שתדעו… לא תבואו?
+
+מחכים לכם, ראשון-רביעי ב-13:00 ולצפייה חוזרת בכל הפלטפורמות 🪅</p>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 mb-5">
+            <a href="/תכניות/הולכות-בחצות/" class="program-link program-card-image">
+              <img src="media/הולכות.png" alt="הולכות בחצות" class="program-image">
+            </a>
+            <h6 class="program-title mt-2" title="הולכות בחצות" style="direction:rtl;">הולכות בחצות</h6>
+            <p class="program-description">"הולכות בחצות", שתי נשות תקשורת נפגשות לשיחה אישית בשעה האחרונה של השבוע לסכם את הרעיונות והמחשבות של השבוע החולף ולהטעין מצברים לקראת השבוע שמתחיל.</p>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 mb-5">
+            <a href="/תכניות/מחשבות-בעמ/" class="program-link program-card-image">
+              <img src="media/בתןך-הפודקאסט-פי-2-5.png" alt="מחשבות בע&quot;מ" class="program-image">
+            </a>
+            <h6 class="program-title mt-2" title="מחשבות בע&quot;מ" style="direction:rtl;">מחשבות בע"מ</h6>
+            <p class="program-description">משה שלונסקי מדבר על אירועי השבוע שחלף בארץ ובעולם. השעה מלאה בדיונים על פוליטיקה, יחסי חוץ, תרבות וגם קצת ספורט של אלו הניצבים משני צידי המפה הפוליטית - ואוהדים את הקבוצות היריבות מתל אביב. השיחה על אירועי השבוע מתובלת גם בהמלצות על תערוכה חדשה, סרט מעניין, ספר ששווה לקרוא או ריאיון ראוי.</p>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 mb-5">
+            <a href="/תכניות/בן-וקובי-פרג/" class="program-link program-card-image">
+              <img src="media/screenshot-2025-08-31-195150.png" alt="בן וקובי פרג'" class="program-image">
+            </a>
+            <h6 class="program-title mt-2" title="בן וקובי פרג'" style="direction:rtl;">בן וקובי פרג'</h6>
+            <p class="program-description">האחים פרג' משתלטים על הרדיו לשעה של סיכום השבוע והאירועים החשובים באמת (לפחות לדעתם). בתכנית הם מביאים אל הרדיו את הרחוב הישראלי, על שלל דמויותיו והעניינים הבוערים בו על אש קטנה.</p>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 mb-5">
+            <a href="/תכניות/גילוי-דעת/" class="program-link program-card-image">
+              <img src="media/גילוי-דעת.png" alt="גילוי דעת" class="program-image">
+            </a>
+            <h6 class="program-title mt-2" title="גילוי דעת" style="direction:rtl;">גילוי דעת</h6>
+            <p class="program-description">רוצים להיות ידענים כמו איתי הרמן, אותו אתם מכירים בתור "הצ'ייסר" מהתוכנית "המרדף"? אין דבר יותר טוב מללמוד מהמאסטר עצמו! האזינו לתוכנית "גילוי דעת" עם איתי הרמן וענבל גזית, שתעשיר את הידע שלכם ממש כמו ויקיפדיה רדיופונית שתחקור נושאים שונים ומגוונים - ממתמטיקה, דרך מדע וטכנולוגיה, ועד תרבות וספורט.</p>
+          </div>
+  </div>
+</section>
+
+
+<style>
+  :root {
+    --hero-bg-alt: url("media/12סיון-ומאיה-סופי-scaled-1.jpg");
+    --accent-yellow-alt: #f5d643;
+    --white-semi-alt: rgba(255, 255, 255, 0.95);
+  }
+
+  .hero-alt {
+    background-image: var(--hero-bg-alt);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 200px 35px;
+    line-height: 1.5;
+    font-family: "Assistant", sans-serif;
+    height: 950px;
+  }
+
+  .hero-alt::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 1;
+  }
+
+  .hero-inner-alt {
+    position: relative;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: clamp(80px, 10vw, 160px);
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1280px;
+    margin: auto;
+    z-index: 2;
+    flex-wrap: wrap;
+  }
+
+  .hero-col-alt {
+    flex: 1 1 480px;
+    min-width: 320px;
+  }
+
+  .hero-img-title {
+    max-width: 600px;
+    margin-bottom: 40px;
+    display: block;
+    border-radius: 12px;
+  }
+
+  .hero-sub-alt {
+    max-width: 700px;
+    direction: rtl;
+    text-align: right;
+    color: #FFFFFF;
+    font-family: "Assistant", Sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    text-shadow: 0px 0px 10px #000000;
+  }
+
+  .hero-cta-alt {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 20px;
+    background: var(--white-semi-alt);
+    color: #111;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 6px;
+    border: 2px solid #fff;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+    text-align: right;
+  }
+
+  .video-frame-wrap-alt {
+    width: 100%;
+    max-width: 1000px;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 4px solid #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    margin: auto;
+  }
+
+  .video-frame-wrap-alt iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+
+  .video-caption-alt {
+    font-family: "Assistant", Sans-serif;
+    text-align: right;
+    color: #fff;
+    margin-top: 12px;
+    font-size: 25px;
+    direction: rtl;
+  }
+
+  .a-div-alt {
+    text-align: right;
+  }
+
+  @media (max-width: 900px) {
+    .hero-inner-alt {
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .hero-sub-alt {
+      text-align: center;
+    }
+
+    .video-caption-alt {
+      text-align: center;
+    }
+  }
+</style>
+
+<section class="hero-alt">
+  <div class="hero-inner-alt">
+
+    <!-- טקסט -->
+    <div class="hero-col-alt">
+      <img class="hero-img-title" src="media/כקכדעשד-1024x407.png" alt="כותרת התכנית">
+
+      <p class="hero-sub-alt">
+        לכבוד שבועות מאיה ורטהיימר וסיון טלמור בתכנית המיתולוגית שלנו ״ממי קיבלתי את התורה?״, והתשובה שלהן – דויד ברוזה!
+        מהפעם הראשונה שהקשיבו לו אי שם בילדות ואיך המוסיקה שלו מלווה אותן לאורך השנים
+      </p>
+      <div class="a-div-alt">
+        <a class="hero-cta-alt" href="/תכניות/ממי-קיבלתי-את-התורה/">להאזנה לפרקים נוספים</a>
+      </div>
+    </div>
+
+    <!-- וידאו -->
+    <div class="hero-col-alt">
+      <div class="video-frame-wrap-alt">
+        <iframe src="https://www.youtube.com/embed/i_Ek-sxT_0k?si=xN4Vh_K8cO1skxQ-" title="מאיה ורטהיימר וסיון טלמור | ממי קיבלתי את התורה?ו" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+      </div>
+      <div class="video-caption-alt">מאיה ורטהיימר וסיון טלמור | ממי קיבלתי את התורה?</div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<style>
+  @media (max-width: 768px) {
+
+
+    /* ביטול רווחים והצמדה */
+    body,
+    html {
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+
+    /* תמונת באנר */
+    .banner-container {
+      height: 180px;
+    }
+
+
+    /* איקונים */
+    .icon-row {
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+
+    .icon-item img {
+      width: 100px;
+      height: 100px;
+    }
+
+
+    .icon-item h3 {
+      font-size: 16px;
+    }
+
+
+    /* סקשן וידאו ותכניות */
+    .promo-container {
+      flex-direction: column;
+      padding: 10px;
+      text-align: center;
+    }
+
+
+    .promo-video {
+      width: 100%;
+      aspect-ratio: 16/9;
+    }
+
+
+    .promo-text h2 {
+      font-size: 26px;
+      text-align: center;
+    }
+
+
+    .promo-description {
+      font-size: 16px;
+      text-align: center;
+      margin-left: 0;
+    }
+
+
+    .promo-btn {
+      float: none;
+      margin: 10px auto;
+      display: block;
+    }
+
+
+    /* גריד תכניות */
+    .podcast-grid {
+      flex-direction: column;
+      align-items: center;
+    }
+
+
+    .program-card-image {
+      width: 90%;
+      margin-bottom: 20px;
+    }
+
+
+    .program-title {
+      font-size: 18px;
+    }
+
+
+    .program-description {
+      font-size: 18px;
+    }
+
+
+    /* HERO ראשון */
+    .hero {
+      height: auto;
+      padding: 40px 20px;
+    }
+
+
+    .hero-inner {
+      flex-direction: column;
+      gap: 20px;
+    }
+
+
+    .hero-title-wrap {
+      font-size: 38px;
+      text-align: center;
+      transform: none;
+    }
+
+
+    .hero-sub {
+      font-size: 18px;
+      text-align: center;
+    }
+
+
+    .video-frame-wrap {
+      width: 100%;
+      margin-top: 20px;
+    }
+
+
+    .video-caption {
+      font-size: 18px;
+      text-align: center;
+    }
+
+
+    /* HERO שני */
+    .hero-alt {
+      height: auto;
+      padding: 60px 20px;
+    }
+
+
+    .hero-inner-alt {
+      flex-direction: column;
+      text-align: center;
+    }
+
+
+    .hero-img-title {
+      width: 90%;
+      margin: 0 auto 20px;
+    }
+
+
+    .hero-sub-alt {
+      font-size: 18px;
+      text-align: center;
+    }
+
+
+    .video-frame-wrap-alt {
+      width: 100%;
+      margin-top: 20px;
+    }
+
+
+    .video-caption-alt {
+      font-size: 18px;
+      text-align: center;
+    }
+
+
+    /* רספונסיבי לניידים */
+    .programs-container {
+      flex-direction: column;
+      flex-wrap: wrap;
+      /* מאפשר שבירה בשורה קטנה */
+    }
+
+
+
+
+    .video-section iframe {
+      min-height: 250px;
+    }
+
+
+  }
+</style>
+
+<style>
+  .video-programs-section {
+    display: flex;
+    gap: 20px;
+    margin-top: 80px;
+    align-items: flex-start;
+  }
+
+  .video-programs-section .video-frame {
+    flex: 1;
+    aspect-ratio: 14 / 9;
+  }
+
+  .video-programs-section iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+  }
+
+  .video-programs-section .programs-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 11px;
+    aspect-ratio: 14 / 9;
+  }
+
+  .video-programs-section .programs-grid img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+  }
+
+  .video-programs-section .play-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 43px;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .program-card {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 6px;
+  }
+
+  .program-card:hover .play-button {
+    transform: scale(1.1);
+  }
+
+  /* ——— התאמה למובייל ——— */
+  @media (max-width: 768px) {
+    .video-programs-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      margin-top: 20px;
+      padding: 12px 0;
+    }
+
+    /* הווידאו קודם/או אחרי — יתפרס לרוחב מלא */
+    .video-programs-section .video-frame {
+      width: 100%;
+      max-width: 700px;
+      aspect-ratio: 16 / 9;
+      margin-bottom: 12px;
+    }
+
+    /* גריד תכניות במובייל: עמודה אחת, ללא aspect-ratio שמכווץ */
+    .video-programs-section .programs-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      width: 100%;
+      max-width: 700px;
+
+      /* סעיף חשוב — בטל/אפס את ה-aspect-ratio מהדסקטופ (אם הוגדר) */
+      aspect-ratio: auto;
+      /* שורות אוטומטיות עם גובה מינימלי כדי לא לקבל 'פיצקי' */
+      grid-auto-rows: minmax(140px, auto);
+    }
+
+    /* הכרטיס עצמו יקבל יחס 1:1 (ריבוע) - ניתן לשנות למעלה/מטה */
+    .video-programs-section .programs-grid .program-card {
+      aspect-ratio: 1 / 1;
+      width: 100%;
+      min-height: 140px;
+      /* מבטיח גובה מינימלי דומה על מסכים קטנים */
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    /* תמונה ממלאת את המיכל, ו־object-fit:cover שומר על חיתוך נכון */
+    .video-programs-section .programs-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 12px;
+    }
+
+  }
+
+  /* landscape קטן (טלפון מסובב) */
+  @media (orientation: landscape) and (max-width: 1024px) {
+    .video-programs-section {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 12px 20px;
+    }
+
+    .video-programs-section .video-frame {
+      flex: 1;
+      width: 60%;
+      max-width: 400px;
+      height: 100%;
+      /* יתיישר לגובה השורה */
+    }
+
+    .video-programs-section .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      width: 40%;
+      max-width: 300px;
+      /* מגבלת רוחב לגריד */
+      grid-auto-rows: minmax(120px, auto);
+    }
+
+    .video-programs-section .programs-grid .program-card {
+      aspect-ratio: 1 / 1;
+      width: 100%;
+      min-height: 120px;
+      max-height: 200px;
+      /* מגבלת גובה כדי לא לקבל ענקיים */
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .video-programs-section .programs-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 12px;
+    }
+  }
+</style>
+
+	<link rel="stylesheet" href="/css/footer.css">
+
+<footer class="custom-footer">
+  <div class="footer-container">
+    
+    <!-- טור ימין עם לוגו -->
+    <div class="footer-logo">
+      <a href="/">
+        <img src="media/screenshot_2025-08-10_183245-removebg-preview-1.png" alt="גלצ פלוס">
+      </a>
+    </div>
+
+    <!-- טור קישורים -->
+    <div class="footer-column footer-links text-center">
+      <h3>עמודי האתר</h3>
+      <ul>
+        <li><a href="/קטגוריות/ילדים-ונוער/">ילדים ונוער</a></li>
+        <li><a href="/קטגוריות/סדרות-רשת/">סדרות רשת</a></li>
+        <li><a href="/תרבות-ופנאי/">תרבות ופנאי</a></li>
+        <li><a href="/הסכתים/">הסכתים</a></li>
+        <li><a href="/קטגוריות/מוזיקה/">מוזיקה</a></li>
+        <li><a href="/ארכיון/">ארכיון</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column footer-links text-center">
+      <h3>תכנים פופלרים</h3>
+      <ul>
+        <li><a href="/תכניות/בטלים-בשישי/">בטלים בשישי</a></li>
+        <li><a href="/תכניות/דור-הביט/">דור הביט</a></li>
+        <li><a href="/תכניות/הבית-של-יעל/">הבית של יעל</a></li>
+        <li><a href="/תכניות/ספיישלים-מוזיקלים/">ספיישלים מוזיקלים</a></li>
+        <li><a href="/תכניות/מסע-כומתות/">מסע כומתות</a></li>
+        <li><a href="/תכניות/פודקאסט-על-מוזיקה-וטכנולוגיה/">פודקאסט על מוזיקה וטכנולוגיה</a></li>
+      </ul>
+    </div>
+
+    <!-- טור אמצע: רשתות חברתיות -->
+    <div class="footer-column footer-social text-center">
+      <h3>עקבו אחרינו</h3>
+      <div class="social-icons">
+        <a href="https://did.li/EDo6q" target="_blank"><img src="media/tik-tok1.svg" alt="TikTok"></a>
+        <a href="https://did.li/a1imC" target="_blank"><img src="media/youtube1.svg" alt="YouTube"></a>
+        <a href="https://did.li/P62aa" target="_blank"><img src="media/facebook1.svg" alt="Facebook"></a>
+        <a href="https://did.li/hJ8TY" target="_blank"><img src="media/instagram1.svg" alt="Instagram"></a>
+      </div>
+    </div>
+
+    <!-- טור שמאל: הורדה בנייד -->
+    <div class="footer-column footer-apps text-center">
+      <h3>להורדה גם בנייד</h3>
+      <div class="app-buttons">
+        <a href="https://did.li/sbLZH" target="_blank">
+          <img src="media/screenshot_2025-08-08_162822-removebg-preview.png" alt="Google Play">
+        </a>
+        <a href="https://did.li/UOQIw" target="_blank">
+          <img src="media/screenshot_2025-08-08_162822-removebg-preview-1.png" alt="App Store">
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- זכויות יוצרים -->
+  <div class="footer-bottom">
+    <p>© 2025 כל הזכויות שמורות - גל"צ פלוס</p>
+  </div>
+</footer>
+
+
+
+
+
+</div></body></html>

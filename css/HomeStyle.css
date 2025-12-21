@@ -1,0 +1,27 @@
+.program-card {
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.program-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.program-card .play-button {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        font-size: 50px;
+        color: white;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 2;
+    }
+    .program-card:hover .play-button {
+        opacity: 1;
+    }
+
+    .program-card .program-image {
+        transition: filter 0.3s ease;
+    }
+    .program-card:hover .program-image {
+        filter: brightness(70%);
+    }
