@@ -17,6 +17,88 @@
 </head>
 
 <body>
+<link rel="stylesheet" href="css/NavigationBarStyle.css">
+
+<nav class="navbar" role="navigation" aria-label="Main Navigation">
+  <div class="nav-container">
+    <div class="nav-row">
+
+      <div class="nav-side brand">
+        <a href="/">
+          <img src="media/screenshot_2025-08-10_183245-removebg-preview-1.png" alt="logo" style="width: 90px; height: 60px; margin-left: 10;">
+        </a>
+      </div>
+
+
+      <!-- אמצע – הקישורים -->
+      <div class="nav-center nav-links">
+        <a class="nav-link" href="/קטגוריות/מוזיקה/">מוזיקה</a>
+        <a class="nav-link" href="/הסכתים/">הסכתים</a>
+        <a class="nav-link" href="/קטגוריות/סדרות-רשת/">סדרות רשת</a>
+        <a class="nav-link" href="/תרבות-ופנאי/">תרבות ופנאי</a>
+        <a class="nav-link" href="/קטגוריות/ילדים-ונוער/">ילדים ונוער</a>
+        <a class="nav-link" href="/ארכיון/">ארכיון</a>
+      </div>
+
+
+      <!-- שמאל – כפתורים -->
+      <div class="nav-side actions mr-1">
+        <a href="/חיפוש" style="color: none; text-decoration: none;" class="icon-btn" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass" style="font-size: 24px;"></i>
+        </a>
+
+        <a href="/מועדפים" style="color: none; text-decoration: none;" class="icon-btn" aria-label="Favorites">
+          <i class="fa-regular fa-heart" style="font-size: 24px;"></i>
+        </a>
+
+        <button class="icon-btn mobile-toggle" id="mobileMenuBtn" aria-expanded="false" aria-controls="mobileMenu">
+          <i class="fa-solid fa-bars" id="mobileMenuIcon"></i>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="mobileMenu" class="mobile-menu">
+    <a href="/קטגוריות/מוזיקה/" data-close="">מוזיקה</a>
+    <a href="/הסכתים/" data-close="">הסכתים</a>
+    <a href="/קטגוריות/סדרות-רשת/" data-close="">סדרות רשת</a>
+    <a href="/תרבות-ופנאי/" data-close="">תרבות ופנאי</a>
+    <a href="/קטגוריות/ילדים-ונוער/" data-close="">ילדים ונוער</a>
+    <a href="/ארכיון/" data-close="">ארכיון</a>
+  </div>
+</nav>
+
+<script>
+  const mobileBtn = document.getElementById("mobileMenuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const mobileIcon = document.getElementById("mobileMenuIcon");
+
+  mobileBtn.addEventListener("click", () => {
+    const isOpen = mobileMenu.classList.toggle("open");
+    mobileBtn.setAttribute("aria-expanded", isOpen);
+    mobileIcon.classList.toggle("fa-bars", !isOpen);
+    mobileIcon.classList.toggle("fa-xmark", isOpen);
+  });
+
+  // סגירה אוטומטית בלחיצה על לינק עם data-close
+  document.querySelectorAll("#mobileMenu a[data-close]").forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.remove("open");
+      mobileBtn.setAttribute("aria-expanded", false);
+      mobileIcon.classList.add("fa-bars");
+      mobileIcon.classList.remove("fa-xmark");
+    });
+  });
+</script>
+
+<!-- רווח עליון לתוכן כדי למנוע חפיפה -->
+<!-- <div style="height:84px;" > </div> -->
+
+	
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 
 <!-- ======= באנר ======= -->
 <div class="banner-container">
