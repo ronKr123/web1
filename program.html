@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <title>גלצ פלוס</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ספריות -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/programStyle.css">
+  
+  <script src="js/programScript.js" defer></script>
+
+</head>
+
+<body>
+
+<!-- ======= באנר ======= -->
+<div class="banner-container">
+  <img id="program-banner" class="banner-image" alt="">
+</div>
+
+<!-- ======= כותרת ======= -->
+<div class="program-header">
+  <div class="program-title">
+    <h1 id="program-title"></h1>
+  </div>
+
+  <div style="display:flex;gap:15px">
+    <button id="favorite-btn" style="background:none;border:none;font-size:28px">
+      <i id="favorite-icon" class="fa-regular fa-heart"></i>
+    </button>
+  </div>
+</div>
+
+<!-- ======= תיאור ======= -->
+<div class="m-3 richtext-container" id="program-description"></div>
+
+<hr>
+
+<!-- ======= פרקים ======= -->
+<div class="episode-list" id="episodes-container"></div>
+
+<button id="load-more">
+  טען עוד
+  <i class="fa-solid fa-chevron-down"></i>
+</button>
+
+</body>
+</html>
