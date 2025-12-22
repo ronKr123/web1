@@ -3,7 +3,6 @@ const programId = params.get("id");
 
 let allEpisodes = [];
 let displayedCount = 0;
-const PAGE_SIZE = 8;
 
 fetch("data/programs.json")
   .then((r) => r.json())
@@ -44,7 +43,7 @@ function loadRSS(rssUrl) {
 
 function renderMore() {
   const container = document.getElementById("episodes-container");
-  const slice = allEpisodes.slice(displayedCount, displayedCount + PAGE_SIZE);
+  const slice = allEpisodes.slice(displayedCount, displayedCount + 8);
 
   slice.forEach((ep) => {
     container.insertAdjacentHTML(
