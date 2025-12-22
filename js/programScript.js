@@ -3,6 +3,7 @@ const programId = params.get("id");
 
 let allEpisodes = [];
 let displayedCount = 0;
+const PAGE_SIZE = 5; // טען 5 פרקים בכל לחיצה
 
 fetch("data/programs.json")
   .then((r) => r.json())
@@ -33,7 +34,7 @@ function loadRSS(rssUrl) {
         description: stripHtml(item.description),
         image: item.thumbnail,
         date: new Date(item.pubDate).toLocaleDateString("he-IL"),
-        duration: Math.floor((item.itunes?.duration || 0) / 60),
+        duration: parseDuration(item.itunes?.duration),
         guid: item.guid,
       }));
 
@@ -41,9 +42,21 @@ function loadRSS(rssUrl) {
     });
 }
 
+function parseDuration(duration) {
+  if (!duration) return 0;
+  // אם duration הוא מספר שניות
+  if (typeof duration === "number") return Math.floor(duration / 60);
+  // אם duration בפורמט "hh:mm:ss" או "mm:ss"
+  const parts = duration.split(":").map(Number);
+  if (parts.length === 3)
+    return parts[0] * 60 + parts[1] + Math.floor(parts[2] / 60);
+  if (parts.length === 2) return parts[0] + Math.floor(parts[1] / 60);
+  return 0;
+}
+
 function renderMore() {
   const container = document.getElementById("episodes-container");
-  const slice = allEpisodes.slice(displayedCount, displayedCount + 8);
+  const slice = allEpisodes.slice(displayedCount, displayedCount + PAGE_SIZE);
 
   slice.forEach((ep) => {
     container.insertAdjacentHTML(
@@ -60,14 +73,14 @@ function renderMore() {
           <h4>${ep.title}</h4>
           <p class="description">${ep.description}</p>
           <p class="date">${ep.date}</p>
-          <p class="date">משך הפרק: ${ep.duration} דקות</p>
+          <p class="duration">משך הפרק: ${ep.duration} דקות</p>
         </div>
       </div>
     `
     );
   });
 
-  displayedCount += PAGE_SIZE;
+  displayedCount += slice.length;
 
   if (displayedCount >= allEpisodes.length) {
     document.getElementById("load-more").style.display = "none";
@@ -76,7 +89,6 @@ function renderMore() {
 
 document.getElementById("load-more").addEventListener("click", renderMore);
 
-// ====== מועדפים ======
 function setupFavorites(program) {
   const btn = document.getElementById("favorite-btn");
   const icon = document.getElementById("favorite-icon");
