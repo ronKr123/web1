@@ -34,7 +34,7 @@ function loadRSS(rssUrl) {
         description: stripHtml(item.description),
         image: item.thumbnail,
         date: new Date(item.pubDate).toLocaleDateString("he-IL"),
-        duration: parseDuration(item.itunes?.duration),
+        duration: parseDuration(item.itunes?.duration || item.duration || 0),
         guid: item.guid,
       }));
 
@@ -65,7 +65,9 @@ function renderMore() {
       <div class="episode-card show">
         <div class="episode-image-container">
           <img src="${ep.image}">
-          <a href="/episode.html?guid=${ep.guid}&program=${programId}" class="play-button">
+          <a href="/episode.html?guid=${
+            ep.guid
+          }&program=${programId}" class="play-button">
             <i class="fa-solid fa-circle-play"></i>
           </a>
         </div>
@@ -73,7 +75,7 @@ function renderMore() {
           <h4>${ep.title}</h4>
           <p class="description">${ep.description}</p>
           <p class="date">${ep.date}</p>
-          <p class="duration">משך הפרק: ${ep.duration} דקות</p>
+          <p class="duration">משך הפרק: ${ep.duration / 60} דקות</p>
         </div>
       </div>
     `
