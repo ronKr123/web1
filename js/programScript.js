@@ -1,26 +1,27 @@
-const params = new URLSearchParams(window.location.search);
+const params = new URLSearchParams(location.search);
 const programId = params.get("id");
 
-let displayedCount = 0;
 const PAGE_SIZE = 5;
-let rssData = [];
+let allEpisodes = [];
+let displayedCount = 0;
 
+// ===== טען נתוני תכנית =====
 fetch("data/programs.json")
   .then((r) => r.json())
-  .then((programs) => {
-    const program = programs[programId];
+  .then((data) => {
+    const program = data.programs.find((p) => p.id === programId);
     if (!program) return;
 
-    document.title = program.title;
     document.getElementById("program-title").innerText = program.title;
-    document.getElementById("program-description").innerText =
+    document.getElementById("program-description").innerHTML =
       program.description;
     document.getElementById("program-banner").src = program.banner;
 
-    setupFavorites(program);
     loadRSS(program.rss);
+    initFavorites(program);
   });
 
+// ===== טען RSS =====
 function loadRSS(rssUrl) {
   const api = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(
     rssUrl
@@ -29,83 +30,38 @@ function loadRSS(rssUrl) {
   fetch(api)
     .then((r) => r.json())
     .then((data) => {
-      rssData = data.items.map((item) => ({
+      allEpisodes = data.items.map((item, index) => ({
+        id: index,
         title: item.title,
-        description: stripHtml(item.description),
-        image: item.thumbnail,
+        description: item.description,
+        image: item.thumbnail || data.feed.image,
         date: new Date(item.pubDate).toLocaleDateString("he-IL"),
-        duration: parseDuration(item.itunes?.duration || item.duration || 0),
+        duration: parseDuration(item.enclosure?.duration),
         guid: item.guid,
       }));
 
-      displayedCount = 0; // חשוב
       renderMore();
     });
 }
 
-function parseDuration(duration) {
-  if (!duration) return 0;
-  // אם duration הוא מספר שניות
-  if (typeof duration === "number") return Math.floor(duration / 60);
-  // אם duration בפורמט "hh:mm:ss" או "mm:ss"
-  const parts = duration.split(":").map(Number);
-  if (parts.length === 3)
-    return parts[0] * 60 + parts[1] + Math.floor(parts[2] / 60);
-  if (parts.length === 2) return parts[0] + Math.floor(parts[1] / 60);
-  return 0;
-}
-
-document.getElementById("load-more").addEventListener("click", renderMore);
-
-function setupFavorites(program) {
-  const btn = document.getElementById("favorite-btn");
-  const icon = document.getElementById("favorite-icon");
-
-  let favorites = JSON.parse(localStorage.getItem("favoritePrograms") || "[]");
-
-  if (favorites.find((p) => p.id === program.id)) {
-    icon.classList.replace("fa-regular", "fa-solid");
-  }
-
-  btn.onclick = () => {
-    const index = favorites.findIndex((p) => p.id === program.id);
-
-    if (index === -1) {
-      favorites.push(program);
-      icon.classList.replace("fa-regular", "fa-solid");
-    } else {
-      favorites.splice(index, 1);
-      icon.classList.replace("fa-solid", "fa-regular");
-    }
-
-    localStorage.setItem("favoritePrograms", JSON.stringify(favorites));
-  };
-}
-
-function stripHtml(html) {
-  return html.replace(/<[^>]*>/g, "").slice(0, 150) + "...";
-}
-
+// ===== הצגת עוד פרקים =====
 function renderMore() {
   const container = document.getElementById("episodes-container");
-  const remaining = rssData.length - displayedCount;
+  const remaining = allEpisodes.length - displayedCount;
   const count = Math.min(PAGE_SIZE, remaining);
 
-  if (count <= 0) {
-    document.getElementById("load-more").style.display = "none";
-    return;
-  }
+  if (count <= 0) return;
 
-  const slice = rssData.slice(displayedCount, displayedCount + count);
+  const slice = allEpisodes.slice(displayedCount, displayedCount + count);
 
   slice.forEach((ep) => {
     container.insertAdjacentHTML(
       "beforeend",
       `
-      <div class="episode-card show">
+      <div class="episode-card">
         <div class="episode-image-container">
-          <img src="${ep.image}">
-          <a href="/episode.html?guid=${ep.guid}&program=${programId}" class="play-button">
+          <img src="${ep.image}" loading="lazy">
+          <a href="episode.html?guid=${ep.guid}&program=${programId}" class="play-button">
             <i class="fa-solid fa-circle-play"></i>
           </a>
         </div>
@@ -116,13 +72,55 @@ function renderMore() {
           <p class="duration">משך הפרק: ${ep.duration} דקות</p>
         </div>
       </div>
-      `
+    `
     );
   });
 
   displayedCount += count;
 
-  if (displayedCount >= rssData.length) {
+  if (displayedCount >= allEpisodes.length) {
     document.getElementById("load-more").style.display = "none";
   }
+}
+
+document.getElementById("load-more").addEventListener("click", renderMore);
+
+// ===== המרת משך זמן =====
+function parseDuration(dur) {
+  if (!dur) return "-";
+  if (!isNaN(dur)) return Math.round(dur / 60);
+
+  const parts = dur.split(":").map(Number);
+  if (parts.length === 3) return parts[0] * 60 + parts[1];
+  if (parts.length === 2) return parts[0];
+  return "-";
+}
+
+// ===== מועדפים =====
+function initFavorites(program) {
+  const favorites = JSON.parse(
+    localStorage.getItem("favoritePrograms") || "[]"
+  );
+  const icon = document.getElementById("favorite-icon");
+
+  if (favorites.find((p) => p.id === program.id)) {
+    icon.classList.replace("fa-regular", "fa-solid");
+    icon.classList.add("favorited");
+  }
+
+  document.getElementById("favorite-btn").onclick = () => {
+    const index = favorites.findIndex((p) => p.id === program.id);
+
+    if (index === -1) {
+      favorites.push(program);
+      icon.classList.replace("fa-regular", "fa-solid");
+      icon.classList.add("favorited");
+    } else {
+      favorites.splice(index, 1);
+      icon.classList.replace("fa-solid", "fa-regular");
+      icon.classList.remove("favorited");
+    }
+
+    localStorage.setItem("favoritePrograms", JSON.stringify(favorites));
+  };
 }
