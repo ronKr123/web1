@@ -19,7 +19,8 @@ fetch("data/programs.json")
 
     loadRSS(program.rss);
     initFavorites(program);
-  });
+  })
+  .catch((err) => console.error("Error loading programs.json:", err));
 
 // ===== טען RSS =====
 function loadRSS(rssUrl) {
@@ -30,17 +31,36 @@ function loadRSS(rssUrl) {
   fetch(api)
     .then((r) => r.json())
     .then((data) => {
+      if (!data.items || data.items.length === 0) {
+        document.getElementById("episodes-container").innerHTML =
+          "<p>לא נמצאו פרקים לתכנית זו.</p>";
+        document.getElementById("load-more").style.display = "none";
+        return;
+      }
+
+      console.log("Episodes loaded:", data.items.length);
+
       allEpisodes = data.items.map((item, index) => ({
         id: index,
-        title: item.title,
-        description: item.description,
-        image: item.thumbnail || data.feed.image,
-        date: new Date(item.pubDate).toLocaleDateString("he-IL"),
+        title: item.title || "ללא כותרת",
+        description: item.description || "אין תיאור לפרק זה",
+        image:
+          item.thumbnail || data.feed?.image || "media/default-episode.png",
+        date: item.pubDate
+          ? new Date(item.pubDate).toLocaleDateString("he-IL")
+          : "-",
         duration: parseDuration(item.enclosure?.duration),
-        guid: item.guid,
+        guid: item.guid || index,
       }));
 
+      displayedCount = 0;
       renderMore();
+    })
+    .catch((err) => {
+      console.error("Error loading RSS feed:", err);
+      document.getElementById("episodes-container").innerHTML =
+        "<p>שגיאה בטעינת הפרקים.</p>";
+      document.getElementById("load-more").style.display = "none";
     });
 }
 
@@ -60,8 +80,10 @@ function renderMore() {
       `
       <div class="episode-card">
         <div class="episode-image-container">
-          <img src="${ep.image}" loading="lazy">
-          <a href="episode.html?guid=${ep.guid}&program=${programId}" class="play-button">
+          <img src="${ep.image}" loading="lazy" alt="תמונה של ${ep.title}">
+          <a href="episode.html?guid=${encodeURIComponent(
+            ep.guid
+          )}&program=${encodeURIComponent(programId)}" class="play-button">
             <i class="fa-solid fa-circle-play"></i>
           </a>
         </div>
@@ -72,14 +94,18 @@ function renderMore() {
           <p class="duration">משך הפרק: ${ep.duration} דקות</p>
         </div>
       </div>
-    `
+      `
     );
   });
 
   displayedCount += count;
 
+  // הצג או הסתר את הכפתור בהתאם לשאר הפרקים
+  const loadMoreBtn = document.getElementById("load-more");
   if (displayedCount >= allEpisodes.length) {
-    document.getElementById("load-more").style.display = "none";
+    loadMoreBtn.style.display = "none";
+  } else {
+    loadMoreBtn.style.display = "block";
   }
 }
 
@@ -87,13 +113,13 @@ document.getElementById("load-more").addEventListener("click", renderMore);
 
 // ===== המרת משך זמן =====
 function parseDuration(dur) {
-  if (!dur) return "-";
+  if (!dur) return "לא ידוע";
   if (!isNaN(dur)) return Math.round(dur / 60);
 
   const parts = dur.split(":").map(Number);
   if (parts.length === 3) return parts[0] * 60 + parts[1];
-  if (parts.length === 2) return parts[0];
-  return "-";
+  if (parts.length === 2) return parts[0] * 60 + parts[1];
+  return "לא ידוע";
 }
 
 // ===== מועדפים =====
