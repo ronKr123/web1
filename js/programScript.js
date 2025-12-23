@@ -1,10 +1,9 @@
 const params = new URLSearchParams(window.location.search);
 const programId = params.get("id");
 
-let allEpisodes = [];
 let displayedCount = 0;
 const PAGE_SIZE = 5;
-let rssData = []; // כל הפרקים מה-RSS
+let rssData = [];
 
 fetch("data/programs.json")
   .then((r) => r.json())
@@ -30,7 +29,7 @@ function loadRSS(rssUrl) {
   fetch(api)
     .then((r) => r.json())
     .then((data) => {
-      allEpisodes = data.items.map((item) => ({
+      rssData = data.items.map((item) => ({
         title: item.title,
         description: stripHtml(item.description),
         image: item.thumbnail,
@@ -39,6 +38,7 @@ function loadRSS(rssUrl) {
         guid: item.guid,
       }));
 
+      displayedCount = 0; // חשוב
       renderMore();
     });
 }
