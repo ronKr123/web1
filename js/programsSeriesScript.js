@@ -1,5 +1,5 @@
 const params = new URLSearchParams(location.search);
-const slug = params.get("slug");
+const slug = params.get("id");
 
 fetch("data/series.json")
   .then((r) => r.json())
