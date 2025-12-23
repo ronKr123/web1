@@ -3,7 +3,8 @@ const programId = params.get("id");
 
 let allEpisodes = [];
 let displayedCount = 0;
-const PAGE_SIZE = 5; // טען 5 פרקים בכל לחיצה
+const PAGE_SIZE = 5;
+let rssData = []; // כל הפרקים מה-RSS
 
 fetch("data/programs.json")
   .then((r) => r.json())
@@ -54,41 +55,6 @@ function parseDuration(duration) {
   return 0;
 }
 
-function renderMore() {
-  const container = document.getElementById("episodes-container");
-  const slice = allEpisodes.slice(displayedCount, displayedCount + PAGE_SIZE);
-
-  slice.forEach((ep) => {
-    container.insertAdjacentHTML(
-      "beforeend",
-      `
-      <div class="episode-card show">
-        <div class="episode-image-container">
-          <img src="${ep.image}">
-          <a href="/episode.html?guid=${
-            ep.guid
-          }&program=${programId}" class="play-button">
-            <i class="fa-solid fa-circle-play"></i>
-          </a>
-        </div>
-        <div class="episode-info">
-          <h4>${ep.title}</h4>
-          <p class="description">${ep.description}</p>
-          <p class="date">${ep.date}</p>
-          <p class="duration">משך הפרק: ${ep.duration / 60} דקות</p>
-        </div>
-      </div>
-    `
-    );
-  });
-
-  displayedCount += slice.length;
-
-  if (displayedCount >= allEpisodes.length) {
-    document.getElementById("load-more").style.display = "none";
-  }
-}
-
 document.getElementById("load-more").addEventListener("click", renderMore);
 
 function setupFavorites(program) {
@@ -118,4 +84,45 @@ function setupFavorites(program) {
 
 function stripHtml(html) {
   return html.replace(/<[^>]*>/g, "").slice(0, 150) + "...";
+}
+
+function renderMore() {
+  const container = document.getElementById("episodes-container");
+  const remaining = rssData.length - displayedCount;
+  const count = Math.min(PAGE_SIZE, remaining);
+
+  if (count <= 0) {
+    document.getElementById("load-more").style.display = "none";
+    return;
+  }
+
+  const slice = rssData.slice(displayedCount, displayedCount + count);
+
+  slice.forEach((ep) => {
+    container.insertAdjacentHTML(
+      "beforeend",
+      `
+      <div class="episode-card show">
+        <div class="episode-image-container">
+          <img src="${ep.image}">
+          <a href="/episode.html?guid=${ep.guid}&program=${programId}" class="play-button">
+            <i class="fa-solid fa-circle-play"></i>
+          </a>
+        </div>
+        <div class="episode-info">
+          <h4>${ep.title}</h4>
+          <p class="description">${ep.description}</p>
+          <p class="date">${ep.date}</p>
+          <p class="duration">משך הפרק: ${ep.duration} דקות</p>
+        </div>
+      </div>
+      `
+    );
+  });
+
+  displayedCount += count;
+
+  if (displayedCount >= rssData.length) {
+    document.getElementById("load-more").style.display = "none";
+  }
 }
