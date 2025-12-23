@@ -7,7 +7,7 @@ fetch("data/series.json")
     const program = data.series.find((p) => p.slug === slug);
     if (!program) return;
 
-    document.getElementById("title").innerText = program.title;
+    document.getElementById("programTitle").innerText = program.title;
     document.getElementById("description").innerHTML =
       program.description || "";
 
