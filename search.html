@@ -2,13 +2,15 @@
 <html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="css/programsSeriesStyle.css">
-
+  <title>חיפוש תכנית</title>
+  <link rel="stylesheet" href="css/search.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script src="js/programsSeriesScript.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&display=swap" rel="stylesheet">
+  <script src="js/search.js"></script>
 
 </head>
 <body>
+
 <link rel="stylesheet" href="css/NavigationBarStyle.css">
 
 <nav class="navbar" role="navigation" aria-label="Main Navigation">
@@ -16,7 +18,7 @@
     <div class="nav-row">
 
       <div class="nav-side brand">
-        <a href="/">
+        <a href="/web1">
           <img src="media/screenshot_2025-08-10_183245-removebg-preview-1.png" alt="logo" style="width: 90px; height: 60px; margin-left: 10;">
         </a>
       </div>
@@ -91,18 +93,25 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<div class="program-header">
-  <h1 id="programTitle"></h1>
-  <button id="favorite-btn">
-    <i class="fa-regular fa-heart" id="favorite-icon"></i>
-  </button>
+
+
+<h1 class="text-center">חיפוש תכנית</h1>
+
+<div class="search-wrapper">
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="חפש תוכנית...">
+    <button><i class="fas fa-search"></i></button>
+  </div>
 </div>
 
-<div class="program-content">
-  <p id="description"></p>
-  <hr>
-  <div class="episodes-grid" id="episodesGrid"></div>
+<div id="searchResultsTitle" style="display:none;">
+  תוצאות החיפוש עבור "<span id="searchQuery"></span>"
 </div>
+
+<div id="noResults">אין תוצאות</div>
+
+<div class="container" id="programList"></div>
+
 
 <link rel="stylesheet" href="css/footer.css">
 

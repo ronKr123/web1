@@ -24,7 +24,7 @@ fetch("data/programs.json")
 // ===== טען RSS =====
 function loadRSS(rssUrl) {
   const api = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(
-    rss
+    rssUrl
   )}`;
 
   fetch(api)

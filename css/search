@@ -1,0 +1,138 @@
+body {
+        background-image: url('media/backimg.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    .search-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 25px;
+        margin-top: 20px;
+    }
+
+    .search-box {
+        display: flex;
+        align-items: center;
+        background: #fff;
+        border-radius: 10px;
+        padding: 5px 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        max-width: 400px;
+        width: 100%;
+        height: 45px;
+    }
+
+    .search-box input {
+        border: none;
+        outline: none;
+        flex: 1;
+    }
+
+    .search-box button {
+        border: none;
+        background: none;
+        cursor: pointer;
+        color: #007bff;
+        font-size: 18px;
+        outline: none;
+    }
+
+    .program-card {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #fff;
+        border: 1px solid #000;
+        border-radius: 15px;
+        padding: 15px;
+        gap: 15px;
+        margin-bottom: 5px;
+    }
+
+    .program-info {
+        flex: 1;
+        text-align: right;
+    }
+
+    .program-title {
+        font-weight: bold;
+        font-size: 25px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-align: right;
+    }
+
+    .program-desc {
+        color: #333;
+        font-size: 15px;
+        margin-top: 4px;
+    }
+
+    .cat-img {
+        width: 22px;
+        height: 22px;
+    }
+
+    .program-image {
+        max-width: 120px;
+        max-height: 200px;
+        border-radius: 8px;
+    }
+
+    .btn-entry {
+        background: #87aee6;
+        border: none;
+        color: #000;
+        font-weight: bold;
+        padding: 6px 14px;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 14px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .btn-entry i {
+        font-size: 14px;
+    }
+
+    #noResults {
+        text-align: center;
+        color: black;
+        font-weight: bold;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        display: none;
+        font-size: 30px;
+    }
+
+    footer {
+        margin-top: 350px;
+    }
+
+    @media (max-width: 480px) {
+        .program-card {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .program-image {
+            max-width: 100%;
+            height: auto;
+            margin-left: 20px;
+        }
+
+        .btn-entry {
+            margin-top: 10px;
+        }
+
+        .search-box {
+            max-width: 90%;
+        }
+    }
