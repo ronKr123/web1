@@ -31,37 +31,63 @@ function loadRSS(rssUrl) {
   fetch(api)
     .then((r) => r.json())
     .then((data) => {
-      if (!data.items || data.items.length === 0) {
-        document.getElementById("episodes-container").innerHTML =
-          "<p>לא נמצאו פרקים לתכנית זו.</p>";
-        document.getElementById("load-more").style.display = "none";
-        return;
-      }
-
-      console.log("Episodes loaded:", data.items.length);
-
       allEpisodes = data.items.map((item, index) => ({
         id: index,
         title: item.title || "ללא כותרת",
-        description: item.description || "אין תיאור לפרק זה",
+        description: item.description || "",
         image:
-          item.thumbnail || data.feed?.image || "media/default-episode.png",
+          item.thumbnail || data.feed?.image || "media/default-episode.png", // תמונה ברירת מחדל
         date: item.pubDate
           ? new Date(item.pubDate).toLocaleDateString("he-IL")
           : "-",
         duration: parseDuration(item.enclosure?.duration),
-        guid: item.guid || index,
+        guid: item.guid,
       }));
 
       displayedCount = 0;
+      document.getElementById("episodes-container").innerHTML = ""; // נקה קודם
       renderMore();
-    })
-    .catch((err) => {
-      console.error("Error loading RSS feed:", err);
-      document.getElementById("episodes-container").innerHTML =
-        "<p>שגיאה בטעינת הפרקים.</p>";
-      document.getElementById("load-more").style.display = "none";
+      document.getElementById("load-more").style.display =
+        allEpisodes.length > PAGE_SIZE ? "block" : "none"; // כפתור תמיד נכון
     });
+}
+
+function renderMore() {
+  const container = document.getElementById("episodes-container");
+  const remaining = allEpisodes.length - displayedCount;
+  const count = Math.min(PAGE_SIZE, remaining);
+
+  if (count <= 0) return;
+
+  const slice = allEpisodes.slice(displayedCount, displayedCount + count);
+
+  slice.forEach((ep) => {
+    container.insertAdjacentHTML(
+      "beforeend",
+      `
+      <div class="episode-card">
+        <div class="episode-image-container">
+          <img src="${ep.image}" loading="lazy" onerror="this.src='media/default-episode.png'">
+          <a href="episode.html?guid=${ep.guid}&program=${programId}" class="play-button">
+            <i class="fa-solid fa-circle-play"></i>
+          </a>
+        </div>
+        <div class="episode-info">
+          <h4>${ep.title}</h4>
+          <p class="description">${ep.description}</p>
+          <p class="date">${ep.date}</p>
+          <p class="duration">משך הפרק: ${ep.duration} דקות</p>
+        </div>
+      </div>
+    `
+    );
+  });
+
+  displayedCount += count;
+
+  // עדכון כפתור טען עוד
+  document.getElementById("load-more").style.display =
+    displayedCount >= allEpisodes.length ? "none" : "block";
 }
 
 // ===== הצגת עוד פרקים =====
