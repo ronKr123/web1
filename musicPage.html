@@ -1,0 +1,358 @@
+<html><head>
+	<title>גלצ פלוס</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;display=swap" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&amp;display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&amp;display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&amp;family=Rubik:ital,wght@0,300..900;1,300..900&amp;display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/main.css">
+	<!-- Bootstrap CSS -->
+
+	<!-- Bootstrap JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body>
+	<link rel="stylesheet" href="/css/NavigationBarStyle.css">
+
+<nav class="navbar" role="navigation" aria-label="Main Navigation">
+  <div class="nav-container">
+    <div class="nav-row">
+
+      <div class="nav-side brand">
+        <a href="/">
+          <img src="/media/rbinfkzw/screenshot_2025-08-10_183245-removebg-preview-1.png" alt="logo" style="width: 90px; height: 60px; margin-left: 10;">
+        </a>
+      </div>
+
+
+      <!-- אמצע – הקישורים -->
+      <div class="nav-center nav-links">
+        <a class="nav-link" href="/קטגוריות/מוזיקה/">מוזיקה</a>
+        <a class="nav-link" href="/הסכתים/">הסכתים</a>
+        <a class="nav-link" href="/קטגוריות/סדרות-רשת/">סדרות רשת</a>
+        <a class="nav-link" href="/תרבות-ופנאי/">תרבות ופנאי</a>
+        <a class="nav-link" href="/קטגוריות/ילדים-ונוער/">ילדים ונוער</a>
+        <a class="nav-link" href="/ארכיון/">ארכיון</a>
+      </div>
+
+
+      <!-- שמאל – כפתורים -->
+      <div class="nav-side actions mr-1">
+        <a href="/חיפוש" style="color: none; text-decoration: none;" class="icon-btn" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass" style="font-size: 24px;"></i>
+        </a>
+
+        <a href="/מועדפים" style="color: none; text-decoration: none;" class="icon-btn" aria-label="Favorites">
+          <i class="fa-regular fa-heart" style="font-size: 24px;"></i>
+        </a>
+
+        <button class="icon-btn mobile-toggle" id="mobileMenuBtn" aria-expanded="false" aria-controls="mobileMenu">
+          <i class="fa-solid fa-bars" id="mobileMenuIcon"></i>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="mobileMenu" class="mobile-menu">
+    <a href="/קטגוריות/מוזיקה/" data-close="">מוזיקה</a>
+    <a href="/הסכתים/" data-close="">הסכתים</a>
+    <a href="/קטגוריות/סדרות-רשת/" data-close="">סדרות רשת</a>
+    <a href="/תרבות-ופנאי/" data-close="">תרבות ופנאי</a>
+    <a href="/קטגוריות/ילדים-ונוער/" data-close="">ילדים ונוער</a>
+    <a href="/ארכיון/" data-close="">ארכיון</a>
+  </div>
+</nav>
+
+<script>
+  const mobileBtn = document.getElementById("mobileMenuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const mobileIcon = document.getElementById("mobileMenuIcon");
+
+  mobileBtn.addEventListener("click", () => {
+    const isOpen = mobileMenu.classList.toggle("open");
+    mobileBtn.setAttribute("aria-expanded", isOpen);
+    mobileIcon.classList.toggle("fa-bars", !isOpen);
+    mobileIcon.classList.toggle("fa-xmark", isOpen);
+  });
+
+  // סגירה אוטומטית בלחיצה על לינק עם data-close
+  document.querySelectorAll("#mobileMenu a[data-close]").forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.remove("open");
+      mobileBtn.setAttribute("aria-expanded", false);
+      mobileIcon.classList.add("fa-bars");
+      mobileIcon.classList.remove("fa-xmark");
+    });
+  });
+</script>
+
+<!-- רווח עליון לתוכן כדי למנוע חפיפה -->
+<!-- <div style="height:84px;" > </div> -->
+
+	
+<link rel="stylesheet" href="css/CategoryStyle.css">
+
+
+    <title>מוזיקה</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+    <div class="header-with-icon">
+            <img src="/media/rtmczybg/מוזיקה.png" alt="מוזיקה" class="header-icon">
+
+        <h1 class="page-title" style="font-family: 'Assistant', sans-serif; font-size: 36px; font-weight: 700; color: #0B3D91; margin: 0;">
+            מוזיקה</h1>
+    </div>
+    <div class="programs-grid">
+            <div class="program-card text-center">
+                <a href="/תכניות/ספיישלים-מוזיקלים/">
+                    <img src="media\טאב.png" alt="ספיישלים מוזיקלים">
+                    <h4>ספיישלים מוזיקלים</h4>
+                </a>
+            </div>
+            <div class="program-card text-center">
+                <a href="/תכניות/בוא-שיר-עברי/">
+                    <img src="/media/tovptgvs/בתןך-הפודקאסט-פי-2-8.png" alt="בוא שיר עברי">
+                    <h4>בוא שיר עברי</h4>
+                </a>
+            </div>
+            <div class="program-card text-center">
+                <a href="/תכניות/הגאם-של-קוטנר/">
+                    <img src="/media/jfbg5vc5/בתןך-הפודקאסט-פי-2-1-2.png" alt="הג'אם של קוטנר">
+                    <h4>הג'אם של קוטנר</h4>
+                </a>
+            </div>
+            <div class="program-card text-center">
+                <a href="/תכניות/מסע-עם-יורם-סוויסה/">
+                    <img src="/media/ak5hghvs/2-6.png" alt="מסע עם יורם סוויסה">
+                    <h4>מסע עם יורם סוויסה</h4>
+                </a>
+            </div>
+            <div class="program-card text-center">
+                <a href="/תכניות/שעתיים-אישיות-של-מוזיקה/">
+                    <img src="/media/m1yct3wo/בתןך-הפודקאסט-פי-2-6.png" alt="שעתיים אישיות של מוזיקה">
+                    <h4>שעתיים אישיות של מוזיקה</h4>
+                </a>
+            </div>
+            <div class="program-card text-center">
+                <a href="/תכניות/מאחורי-הצלילים/">
+                    <img src="/media/slzncnvb/בתןך-הפודקאסט-פי-2-9.png" alt="מאחורי הצלילים">
+                    <h4>מאחורי הצלילים</h4>
+                </a>
+            </div>
+            <div class="program-card text-center">
+                <a href="/תכניות/גל-עברי-ירוק/">
+                    <img src="/media/qkzlgdsa/screenshot-2025-09-03-225906.png" alt="גל עברי ירוק">
+                    <h4>גל עברי ירוק</h4>
+                </a>
+            </div>
+            <div class="program-card text-center">
+                <a href="/תכניות/ארבע-אחרי-הצהריים/">
+                    <img src="/media/ik3lx0uh/בתןך-הפודקאסט-פי-2-6.png" alt="ארבע אחרי הצהריים">
+                    <h4>ארבע אחרי הצהריים</h4>
+                </a>
+            </div>
+            <div class="program-card text-center">
+                <a href="/תכניות/אולדיז/">
+                    <img src="/media/gizbylta/screenshot-2025-09-03-230809.png" alt="אולדיז">
+                    <h4>אולדיז</h4>
+                </a>
+            </div>
+            <div class="program-card text-center">
+                <a href="/תכניות/הדרן/">
+                    <img src="/media/ot1jwbjm/2-7.jpg" alt="הדרן">
+                    <h4>הדרן</h4>
+                </a>
+            </div>
+            <div class="program-card text-center">
+                <a href="/תכניות/ציפורי-לילה-יוסי-פיין-מעל-הזמן/">
+                    <img src="/media/1leei412/בתןך-הפודקאסט-פי-2-7.png" alt="ציפורי לילה: יוסי פיין מעל הזמן">
+                    <h4>ציפורי לילה: יוסי פיין מעל הזמן</h4>
+                </a>
+            </div>
+            <div class="program-card text-center">
+                <a href="/תכניות/לילה-ישראלי/">
+                    <img src="/media/loeon1yp/בתןך-הפודקאסט-פי-2-9.png" alt="לילה ישראלי">
+                    <h4>לילה ישראלי</h4>
+                </a>
+            </div>
+    </div>
+
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+    }
+
+    .programs-grid {
+        direction: rtl;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        padding: 60px;
+        background-color: #e6f0fa;
+    }
+
+    @media (max-width: 992px) {
+        .programs-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .programs-grid {
+            grid-template-columns: 1fr !important;
+        }
+    }
+
+
+    .program-card {
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .program-card a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .program-card img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .program-card:hover img {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .program-card h4 {
+        margin-top: 8px;
+        font-size: 25px;
+        font-weight: 600;
+        color: #0B3D91;
+        font-family: 'Assistant', sans-serif;
+    }
+
+    .pagination {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .pagination a,
+    .pagination span {
+        margin: 0 5px;
+        padding: 8px 12px;
+        color: white;
+        background-color: #007acc;
+        border-radius: 4px;
+        text-decoration: none;
+    }
+
+    .pagination span.current {
+        background-color: #005ea2;
+        font-weight: bold;
+    }
+
+    .header-with-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        margin: 30px 0 2px;
+    }
+
+    .header-icon {
+        width: 110px;
+        height: 110px;
+    }
+</style>
+
+	<link rel="stylesheet" href="/css/footer.css">
+
+<footer class="custom-footer">
+  <div class="footer-container">
+    
+    <!-- טור ימין עם לוגו -->
+    <div class="footer-logo">
+      <a href="/">
+        <img src="/media/rbinfkzw/screenshot_2025-08-10_183245-removebg-preview-1.png" alt="גלצ פלוס">
+      </a>
+    </div>
+
+    <!-- טור קישורים -->
+    <div class="footer-column footer-links text-center">
+      <h3>עמודי האתר</h3>
+      <ul>
+        <li><a href="/קטגוריות/ילדים-ונוער/">ילדים ונוער</a></li>
+        <li><a href="/קטגוריות/סדרות-רשת/">סדרות רשת</a></li>
+        <li><a href="/תרבות-ופנאי/">תרבות ופנאי</a></li>
+        <li><a href="/הסכתים/">הסכתים</a></li>
+        <li><a href="/קטגוריות/מוזיקה/">מוזיקה</a></li>
+        <li><a href="/ארכיון/">ארכיון</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column footer-links text-center">
+      <h3>תכנים פופלרים</h3>
+      <ul>
+        <li><a href="/תכניות/בטלים-בשישי/">בטלים בשישי</a></li>
+        <li><a href="/תכניות/דור-הביט/">דור הביט</a></li>
+        <li><a href="/תכניות/הבית-של-יעל/">הבית של יעל</a></li>
+        <li><a href="/תכניות/ספיישלים-מוזיקלים/">ספיישלים מוזיקלים</a></li>
+        <li><a href="/תכניות/מסע-כומתות/">מסע כומתות</a></li>
+        <li><a href="/תכניות/פודקאסט-על-מוזיקה-וטכנולוגיה/">פודקאסט על מוזיקה וטכנולוגיה</a></li>
+      </ul>
+    </div>
+
+    <!-- טור אמצע: רשתות חברתיות -->
+    <div class="footer-column footer-social text-center">
+      <h3>עקבו אחרינו</h3>
+      <div class="social-icons">
+        <a href="https://did.li/EDo6q" target="_blank"><img src="/media/jzrgbn12/tik-tok1.svg" alt="TikTok"></a>
+        <a href="https://did.li/a1imC" target="_blank"><img src="/media/xa3hv3cn/youtube1.svg" alt="YouTube"></a>
+        <a href="https://did.li/P62aa" target="_blank"><img src="/media/sozpt2h4/facebook1.svg" alt="Facebook"></a>
+        <a href="https://did.li/hJ8TY" target="_blank"><img src="/media/u3hhzcov/instagram1.svg" alt="Instagram"></a>
+      </div>
+    </div>
+
+    <!-- טור שמאל: הורדה בנייד -->
+    <div class="footer-column footer-apps text-center">
+      <h3>להורדה גם בנייד</h3>
+      <div class="app-buttons">
+        <a href="https://did.li/sbLZH" target="_blank">
+          <img src="/media/jnpglslh/screenshot_2025-08-08_162822-removebg-preview.png" alt="Google Play">
+        </a>
+        <a href="https://did.li/UOQIw" target="_blank">
+          <img src="/media/fpcogxol/screenshot_2025-08-08_162822-removebg-preview-1.png" alt="App Store">
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- זכויות יוצרים -->
+  <div class="footer-bottom">
+    <p>© 2025 כל הזכויות שמורות - גל"צ פלוס</p>
+  </div>
+</footer>
+
+
+
+
+
+</body></html>

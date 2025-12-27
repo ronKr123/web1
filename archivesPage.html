@@ -1,0 +1,808 @@
+<html><head>
+	<title>גלצ פלוס</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;display=swap" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&amp;display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&amp;display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&amp;family=Rubik:ital,wght@0,300..900;1,300..900&amp;display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="/css/main.css">
+	<!-- Bootstrap CSS -->
+
+	<!-- Bootstrap JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body>
+	<link rel="stylesheet" href="/css/NavigationBarStyle.css">
+
+<nav class="navbar" role="navigation" aria-label="Main Navigation">
+  <div class="nav-container">
+    <div class="nav-row">
+
+      <div class="nav-side brand">
+        <a href="/">
+          <img src="/media/rbinfkzw/screenshot_2025-08-10_183245-removebg-preview-1.png" alt="logo" style="width: 90px; height: 60px; margin-left: 10;">
+        </a>
+      </div>
+
+
+      <!-- אמצע – הקישורים -->
+      <div class="nav-center nav-links">
+        <a class="nav-link" href="/קטגוריות/מוזיקה/">מוזיקה</a>
+        <a class="nav-link" href="/הסכתים/">הסכתים</a>
+        <a class="nav-link" href="/קטגוריות/סדרות-רשת/">סדרות רשת</a>
+        <a class="nav-link" href="/תרבות-ופנאי/">תרבות ופנאי</a>
+        <a class="nav-link" href="/קטגוריות/ילדים-ונוער/">ילדים ונוער</a>
+        <a class="nav-link" href="/ארכיון/">ארכיון</a>
+      </div>
+
+
+      <!-- שמאל – כפתורים -->
+      <div class="nav-side actions mr-1">
+        <a href="/חיפוש" style="color: none; text-decoration: none;" class="icon-btn" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass" style="font-size: 24px;"></i>
+        </a>
+
+        <a href="/מועדפים" style="color: none; text-decoration: none;" class="icon-btn" aria-label="Favorites">
+          <i class="fa-regular fa-heart" style="font-size: 24px;"></i>
+        </a>
+
+        <button class="icon-btn mobile-toggle" id="mobileMenuBtn" aria-expanded="false" aria-controls="mobileMenu">
+          <i class="fa-solid fa-bars" id="mobileMenuIcon"></i>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="mobileMenu" class="mobile-menu">
+    <a href="/קטגוריות/מוזיקה/" data-close="">מוזיקה</a>
+    <a href="/הסכתים/" data-close="">הסכתים</a>
+    <a href="/קטגוריות/סדרות-רשת/" data-close="">סדרות רשת</a>
+    <a href="/תרבות-ופנאי/" data-close="">תרבות ופנאי</a>
+    <a href="/קטגוריות/ילדים-ונוער/" data-close="">ילדים ונוער</a>
+    <a href="/ארכיון/" data-close="">ארכיון</a>
+  </div>
+</nav>
+
+<script>
+  const mobileBtn = document.getElementById("mobileMenuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const mobileIcon = document.getElementById("mobileMenuIcon");
+
+  mobileBtn.addEventListener("click", () => {
+    const isOpen = mobileMenu.classList.toggle("open");
+    mobileBtn.setAttribute("aria-expanded", isOpen);
+    mobileIcon.classList.toggle("fa-bars", !isOpen);
+    mobileIcon.classList.toggle("fa-xmark", isOpen);
+  });
+
+  // סגירה אוטומטית בלחיצה על לינק עם data-close
+  document.querySelectorAll("#mobileMenu a[data-close]").forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.remove("open");
+      mobileBtn.setAttribute("aria-expanded", false);
+      mobileIcon.classList.add("fa-bars");
+      mobileIcon.classList.remove("fa-xmark");
+    });
+  });
+</script>
+
+<!-- רווח עליון לתוכן כדי למנוע חפיפה -->
+<!-- <div style="height:84px;" > </div> -->
+
+	
+
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="/css/ArchivesPageStyle.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+
+
+
+
+<div class="header-with-icon">
+        <img src="/media/a4xiiesd/ארכיון.png" alt="תרבות ופנאי" class="header-icon">
+        <h1 class="page-title" style="font-family: 'Assistant', sans-serif; font-size: 36px; font-weight: 700; color: #0B3D91; margin: 0;">
+            ארכיון גל"צ</h1>
+</div>
+
+  <div class="container">
+
+    <!-- שורה ראשונה: שני מלבנים גדולים -->
+    <div class="grid row1">
+            <a href="/תכניות/יום-הולדת-70-לדני-בסן/" class="card">
+                <div class="card large">
+                    <img src="/media/a1gltqvy/בתןך-הפודקאסט-פי-2.jpg" alt="img">
+                 </div>
+            </a>
+            <a href="/תכניות/יום-הולדת-75-לדני-סנדרסון/" class="card">
+                <div class="card large">
+                    <img src="/media/p5elio4n/בתןך-הפודקאסט-פי-2-1.jpg" alt="img">
+                 </div>
+            </a>
+    </div>
+    
+
+    <!-- שורה שנייה: שלושה מלבנים קטנים -->
+    <div class="grid row2">
+            <a href="/תכניות/מרתון-אריאל-זילבר-שבועות-1989/" class="card">
+                <div class="card small">
+                    <img src="/media/bd4nhl4z/בתןך-הפודקאסט-פי-2.jpg" alt="img">
+                </div>
+            </a>
+            <a href="/תכניות/האדם-השלישי/" class="card">
+                <div class="card small">
+                    <img src="/media/xpjb1p10/האדם-השלישי.png" alt="img">
+                </div>
+            </a>
+            <a href="/תכניות/30-שנה-לציון-ללכתו-של-סשה-ארגוב/" class="card">
+                <div class="card small">
+                    <img src="/media/bsadyvc3/בתןך-הפודקאסט-פי-2-8.png" alt="img">
+                </div>
+            </a>
+
+    </div>
+</div>
+
+<h1 class="text-right" style="margin-right:60px; font-family: 'Assistant', sans-serif; font-size: 36px; font-weight: 700; color: #0B3D91;">גל"צ מרתונים</h1>
+
+
+
+<style>
+    .swiper {
+    position: relative;
+    padding: 20px 60px; /* רווח לוחצים מצדדים */
+    width: 100%;   /* חובה כדי לחשב כמה שקפים נכנסים */
+    margin-bottom: 40px;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    position: absolute;
+    top: 60%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    //background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    user-select: none;
+    z-index: 9999; /* לוודא שהחיצים תמיד מעל התמונות */
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    //background-color: rgba(0, 0, 0, 0.35);
+    transform: translateY(-50%) scale(1.15);
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    //background-color: rgba(0,0,0,0.25);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    font-size: 17px;
+    color: #fff;
+}
+
+    .swiper-slide a {
+        display: block;
+        border-radius: 6px;
+        overflow: hidden; 
+        cursor: pointer;
+        text-decoration: none;
+        color: inherit;
+        user-select: none;
+    }
+
+    .swiper-slide {
+    height: auto !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0; /* שלא יתכווץ */
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 12px 12px rgba(0, 0, 0, 0.08);
+}
+
+    .swiper-slide h3 {
+        margin-top: 8px;
+        text-align: center;
+        font-size: 25px;
+        user-select: none;
+        color: #0B3D91;
+    }
+
+    
+
+    .sectionPrograms {
+    display: flex;
+    flex-direction: column; /* כדי שהגריד והכפתור יהיו אחד מתחת לשני */
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+
+
+  /* סגנון לכפתור */
+  .btn {
+    padding: 15px 30px;
+    background: linear-gradient(90deg, #4a90e2, #0078d7);
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-bottom: 30px;
+  }
+
+  .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    color: white;
+  }
+
+  .btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    color: white;
+  }
+
+      .category-title {
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+hr {
+    border: 0;
+    border-top: 2px solid #ccc; /* קו אפור ברור */
+    margin: 2rem auto;          /* רווח יפה */
+    width: 100%;                 
+}
+
+    .header-with-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        margin: 30px 0 2px;
+    }
+
+    .header-icon {
+        width: 110px;
+        height: 110px;
+    }
+
+    .programs-grid {
+        direction: rtl;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        padding: 40px;
+    }
+
+    @media (max-width: 992px) {
+    .programs-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .programs-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+
+    .program-card {
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .program-card a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .program-card img {
+        width: 100%;
+        /* height: 280px; */
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .program-card:hover img {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    }
+
+    .program-card h4 {
+        margin-top: 8px;
+        font-size: 25px;
+        font-weight: 600;
+        color: #0B3D91;
+        font-family: 'Assistant', sans-serif;
+    }
+
+
+/* Media Queries למובייל וטאבלט */
+@media (max-width: 992px) {
+    .programs-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .swiper {
+        padding: 20px 10px;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        width: 35px;
+        height: 35px;
+    }
+
+    .swiper-slide img {
+        height: 200px;
+    }
+
+    .page-title {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 600px) {
+    .programs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .header-with-icon {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .header-icon {
+        width: 80px;
+        height: 80px;
+    }
+
+    .page-title {
+        font-size: 24px;
+    }
+
+    .swiper-slide img {
+        height: 180px;
+    }
+
+    .btn {
+        font-size: 18px;
+        padding: 12px 20px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .programs-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .programs-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .programs-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ====== FORCE: Stack the five cards on small screens (no Razor changes) ====== */
+@media (max-width: 600px) {
+
+  /* ודא שהקונטיינרים .row1 ו-.row2 מתנהגים כרשת בעמודה אחת */
+  .container .grid.row1,
+  .container .grid.row2 {
+    display: grid !important;
+    grid-template-columns: 1fr !important; /* כל פריט בשורה נפרדת */
+    gap: 12px !important;
+    align-items: stretch !important;
+    width: 100% !important;
+  }
+
+  /* הכפתורים/קישורים של הכרטיסים יתפרסו למלא רוחב */
+  .container .grid.row1 > a.card,
+  .container .grid.row2 > a.card {
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* אם יש div פנימי עם class="card" — ודא שגם הוא בעיצוב תקין */
+  .container .grid.row1 > a.card > .card,
+  .container .grid.row2 > a.card > .card {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+  }
+
+  /* תמונות: מלא רוחב, גובה מותאם, חיתוך נכון */
+  .container .grid.row1 img,
+  .container .grid.row2 img {
+    width: 100% !important;
+    height: auto !important;            /* גובה מותאם לפי רוחב */
+    max-height: 260px !important;       /* אפשר לשנות לפי טעם */
+    object-fit: cover !important;
+    display: block !important;
+    border-radius: 8px !important;
+  }
+
+  /* אם יש תקלות עם רוחב עקב flex של אב, כפה overflow:hidden */
+  .container,
+  .container .grid,
+  .container .grid > a.card {
+    overflow: visible !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  /* ריווח מסביב כדי שלא יהדחו לצדדים */
+  .container {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  /* אופציונלי: שיפור נראות המלבנים (רקע לבן והצללה קלה) */
+  .container .grid > a.card > .card {
+    background: #ffffff !important;
+    box-shadow: 0 8px 20px rgba(3, 17, 41, 0.06) !important;
+  }
+}
+
+
+</style>
+
+<div class="swiper mySwiper swiper-initialized swiper-horizontal swiper-rtl" dir="rtl">
+    <div class="swiper-wrapper" id="swiper-wrapper-17c4b3fbeaa8ccad" aria-live="polite">
+                    <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 11" style="width: 216.25px; margin-left: 18px;">
+                        <a href="/תכניות/מרתון-גלי-עטרי/" title="מרתון גלי עטרי">
+                            <img src="/media/ouphuitw/בתןך-הפודקאסט-פי-2.jpg" alt="מרתון גלי עטרי">
+                            <h3>מרתון גלי עטרי</h3>
+                        </a>
+                    </div>
+                    <div class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 11" style="width: 216.25px; margin-left: 18px;">
+                        <a href="/תכניות/מרתון-מאיר-בנאי/" title="מרתון מאיר בנאי">
+                            <img src="/media/gsqjejoh/בתןך-הפודקאסט-פי-2.jpg" alt="מרתון מאיר בנאי">
+                            <h3>מרתון מאיר בנאי</h3>
+                        </a>
+                    </div>
+                    <div class="swiper-slide" role="group" aria-label="3 / 11" style="width: 216.25px; margin-left: 18px;">
+                        <a href="/תכניות/מרתון-עפרה-חזה/" title="מרתון עפרה חזה">
+                            <img src="/media/zhrbfzq0/בתןך-הפודקאסט-פי-2-1.jpg" alt="מרתון עפרה חזה">
+                            <h3>מרתון עפרה חזה</h3>
+                        </a>
+                    </div>
+                    <div class="swiper-slide" role="group" aria-label="4 / 11" style="width: 216.25px; margin-left: 18px;">
+                        <a href="/תכניות/מרתון-שלום-חנוך/" title="מרתון שלום חנוך">
+                            <img src="/media/4dma00d3/בתןך-הפודקאסט-פי-2-2.jpg" alt="מרתון שלום חנוך">
+                            <h3>מרתון שלום חנוך</h3>
+                        </a>
+                    </div>
+                    <div class="swiper-slide" role="group" aria-label="5 / 11" style="width: 216.25px; margin-left: 18px;">
+                        <a href="/תכניות/מרתון-צביקה-פיק/" title="מרתון צביקה פיק">
+                            <img src="/media/jglftpn0/בתןך-הפודקאסט-פי-2-4.jpg" alt="מרתון צביקה פיק">
+                            <h3>מרתון צביקה פיק</h3>
+                        </a>
+                    </div>
+                    <div class="swiper-slide" role="group" aria-label="6 / 11" style="width: 216.25px; margin-left: 18px;">
+                        <a href="/תכניות/מרתון-חוה-אלברשטיין/" title="מרתון חוה אלברשטיין">
+                            <img src="/media/rngf2xbd/באנר-חדש-חוה.jpg" alt="מרתון חוה אלברשטיין">
+                            <h3>מרתון חוה אלברשטיין</h3>
+                        </a>
+                    </div>
+                    <div class="swiper-slide" role="group" aria-label="7 / 11" style="width: 216.25px; margin-left: 18px;">
+                        <a href="/תכניות/מרתון-עוזי-חיטמן/" title="מרתון עוזי חיטמן">
+                            <img src="/media/51nbfjx3/בתןך-הפודקאסט-פי-2-5.jpg" alt="מרתון עוזי חיטמן">
+                            <h3>מרתון עוזי חיטמן</h3>
+                        </a>
+                    </div>
+                    <div class="swiper-slide" role="group" aria-label="8 / 11" style="width: 216.25px; margin-left: 18px;">
+                        <a href="/תכניות/מרתון-אהוד-בנאי/" title="מרתון אהוד בנאי">
+                            <img src="/media/z2il4mxi/בתןך-הפודקאסט-פי-2-6.jpg" alt="מרתון אהוד בנאי">
+                            <h3>מרתון אהוד בנאי</h3>
+                        </a>
+                    </div>
+                    <div class="swiper-slide" role="group" aria-label="9 / 11" style="width: 216.25px; margin-left: 18px;">
+                        <a href="/תכניות/מרתון-יהודית-רביץ/" title="מרתון יהודית רביץ">
+                            <img src="/media/24hmuwoo/בתןך-הפודקאסט-פי-2-7.jpg" alt="מרתון יהודית רביץ">
+                            <h3>מרתון יהודית רביץ</h3>
+                        </a>
+                    </div>
+                    <div class="swiper-slide" role="group" aria-label="10 / 11" style="width: 216.25px; margin-left: 18px;">
+                        <a href="/תכניות/מרתון-גידי-גוב/" title="מרתון גידי גוב">
+                            <img src="/media/hvbhfknf/בתןך-הפודקאסט-פי-2-8.jpg" alt="מרתון גידי גוב">
+                            <h3>מרתון גידי גוב</h3>
+                        </a>
+                    </div>
+                    <div class="swiper-slide" role="group" aria-label="11 / 11" style="width: 216.25px; margin-left: 18px;">
+                        <a href="/תכניות/מרתון-יהודה-פוליקר/" title="מרתון יהודה פוליקר">
+                            <img src="/media/i4tm5v4e/בתןך-הפודקאסט-פי-2-9.jpg" alt="מרתון יהודה פוליקר">
+                            <h3>מרתון יהודה פוליקר</h3>
+                        </a>
+                    </div>
+    </div>
+
+    <!-- החיצים -->
+    <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-17c4b3fbeaa8ccad" aria-disabled="false"><svg class="swiper-navigation-icon" width="11" height="20" viewBox="0 0 11 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.38296 20.0762C0.111788 19.805 0.111788 19.3654 0.38296 19.0942L9.19758 10.2796L0.38296 1.46497C0.111788 1.19379 0.111788 0.754138 0.38296 0.482966C0.654131 0.211794 1.09379 0.211794 1.36496 0.482966L10.4341 9.55214C10.8359 9.9539 10.8359 10.6053 10.4341 11.007L1.36496 20.0762C1.09379 20.3474 0.654131 20.3474 0.38296 20.0762Z" fill="currentColor"></path></svg></div>
+    <div class="swiper-button-prev swiper-button-disabled" tabindex="-1" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-17c4b3fbeaa8ccad" aria-disabled="true"><svg class="swiper-navigation-icon" width="11" height="20" viewBox="0 0 11 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.38296 20.0762C0.111788 19.805 0.111788 19.3654 0.38296 19.0942L9.19758 10.2796L0.38296 1.46497C0.111788 1.19379 0.111788 0.754138 0.38296 0.482966C0.654131 0.211794 1.09379 0.211794 1.36496 0.482966L10.4341 9.55214C10.8359 9.9539 10.8359 10.6053 10.4341 11.007L1.36496 20.0762C1.09379 20.3474 0.654131 20.3474 0.38296 20.0762Z" fill="currentColor"></path></svg></div>
+<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+
+<script>
+const swiper = new Swiper(".mySwiper", {
+    slidesPerView: 5, // ברירת מחדל למסכים גדולים
+    spaceBetween: 20,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    loop: false,
+    breakpoints: {
+        // מסכים ≥ 1200px
+        1200: {
+            slidesPerView: 5,
+            spaceBetween: 20
+        },
+        // מסכים ≥ 992px
+        992: {
+            slidesPerView: 4,
+            spaceBetween: 18
+        },
+        // מסכים ≥ 768px
+        768: {
+            slidesPerView: 3,
+            spaceBetween: 15
+        },
+        // מסכים ≥ 480px
+        480: {
+            slidesPerView: 2,
+            spaceBetween: 12
+        },
+        // מסכים < 480px
+        0: {
+            slidesPerView: 1,
+            spaceBetween: 10
+        }
+    }
+});
+</script>
+
+
+
+<h1 class="text-right" style="margin-right:60px; font-family: 'Assistant', sans-serif; font-size: 36px; font-weight: 700; color: #0B3D91;">ארכיון גל"צ זוכרים</h1>
+
+<div class="swiper mySwiper2 swiper-initialized swiper-horizontal swiper-rtl swiper-backface-hidden" dir="rtl">
+    <div class="swiper-wrapper" id="swiper-wrapper-a1035f632c71d2c73" aria-live="polite">
+                    <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 6" style="width: 216.25px; margin-left: 18px;">
+                        <a href="/תכניות/ארכיון-גלצ-צביקה-פיק-זל/" title="ארכיון גל&quot;צ: צביקה פיק ז&quot;ל">
+                            <img src="/media/pugp04dq/2-9.jpg" alt="ארכיון גל&quot;צ: צביקה פיק ז&quot;ל">
+                            <h3>ארכיון גל"צ: צביקה פיק ז"ל</h3>
+                        </a>
+                    </div>
+                    <div class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 6" style="width: 216.25px; margin-left: 18px;">
+                        <a href="/תכניות/ארכיון-גלצ-יצחק-קלפטר/" title="ארכיון גל&quot;צ: יצחק קלפטר">
+                            <img src="/media/v3cfifn1/2-8.jpg" alt="ארכיון גל&quot;צ: יצחק קלפטר">
+                            <h3>ארכיון גל"צ: יצחק קלפטר</h3>
+                        </a>
+                    </div>
+                    <div class="swiper-slide" role="group" aria-label="3 / 6" style="width: 216.25px; margin-left: 18px;">
+                        <a href="/תכניות/ארכיון-גלצ-נעמי-פולני-זל/" title="ארכיון גל&quot;צ: נעמי פולני ז&quot;ל">
+                            <img src="/media/znldsnhd/noamipolani.png" alt="ארכיון גל&quot;צ: נעמי פולני ז&quot;ל">
+                            <h3>ארכיון גל"צ: נעמי פולני ז"ל</h3>
+                        </a>
+                    </div>
+                    <div class="swiper-slide" role="group" aria-label="4 / 6" style="width: 216.25px; margin-left: 18px;">
+                        <a href="/תכניות/ארכיון-גלצ-מאיר-שלו/" title="ארכיון גל&quot;צ: מאיר שלו">
+                            <img src="/media/1kajigz4/2-8.png" alt="ארכיון גל&quot;צ: מאיר שלו">
+                            <h3>ארכיון גל"צ: מאיר שלו</h3>
+                        </a>
+                    </div>
+                    <div class="swiper-slide" role="group" aria-label="5 / 6" style="width: 216.25px; margin-left: 18px;">
+                        <a href="/תכניות/ארכיון-גלצ-חיים-טופול/" title="ארכיון גל&quot;צ: חיים טופול">
+                            <img src="/media/i04m3x5r/2-7.png" alt="ארכיון גל&quot;צ: חיים טופול">
+                            <h3>ארכיון גל"צ: חיים טופול</h3>
+                        </a>
+                    </div>
+                    <div class="swiper-slide" role="group" aria-label="6 / 6" style="width: 216.25px; margin-left: 18px;">
+                        <a href="/תכניות/ארכיון-גלצ-יהונתן-גפן/" title="ארכיון גל&quot;צ: יהונתן גפן">
+                            <img src="/media/bfylwlcr/2-1.jpg" alt="ארכיון גל&quot;צ: יהונתן גפן">
+                            <h3>ארכיון גל"צ: יהונתן גפן</h3>
+                        </a>
+                    </div>
+    </div>
+
+    <!-- החיצים -->
+    <div class="swiper-button-next swiper-button-next-2" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-a1035f632c71d2c73" aria-disabled="false"><svg class="swiper-navigation-icon" width="11" height="20" viewBox="0 0 11 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.38296 20.0762C0.111788 19.805 0.111788 19.3654 0.38296 19.0942L9.19758 10.2796L0.38296 1.46497C0.111788 1.19379 0.111788 0.754138 0.38296 0.482966C0.654131 0.211794 1.09379 0.211794 1.36496 0.482966L10.4341 9.55214C10.8359 9.9539 10.8359 10.6053 10.4341 11.007L1.36496 20.0762C1.09379 20.3474 0.654131 20.3474 0.38296 20.0762Z" fill="currentColor"></path></svg></div>
+    <div class="swiper-button-prev swiper-button-prev-2 swiper-button-disabled" tabindex="-1" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-a1035f632c71d2c73" aria-disabled="true"><svg class="swiper-navigation-icon" width="11" height="20" viewBox="0 0 11 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.38296 20.0762C0.111788 19.805 0.111788 19.3654 0.38296 19.0942L9.19758 10.2796L0.38296 1.46497C0.111788 1.19379 0.111788 0.754138 0.38296 0.482966C0.654131 0.211794 1.09379 0.211794 1.36496 0.482966L10.4341 9.55214C10.8359 9.9539 10.8359 10.6053 10.4341 11.007L1.36496 20.0762C1.09379 20.3474 0.654131 20.3474 0.38296 20.0762Z" fill="currentColor"></path></svg></div>
+<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+
+<script>
+const swiper2 = new Swiper(".mySwiper2", {
+    slidesPerView: 5,
+    spaceBetween: 20,
+    navigation: {
+        nextEl: ".swiper-button-next-2",
+        prevEl: ".swiper-button-prev-2",
+    },
+    loop: false,
+    breakpoints: {
+        1200: { slidesPerView: 5, spaceBetween: 20 },
+        992:  { slidesPerView: 4, spaceBetween: 18 },
+        768:  { slidesPerView: 3, spaceBetween: 15 },
+        480:  { slidesPerView: 2, spaceBetween: 12 },
+        0:    { slidesPerView: 1, spaceBetween: 10 }
+    }
+});
+</script>
+
+
+
+<div class="sectionPrograms">
+    <!-- <hr /> -->
+    <h1 class="text-center mb-2" style="font-family: 'Assistant', sans-serif; font-size: 36px; font-weight: 700; color: #0B3D91;">תכניות מן העבר</h1>  
+    <div class="programs-grid">
+                <div class="program-card text-center">
+                    <a href="/תכניות/אוצרות-הארכיון/">
+                        <img src="/media/tz0dfroy/אוצרות-הארכיון-גדול.png" alt="אוצרות הארכיון">
+                        <h4>אוצרות הארכיון</h4>
+                    </a>
+                </div>
+                <div class="program-card text-center">
+                    <a href="/תכניות/משפחת-שמחון/">
+                        <img src="/media/5blpat5s/1201podcastbannerbig.png" alt="משפחת שמחון">
+                        <h4>משפחת שמחון</h4>
+                    </a>
+                </div>
+                <div class="program-card text-center">
+                    <a href="/תכניות/שאלות-אישיות-עם-שמעון-אלקבץ/">
+                        <img src="/media/ujahyoyu/שאלות-אישיות-גדול-1.png" alt="שאלות אישיות עם שמעון אלקבץ">
+                        <h4>שאלות אישיות עם שמעון אלקבץ</h4>
+                    </a>
+                </div>
+                <div class="program-card text-center">
+                    <a href="/תכניות/שירה-מהשמירה/">
+                        <img src="/media/q0op0g5c/באנר-אתר-1-11.jpg" alt="שירה מהשמירה">
+                        <h4>שירה מהשמירה</h4>
+                    </a>
+                </div>
+                <div class="program-card text-center">
+                    <a href="/תכניות/קול-הכבוד/">
+                        <img src="/media/qlrbrt01/2-4-1.jpg" alt="קול הכבוד">
+                        <h4>קול הכבוד</h4>
+                    </a>
+                </div>
+                <div class="program-card text-center">
+                    <a href="/תכניות/ערב-שירי-משוררים/">
+                        <img src="/media/edhh5po5/2-5.jpg" alt="ערב שירי משוררים">
+                        <h4>ערב שירי משוררים</h4>
+                    </a>
+                </div>
+                <div class="program-card text-center">
+                    <a href="/תכניות/חלומות/">
+                        <img src="/media/yiinbukh/2-6-1.png" alt="חלומות">
+                        <h4>חלומות</h4>
+                    </a>
+                </div>
+                <div class="program-card text-center">
+                    <a href="/תכניות/ממי-קיבלתי-את-התורה/">
+                        <img src="/media/z4nj5yy4/2-6.jpg" alt="ממי קיבלתי את התורה?">
+                        <h4>ממי קיבלתי את התורה?</h4>
+                    </a>
+                </div>
+    </div>
+  <a href="/קטגוריות/ארכיון/" class="btn">לתכניות נוספות לחצו כאן</a>
+</div>
+
+
+
+	<link rel="stylesheet" href="/css/footer.css">
+
+<footer class="custom-footer">
+  <div class="footer-container">
+    
+    <!-- טור ימין עם לוגו -->
+    <div class="footer-logo">
+      <a href="/">
+        <img src="/media/rbinfkzw/screenshot_2025-08-10_183245-removebg-preview-1.png" alt="גלצ פלוס">
+      </a>
+    </div>
+
+    <!-- טור קישורים -->
+    <div class="footer-column footer-links text-center">
+      <h3>עמודי האתר</h3>
+      <ul>
+        <li><a href="/קטגוריות/ילדים-ונוער/">ילדים ונוער</a></li>
+        <li><a href="/קטגוריות/סדרות-רשת/">סדרות רשת</a></li>
+        <li><a href="/תרבות-ופנאי/">תרבות ופנאי</a></li>
+        <li><a href="/הסכתים/">הסכתים</a></li>
+        <li><a href="/קטגוריות/מוזיקה/">מוזיקה</a></li>
+        <li><a href="/ארכיון/">ארכיון</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column footer-links text-center">
+      <h3>תכנים פופלרים</h3>
+      <ul>
+        <li><a href="/תכניות/בטלים-בשישי/">בטלים בשישי</a></li>
+        <li><a href="/תכניות/דור-הביט/">דור הביט</a></li>
+        <li><a href="/תכניות/הבית-של-יעל/">הבית של יעל</a></li>
+        <li><a href="/תכניות/ספיישלים-מוזיקלים/">ספיישלים מוזיקלים</a></li>
+        <li><a href="/תכניות/מסע-כומתות/">מסע כומתות</a></li>
+        <li><a href="/תכניות/פודקאסט-על-מוזיקה-וטכנולוגיה/">פודקאסט על מוזיקה וטכנולוגיה</a></li>
+      </ul>
+    </div>
+
+    <!-- טור אמצע: רשתות חברתיות -->
+    <div class="footer-column footer-social text-center">
+      <h3>עקבו אחרינו</h3>
+      <div class="social-icons">
+        <a href="https://did.li/EDo6q" target="_blank"><img src="/media/jzrgbn12/tik-tok1.svg" alt="TikTok"></a>
+        <a href="https://did.li/a1imC" target="_blank"><img src="/media/xa3hv3cn/youtube1.svg" alt="YouTube"></a>
+        <a href="https://did.li/P62aa" target="_blank"><img src="/media/sozpt2h4/facebook1.svg" alt="Facebook"></a>
+        <a href="https://did.li/hJ8TY" target="_blank"><img src="/media/u3hhzcov/instagram1.svg" alt="Instagram"></a>
+      </div>
+    </div>
+
+    <!-- טור שמאל: הורדה בנייד -->
+    <div class="footer-column footer-apps text-center">
+      <h3>להורדה גם בנייד</h3>
+      <div class="app-buttons">
+        <a href="https://did.li/sbLZH" target="_blank">
+          <img src="/media/jnpglslh/screenshot_2025-08-08_162822-removebg-preview.png" alt="Google Play">
+        </a>
+        <a href="https://did.li/UOQIw" target="_blank">
+          <img src="/media/fpcogxol/screenshot_2025-08-08_162822-removebg-preview-1.png" alt="App Store">
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- זכויות יוצרים -->
+  <div class="footer-bottom">
+    <p>© 2025 כל הזכויות שמורות - גל"צ פלוס</p>
+  </div>
+</footer>
+
+
+
+
+
+</body></html>

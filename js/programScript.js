@@ -52,44 +52,6 @@ function loadRSS(rssUrl) {
     });
 }
 
-function renderMore() {
-  const container = document.getElementById("episodes-container");
-  const remaining = allEpisodes.length - displayedCount;
-  const count = Math.min(PAGE_SIZE, remaining);
-
-  if (count <= 0) return;
-
-  const slice = allEpisodes.slice(displayedCount, displayedCount + count);
-
-  slice.forEach((ep) => {
-    container.insertAdjacentHTML(
-      "beforeend",
-      `
-      <div class="episode-card">
-        <div class="episode-image-container">
-          <img src="${ep.image}" loading="lazy" onerror="this.src='media/default-episode.png'">
-          <a href="episode.html?guid=${ep.guid}&program=${programId}" class="play-button">
-            <i class="fa-solid fa-circle-play"></i>
-          </a>
-        </div>
-        <div class="episode-info">
-          <h4>${ep.title}</h4>
-          <p class="description">${ep.description}</p>
-          <p class="date">${ep.date}</p>
-          <p class="duration">משך הפרק: ${ep.duration} דקות</p>
-        </div>
-      </div>
-    `
-    );
-  });
-
-  displayedCount += count;
-
-  // עדכון כפתור טען עוד
-  document.getElementById("load-more").style.display =
-    displayedCount >= allEpisodes.length ? "none" : "block";
-}
-
 // ===== הצגת עוד פרקים =====
 function renderMore() {
   const container = document.getElementById("episodes-container");

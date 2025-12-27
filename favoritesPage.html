@@ -1,0 +1,365 @@
+<html><head>
+	<title>גלצ פלוס</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;display=swap" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&amp;display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&amp;display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&amp;family=Rubik:ital,wght@0,300..900;1,300..900&amp;display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="/css/main.css">
+	<!-- Bootstrap CSS -->
+
+	<!-- Bootstrap JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body>
+	<link rel="stylesheet" href="/css/NavigationBarStyle.css">
+
+<nav class="navbar" role="navigation" aria-label="Main Navigation">
+  <div class="nav-container">
+    <div class="nav-row">
+
+      <div class="nav-side brand">
+        <a href="/">
+          <img src="/media/rbinfkzw/screenshot_2025-08-10_183245-removebg-preview-1.png" alt="logo" style="width: 90px; height: 60px; margin-left: 10;">
+        </a>
+      </div>
+
+
+      <!-- אמצע – הקישורים -->
+      <div class="nav-center nav-links">
+        <a class="nav-link" href="/קטגוריות/מוזיקה/">מוזיקה</a>
+        <a class="nav-link" href="/הסכתים/">הסכתים</a>
+        <a class="nav-link" href="/קטגוריות/סדרות-רשת/">סדרות רשת</a>
+        <a class="nav-link" href="/תרבות-ופנאי/">תרבות ופנאי</a>
+        <a class="nav-link" href="/קטגוריות/ילדים-ונוער/">ילדים ונוער</a>
+        <a class="nav-link" href="/ארכיון/">ארכיון</a>
+      </div>
+
+
+      <!-- שמאל – כפתורים -->
+      <div class="nav-side actions mr-1">
+        <a href="/חיפוש" style="color: none; text-decoration: none;" class="icon-btn" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass" style="font-size: 24px;"></i>
+        </a>
+
+        <a href="/מועדפים" style="color: none; text-decoration: none;" class="icon-btn" aria-label="Favorites">
+          <i class="fa-regular fa-heart" style="font-size: 24px;"></i>
+        </a>
+
+        <button class="icon-btn mobile-toggle" id="mobileMenuBtn" aria-expanded="false" aria-controls="mobileMenu">
+          <i class="fa-solid fa-bars" id="mobileMenuIcon"></i>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="mobileMenu" class="mobile-menu">
+    <a href="/קטגוריות/מוזיקה/" data-close="">מוזיקה</a>
+    <a href="/הסכתים/" data-close="">הסכתים</a>
+    <a href="/קטגוריות/סדרות-רשת/" data-close="">סדרות רשת</a>
+    <a href="/תרבות-ופנאי/" data-close="">תרבות ופנאי</a>
+    <a href="/קטגוריות/ילדים-ונוער/" data-close="">ילדים ונוער</a>
+    <a href="/ארכיון/" data-close="">ארכיון</a>
+  </div>
+</nav>
+
+<script>
+  const mobileBtn = document.getElementById("mobileMenuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const mobileIcon = document.getElementById("mobileMenuIcon");
+
+  mobileBtn.addEventListener("click", () => {
+    const isOpen = mobileMenu.classList.toggle("open");
+    mobileBtn.setAttribute("aria-expanded", isOpen);
+    mobileIcon.classList.toggle("fa-bars", !isOpen);
+    mobileIcon.classList.toggle("fa-xmark", isOpen);
+  });
+
+  // סגירה אוטומטית בלחיצה על לינק עם data-close
+  document.querySelectorAll("#mobileMenu a[data-close]").forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.remove("open");
+      mobileBtn.setAttribute("aria-expanded", false);
+      mobileIcon.classList.add("fa-bars");
+      mobileIcon.classList.remove("fa-xmark");
+    });
+  });
+</script>
+
+<!-- רווח עליון לתוכן כדי למנוע חפיפה -->
+<!-- <div style="height:84px;" > </div> -->
+
+	
+<style>
+body {
+    background-image: url('media/aa.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+h1.text-center.mt-3 {
+    font-family: "Assistant", sans-serif;
+    font-weight: 800;
+    color: #0B3D91;
+}
+
+/* קונטיינר מועדפים */
+#favorites-container {
+    min-height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+/* כותרות מרכזיות כאשר אין תכניות */
+.no-favorites h2,
+.no-favorites h3 {
+    text-align: center;
+    font-family: "Assistant", sans-serif;
+    color: #000; /* שחור */
+    margin: 0;
+}
+
+.no-favorites h2 {
+    font-size: 40px;
+    margin-bottom: 10px;
+    margin-top: 35px;
+}
+
+.no-favorites h3 {
+    font-size: 35px;
+}
+
+/* כרטיסי מועדפים */
+.favorite-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.favorite-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.card-img-top {
+    width: 100%;
+    aspect-ratio: 16/9; /* גובה אחיד */
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+    transition: transform 0.3s ease;
+}
+
+.card-img-top:hover {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 10px;
+    text-align: center;
+}
+
+.card-title {
+    color: #0052BB;
+    font-family: "Assistant", sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    margin: 5px 0;
+}
+
+.remove-btn {
+    display: inline-block;
+    color: #ff4d4d;
+    font-size: 30px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.remove-btn:hover {
+    transform: scale(1.2);
+}
+
+/* רשת כרטיסים */
+.favorites-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* 4 עמודות ברוחב מינימום */
+    gap: 20px;
+    width: 100%;
+    justify-items: center;
+    margin-bottom: 35px;
+}
+
+/* רספונסיבי */
+@media (max-width: 1200px) {
+    .favorites-row {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+@media (max-width: 767px) {
+    .card-title {
+        font-size: 18px;
+    }
+    .no-favorites h2 { font-size: 24px; }
+    .no-favorites h3 { font-size: 16px; }
+    .favorites-row {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+<h1 class="text-center mt-3">תכניות מועדפות</h1>
+
+<div class="container mt-4 no-favorites" id="favorites-container">
+            <h2>עדיין לא נוספו תכניות מועדפות</h2>
+            <h3>❤ על מנת להוסיף תכנית למועדפים, חפשו את כפתור הלב בעמוד התכנית</h3>
+        </div>
+
+<script>
+const favoritesContainer = document.getElementById("favorites-container");
+let favorites = JSON.parse(localStorage.getItem("favoritePrograms") || "[]");
+
+function renderFavorites() {
+    favoritesContainer.innerHTML = "";
+
+    if (favorites.length === 0) {
+        favoritesContainer.classList.add("no-favorites");
+        favoritesContainer.innerHTML = `
+            <h2>עדיין לא נוספו תכניות מועדפות</h2>
+            <h3>❤ על מנת להוסיף תכנית למועדפים, חפשו את כפתור הלב בעמוד התכנית</h3>
+        `;
+    } else {
+        favoritesContainer.classList.remove("no-favorites");
+
+        const row = document.createElement("div");
+        row.classList.add("favorites-row");
+
+        favorites.forEach(fav => {
+            const card = document.createElement("div");
+            card.classList.add("favorite-card");
+            card.innerHTML = `
+                <a href="${fav.urlProgram}">
+                    <img src="${fav.image}" class="card-img-top" alt="${fav.name}">
+                </a>
+                <div class="card-content">
+                    <h4 class="card-title" style="direction:rtl;">${fav.name}</h4>
+                    <span class="remove-btn" data-id="${fav.id}" title="הסר מהמועדפים">
+                        <i class="fa-solid fa-heart"></i>
+                    </span>
+                </div>
+            `;
+            row.appendChild(card);
+        });
+
+        favoritesContainer.appendChild(row);
+
+        // הסרת מועדפים
+        document.querySelectorAll(".remove-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                const id = parseInt(btn.getAttribute("data-id"));
+                const index = favorites.findIndex(f => f.id === id);
+                if (index !== -1) {
+                    favorites.splice(index, 1);
+                    localStorage.setItem("favoritePrograms", JSON.stringify(favorites));
+                    renderFavorites();
+                }
+            });
+        });
+    }
+}
+
+renderFavorites();
+</script>
+
+
+	<link rel="stylesheet" href="/css/footer.css">
+
+<footer class="custom-footer">
+  <div class="footer-container">
+    
+    <!-- טור ימין עם לוגו -->
+    <div class="footer-logo">
+      <a href="/">
+        <img src="/media/rbinfkzw/screenshot_2025-08-10_183245-removebg-preview-1.png" alt="גלצ פלוס">
+      </a>
+    </div>
+
+    <!-- טור קישורים -->
+    <div class="footer-column footer-links text-center">
+      <h3>עמודי האתר</h3>
+      <ul>
+        <li><a href="/קטגוריות/ילדים-ונוער/">ילדים ונוער</a></li>
+        <li><a href="/קטגוריות/סדרות-רשת/">סדרות רשת</a></li>
+        <li><a href="/תרבות-ופנאי/">תרבות ופנאי</a></li>
+        <li><a href="/הסכתים/">הסכתים</a></li>
+        <li><a href="/קטגוריות/מוזיקה/">מוזיקה</a></li>
+        <li><a href="/ארכיון/">ארכיון</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column footer-links text-center">
+      <h3>תכנים פופלרים</h3>
+      <ul>
+        <li><a href="/תכניות/בטלים-בשישי/">בטלים בשישי</a></li>
+        <li><a href="/תכניות/דור-הביט/">דור הביט</a></li>
+        <li><a href="/תכניות/הבית-של-יעל/">הבית של יעל</a></li>
+        <li><a href="/תכניות/ספיישלים-מוזיקלים/">ספיישלים מוזיקלים</a></li>
+        <li><a href="/תכניות/מסע-כומתות/">מסע כומתות</a></li>
+        <li><a href="/תכניות/פודקאסט-על-מוזיקה-וטכנולוגיה/">פודקאסט על מוזיקה וטכנולוגיה</a></li>
+      </ul>
+    </div>
+
+    <!-- טור אמצע: רשתות חברתיות -->
+    <div class="footer-column footer-social text-center">
+      <h3>עקבו אחרינו</h3>
+      <div class="social-icons">
+        <a href="https://did.li/EDo6q" target="_blank"><img src="/media/jzrgbn12/tik-tok1.svg" alt="TikTok"></a>
+        <a href="https://did.li/a1imC" target="_blank"><img src="/media/xa3hv3cn/youtube1.svg" alt="YouTube"></a>
+        <a href="https://did.li/P62aa" target="_blank"><img src="/media/sozpt2h4/facebook1.svg" alt="Facebook"></a>
+        <a href="https://did.li/hJ8TY" target="_blank"><img src="/media/u3hhzcov/instagram1.svg" alt="Instagram"></a>
+      </div>
+    </div>
+
+    <!-- טור שמאל: הורדה בנייד -->
+    <div class="footer-column footer-apps text-center">
+      <h3>להורדה גם בנייד</h3>
+      <div class="app-buttons">
+        <a href="https://did.li/sbLZH" target="_blank">
+          <img src="/media/jnpglslh/screenshot_2025-08-08_162822-removebg-preview.png" alt="Google Play">
+        </a>
+        <a href="https://did.li/UOQIw" target="_blank">
+          <img src="/media/fpcogxol/screenshot_2025-08-08_162822-removebg-preview-1.png" alt="App Store">
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- זכויות יוצרים -->
+  <div class="footer-bottom">
+    <p>© 2025 כל הזכויות שמורות - גל"צ פלוס</p>
+  </div>
+</footer>
+
+
+
+
+
+</body></html>

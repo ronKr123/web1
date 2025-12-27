@@ -29,7 +29,7 @@ searchInput.addEventListener("input", () => {
       found = true;
       programList.innerHTML += `
         <div class="program-card">
-          <a href="${p.url}" class="btn-entry">
+          <a href="program.html?id=${p.id}" class="btn-entry">
             <i class="fas fa-arrow-left"></i> כניסה
           </a>
 
@@ -38,7 +38,7 @@ searchInput.addEventListener("input", () => {
             <div class="program-desc">${p.description}</div>
           </div>
 
-          <img src="${p.image}" class="program-image">
+          <img src="${p.tab}" class="program-image">
         </div>
       `;
     }

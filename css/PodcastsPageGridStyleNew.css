@@ -1,0 +1,75 @@
+body {
+    background-color: linear-gradient(to bottom, #e0f0ff, #d0e6f5) !important;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    
+}
+    
+.programs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 בשורה */
+    gap: 30px;
+    padding: 60px;
+    background-color: #e6f0fa;
+}
+
+.program-card {
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.program-card a {
+    text-decoration: none;  /* מבטל קו תחתון */
+    color: inherit;         /* ישאיר את הצבע המקורי של הטקסט */
+}
+
+.program-card img {
+    width: 100%;
+    /* height: 280px;  גובה אחיד לתמונות מלבניות */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.program-card:hover img {
+    transform: scale(1.05); /* הגדלה עדינה במעבר עכבר */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.program-card h4 {
+    margin-top: 10px;
+    font-size: 25px;
+    font-weight: 600;
+    color: #0B3D91;
+    font-family: 'Assistant', sans-serif;
+    text-decoration: none; 
+}
+
+    .pagination {
+        align-items: center;
+        align-content: center;
+        align-self: center;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .pagination a, .pagination span {
+        margin: 0 5px;
+        padding: 8px 12px;
+        color: white;
+        background-color: #007acc;
+        border-radius: 4px;
+        text-decoration: none;
+    }
+
+    .pagination span.current {
+        background-color: #005ea2;
+        font-weight: bold;
+    }
+
+    .category-title {
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+}

@@ -1,0 +1,131 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: #e6f0fa;
+}
+
+/* גריד ברירת מחדל – מחשבים */
+.programs-grid {
+    direction: rtl;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 60px;
+    background-color: #e6f0fa;
+}
+
+
+@media (max-width: 992px) {
+    .programs-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 30px;
+        gap: 20px;
+    }
+
+    .program-card img {
+        height: 220px;
+    }
+
+    .program-card h4 {
+        font-size: 20px;
+    }
+}
+
+/* מובייל – אחד בעמודה */
+@media (max-width: 600px) {
+    .programs-grid {
+        grid-template-columns: 1fr;
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .program-card img {
+        height: 200px;
+    }
+
+    .program-card h4 {
+        font-size: 18px;
+    }
+
+    .header-icon {
+        width: 70px;
+        height: 70px;
+    }
+
+    .page-title {
+        font-size: 24px !important;
+    }
+}
+
+
+/* כרטיסים */
+.program-card {
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.program-card a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.program-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* ריבוע */
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.program-card:hover img {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.program-card h4 {
+    margin-top: 10px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #0B3D91;
+    font-family: 'Assistant', sans-serif;
+}
+
+/* פאגינציה */
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination a, .pagination span {
+    margin: 0 5px;
+    padding: 8px 12px;
+    color: white;
+    background-color: #007acc;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.pagination span.current {
+    background-color: #005ea2;
+    font-weight: bold;
+}
+
+/* אייקון כותרת */
+.header-with-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0 2px;
+    flex-wrap: wrap; /* חשוב למסכים קטנים */
+}
+
+.header-icon {
+    width: 90px;
+    height: 90px;
+}
+
+/* רספונסיביות */
