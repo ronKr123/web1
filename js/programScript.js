@@ -75,27 +75,30 @@ function renderMore() {
   const slice = allEpisodes.slice(displayedCount, displayedCount + count);
 
   slice.forEach((ep) => {
-    container.insertAdjacentHTML(
-      "beforeend",
-      `
-      <div class="episode-card">
-        <div class="episode-image-container">
-          <img src="${ep.image}" loading="lazy" alt="תמונה של ${ep.title}">
-          <a href="episode.html?guid=${encodeURIComponent(
-            ep.guid
-          )}&program=${encodeURIComponent(programId)}" class="play-button">
-            <i class="fa-solid fa-circle-play"></i>
-          </a>
-        </div>
-        <div class="episode-info">
-          <h4>${ep.title}</h4>
-          <p class="description">${ep.description}</p>
-          <p class="date">${ep.date}</p>
-          <p class="duration">משך הפרק: ${ep.duration} דקות</p>
-        </div>
-      </div>
-      `
-    );
+    const div = document.createElement("div");
+    div.className = "episode-card";
+
+    div.innerHTML = `
+    <div class="episode-image-container">
+      <img src="${ep.image}" loading="lazy" alt="תמונה של ${ep.title}">
+      <a href="episode.html?guid=${encodeURIComponent(
+        ep.guid
+      )}&program=${encodeURIComponent(programId)}" class="play-button">
+        <i class="fa-solid fa-circle-play"></i>
+      </a>
+    </div>
+    <div class="episode-info">
+      <h4>${ep.title}</h4>
+      <p class="description">${ep.description}</p>
+      <p class="date">${ep.date}</p>
+      <p class="duration">משך הפרק: ${ep.duration} דקות</p>
+    </div>
+  `;
+
+    container.appendChild(div);
+
+    // ✨ זה מה שחסר
+    requestAnimationFrame(() => div.classList.add("show"));
   });
 
   displayedCount += count;
