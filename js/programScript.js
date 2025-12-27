@@ -31,12 +31,18 @@ function loadRSS(rssUrl) {
   fetch(api)
     .then((r) => r.json())
     .then((data) => {
+      if (!data.items || data.items.length === 0) {
+        document.getElementById("episodes-container").innerHTML =
+          "<p>לא נמצאו פרקים לתוכנית זו</p>";
+        return;
+      }
+
       allEpisodes = data.items.map((item, index) => ({
         id: index,
         title: item.title || "ללא כותרת",
         description: item.description || "",
         image:
-          item.thumbnail || data.feed?.image || "media/default-episode.png", // תמונה ברירת מחדל
+          item.thumbnail || data.feed?.image || "media/default-episode.png",
         date: item.pubDate
           ? new Date(item.pubDate).toLocaleDateString("he-IL")
           : "-",
@@ -45,10 +51,16 @@ function loadRSS(rssUrl) {
       }));
 
       displayedCount = 0;
-      document.getElementById("episodes-container").innerHTML = ""; // נקה קודם
+      document.getElementById("episodes-container").innerHTML = "";
       renderMore();
+
       document.getElementById("load-more").style.display =
-        allEpisodes.length > PAGE_SIZE ? "block" : "none"; // כפתור תמיד נכון
+        allEpisodes.length > PAGE_SIZE ? "block" : "none";
+    })
+    .catch((err) => {
+      console.error("RSS error:", err);
+      document.getElementById("episodes-container").innerHTML =
+        "<p>שגיאה בטעינת הפרקים</p>";
     });
 }
 
@@ -138,3 +150,20 @@ function initFavorites(program) {
     localStorage.setItem("favoritePrograms", JSON.stringify(favorites));
   };
 }
+
+const scrollBtn = document.getElementById("scrollTopBtn");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > window.innerHeight / 2) {
+    scrollBtn.classList.add("show");
+  } else {
+    scrollBtn.classList.remove("show");
+  }
+});
+
+scrollBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
