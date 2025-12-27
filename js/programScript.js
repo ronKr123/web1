@@ -22,33 +22,69 @@ fetch("data/programs.json")
   })
   .catch((err) => console.error("Error loading programs.json:", err));
 
+function getEpisodeImage(item) {
+  // 1. נסה itunes:image
+  const itunesImages = item.getElementsByTagNameNS(
+    "http://www.itunes.com/dtds/podcast-1.0.dtd",
+    "image"
+  );
+  if (itunesImages.length > 0) return itunesImages[0].getAttribute("href");
+
+  // 2. נסה media:content עם type=image/jpeg
+  const mediaContents = item.getElementsByTagNameNS(
+    "http://search.yahoo.com/mrss/",
+    "content"
+  );
+  for (let i = 0; i < mediaContents.length; i++) {
+    const m = mediaContents[i];
+    if (m.getAttribute("type") === "image/jpeg") return m.getAttribute("url");
+  }
+
+  // 3. fallback
+  return "media/default-episode.png";
+}
+
+function truncateText(text, maxLength) {
+  if (!text) return "";
+  if (text.length <= maxLength) return text;
+  return text.slice(0, maxLength) + "...";
+}
+
 // ===== טען RSS =====
 function loadRSS(rssUrl) {
-  const api = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(
-    rssUrl
-  )}`;
+  fetch(rssUrl)
+    .then((r) => r.text())
+    .then((str) => {
+      const parser = new DOMParser();
+      const xml = parser.parseFromString(str, "application/xml");
 
-  fetch(api)
-    .then((r) => r.json())
-    .then((data) => {
-      if (!data.items || data.items.length === 0) {
+      const items = Array.from(xml.querySelectorAll("item"));
+      if (!items.length) {
         document.getElementById("episodes-container").innerHTML =
           "<p>לא נמצאו פרקים לתוכנית זו</p>";
         return;
       }
 
-      allEpisodes = data.items.map((item, index) => ({
-        id: index,
-        title: item.title || "ללא כותרת",
-        description: item.description || "",
-        image:
-          item.thumbnail || data.feed?.image || "media/default-episode.png",
-        date: item.pubDate
-          ? new Date(item.pubDate).toLocaleDateString("he-IL")
-          : "-",
-        duration: parseDuration(item.enclosure?.duration),
-        guid: item.guid,
-      }));
+      allEpisodes = Array.from(xml.querySelectorAll("item")).map(
+        (item, index) => ({
+          id: index,
+          title: item.querySelector("title")?.textContent || "ללא כותרת",
+          description: item.querySelector("description")?.textContent || "",
+          image: getEpisodeImage(item),
+          date: item.querySelector("pubDate")
+            ? new Date(
+                item.querySelector("pubDate").textContent
+              ).toLocaleDateString("he-IL")
+            : "-",
+          duration: parseDuration(
+            item.getElementsByTagNameNS(
+              "http://www.itunes.com/dtds/podcast-1.0.dtd",
+              "duration"
+            )[0]?.textContent
+          ),
+          guid: item.querySelector("guid")?.textContent,
+        })
+      );
 
       displayedCount = 0;
       document.getElementById("episodes-container").innerHTML = "";
@@ -58,7 +94,7 @@ function loadRSS(rssUrl) {
         allEpisodes.length > PAGE_SIZE ? "block" : "none";
     })
     .catch((err) => {
-      console.error("RSS error:", err);
+      console.error("RSS parsing error:", err);
       document.getElementById("episodes-container").innerHTML =
         "<p>שגיאה בטעינת הפרקים</p>";
     });
@@ -89,7 +125,7 @@ function renderMore() {
     </div>
     <div class="episode-info">
       <h4>${ep.title}</h4>
-      <p class="description">${ep.description}</p>
+      <p class="description">${truncateText(ep.description, 50}</p>
       <p class="date">${ep.date}</p>
       <p class="duration">משך הפרק: ${ep.duration} דקות</p>
     </div>
@@ -97,7 +133,6 @@ function renderMore() {
 
     container.appendChild(div);
 
-    // ✨ זה מה שחסר
     requestAnimationFrame(() => div.classList.add("show"));
   });
 
