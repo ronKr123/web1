@@ -125,7 +125,7 @@ function renderMore() {
     </div>
     <div class="episode-info">
       <h4>${ep.title}</h4>
-      <p class="description">${truncateText(ep.description, 50}</p>
+      <p class="description">${truncateText(ep.description, 50)}</p>
       <p class="date">${ep.date}</p>
       <p class="duration">משך הפרק: ${ep.duration} דקות</p>
     </div>
