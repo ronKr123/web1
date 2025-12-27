@@ -18,19 +18,25 @@
   <script src="js/programScript.js" defer></script>
 
   <script>
-  fetch("partials/navbar.html")
-  .then(res => res.text())
-  .then(html => {
-    document.getElementById("navbar").innerHTML = html;
-  });
+document.addEventListener("DOMContentLoaded", () => {
 
+  fetch("partials/navbar.html")
+    .then(res => res.text())
+    .then(html => {
+      const nav = document.getElementById("navbar");
+      if (nav) nav.innerHTML = html;
+    });
 
   fetch("partials/footer.html")
-  .then(res => res.text())
-  .then(html => {
-    document.getElementById("footer").innerHTML = html;
-  });
+    .then(res => res.text())
+    .then(html => {
+      const footer = document.getElementById("footer");
+      if (footer) footer.innerHTML = html;
+    });
+
+});
 </script>
+
 </head>
 
 <body>
