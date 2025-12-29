@@ -1,435 +1,27 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;display=swap" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&amp;display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&amp;family=Rubik:ital,wght@0,300..900;1,300..900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/episodeStyle.css">
+  <link rel="stylesheet" href="css/NavigationBarStyle.css">
+  <link rel="stylesheet" href="css/footer.css">
+</head>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<body>
 
-<style>
-    body {
-        margin: 0;
-        padding: 0;
-        min-height: 100vh;
-        background-color: #e6f0fa;
-        background-attachment: fixed;
-    }
-
-    .episode-container {
-        text-align: center;
-        margin: 20px auto;
-        max-width: 800px;
-    }
-
-    .episode-image {
-        max-width: 400px;
-        display: block;
-        margin: 20px auto;
-        border-radius: 8px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    .episode-description {
-        margin-top: 20px;
-        text-align: right;
-        direction: rtl;
-        font-size: 18px;
-    }
-
-    .nav-buttons {
-        margin-top: 20px;
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .nav-buttons a {
-        font-size: 16px;
-        color: blue;
-        text-decoration: none;
-    }
-
-    .program-link {
-        display: block;
-        margin-top: 20px;
-        font-size: 16px;
-        color: blue;
-        text-decoration: none;
-    }
-
-    .more-episodes {
-        margin-top: 40px;
-    }
-
-    .episode-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
-        margin-top: 10px;
-    }
-
-    .episode-card {
-        border: 1px solid #ccc;
-        padding: 10px;
-        position: relative;
-        border-radius: 8px;
-        background: white;
-    }
-
-    .episode-card img {
-        width: 100%;
-        border-radius: 8px;
-    }
-
-    .play-button {
-        position: absolute;
-        bottom: 10px;
-        left: 10px;
-        font-size: 40px;
-        color: white;
-        text-decoration: none;
-        cursor: pointer;
-    }
-
-    /* עיצוב הנגן הצף בתחתית הדף */
-    /* עיצוב מחודש לנגן */
-    #floating-player {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        background: linear-gradient(to right, #00416a, #e4e5e6);
-        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
-        padding: 20px 0;
-        z-index: 9999;
-        direction: rtl;
-        display: none;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        color: white;
-    }
-
-    .player-content {
-        max-width: 960px;
-        margin: auto;
-        text-align: center;
-        position: relative;
-        padding: 0;
-    }
-
-    .close-player {
-        position: absolute;
-        left: 30px;
-        /* ממש צמוד לשמאל */
-        top: 15px;
-        font-size: 35px;
-        color: white;
-        cursor: pointer;
-        z-index: 10;
-    }
-
-    .volume-slider {
-        position: absolute;
-        bottom: 10px;
-        left: 25px;
-    }
-
-    .slider {
-        /* slider */
-        --slider-width: 120px;
-        --slider-height: 6px;
-        --slider-bg: rgb(82, 82, 82);
-        --slider-border-radius: 999px;
-        /* level */
-        --level-color: #fff;
-        --level-transition-duration: .1s;
-        /* icon */
-        --icon-margin: 15px;
-        --icon-color: var(--slider-bg);
-        --icon-size: 25px;
-
-        cursor: pointer;
-        display: inline-flex;
-        flex-direction: row-reverse;
-        align-items: center;
-    }
-
-    .slider .volume {
-        margin-right: var(--icon-margin);
-        color: var(--icon-color);
-        width: 20px;
-        /* קבוע */
-        height: 20px;
-        /* קבוע */
-        flex-shrink: 0;
-        /* שלא יתכווץ */
-    }
-
-    .slider .level {
-        -webkit-appearance: none;
-        appearance: none;
-        width: var(--slider-width);
-        height: var(--slider-height);
-        background: var(--slider-bg);
-        overflow: hidden;
-        border-radius: var(--slider-border-radius);
-        transition: height var(--level-transition-duration);
-        cursor: inherit;
-        direction: ltr;
-        /* חשוב - שהמילוי יהיה בכיוון נכון */
-    }
-
-    .slider .level::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        width: 0;
-        height: 0;
-        box-shadow: 200px 0 0 200px var(--level-color);
-        /* הפוך מהמקורי */
-    }
-
-    .slider:hover .level {
-        height: calc(var(--slider-height) * 2);
-    }
-
-    .progress-container {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin: 15px 0;
-        direction: ltr;
-        text-align: left;
-    }
-
-    .progress-bar {
-        flex-grow: 1;
-        height: 6px;
-        background: #ffffff44;
-        border-radius: 3px;
-        cursor: pointer;
-        position: relative;
-    }
-
-    .progress-fill {
-        height: 100%;
-        background: white;
-        width: 0%;
-        border-radius: 3px;
-    }
-
-    .player-controls button {
-        background: transparent;
-        border: none;
-        color: white;
-        font-size: 20px;
-        cursor: pointer;
-        padding: 5px 10px;
-        outline: none;
-    }
-
-    .player-layout {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 20px;
-        direction: rtl;
-    }
-
-    .episode-image img {
-        width: 130px;
-        height: 130px;
-        border-radius: 10px;
-        object-fit: cover;
-    }
-
-    .episode-info {
-        flex-grow: 1;
-        text-align: right;
-    }
-
-    .episode-header {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        margin-bottom: 20px;
-        direction: rtl;
-    }
-
-    .episode-header img {
-        width: 240px;
-        height: 240px;
-        object-fit: cover;
-        border-radius: 10px;
-    }
-
-    .episode-details {
-        text-align: right;
-    }
-
-    .episode-details h1 {
-        margin: 0;
-        font-size: 24px;
-    }
-
-    .episode-details p {
-        margin: 5px 0;
-        font-size: 16px;
-        color: #555;
-    }
-
-    hr {
-        border: none;
-        /* לא מציג גבול ברירת מחדל */
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
-        /* קו דק */
-        margin: 1.2rem 0;
-        /* רווח מעל ומתחת */
-        height: 1px;
-        /* גובה הקו */
-        background: transparent;
-        /* רקע שקוף */
-        overflow: visible;
-    }
-
-    .back-to-program {
-        position: absolute;
-        top: 80px;
-        left: 20px;
-        padding: 10px 20px;
-        background: linear-gradient(135deg, #0078d7, #005bb5);
-        color: white !important;
-        font-size: 16px;
-        font-weight: bold;
-        border-radius: 30px;
-        text-decoration: none;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        transition: all 0.3s ease;
-    }
-
-    .back-to-program:hover {
-        background: linear-gradient(135deg, #005bb5, #004494);
-        transform: translateY(-2px);
-        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
-    }
-
-    .tooltip-container {
-        position: relative;
-        display: inline-block;
-    }
-
-    .button-content {
-        display: flex;
-        align-items: center;
-        background-color: #007bff;
-        color: white;
-        padding: 10px 14px;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        font-size: 16px;
-        transition: background-color 0.3s;
-    }
-
-    .button-content:hover {
-        background-color: #0056b3;
-    }
-
-    .text {
-        margin-right: 8px;
-        font-weight: bold;
-    }
-
-    .share-icon {
-        fill: white;
-    }
-
-    .tooltip-content {
-        position: absolute;
-        top: calc(100% + 12px);
-        /* מתחת לכפתור עם מרווח */
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: #fff;
-        padding: 12px 16px;
-        border-radius: 10px;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-        z-index: 999;
-        display: none;
-        min-width: 160px;
-        text-align: center;
-    }
-
-    /* שפיץ */
-    .tooltip-arrow {
-        position: absolute;
-        top: -8px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 0;
-        height: 0;
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        border-bottom: 8px solid white;
-    }
-
-    .social-icons {
-        display: flex;
-        justify-content: space-around;
-        gap: 15px;
-    }
-
-    .social-icon {
-        color: #333;
-        font-size: 24px;
-        transition: transform 0.2s, color 0.2s;
-        text-decoration: none;
-    }
-
-    .social-icon:hover {
-        transform: scale(1.3);
-    }
-
-    .social-icon.twitter:hover {
-        color: #1DA1F2;
-    }
-
-    .social-icon.facebook:hover {
-        color: #3b5998;
-    }
-
-    .social-icon.whatsapp:hover {
-        color: #25D366;
-    }
-
-    /* התאמות למסכים קטנים */
-    @media (max-width: 600px) {
-
-        /* שורת רווח מתחת ל־X */
-        .close-player {
-            top: 5px;
-            /* קרוב יותר למעלה */
-        }
-
-        #floating-player {
-            padding-top: 45px;
-            /* יוצר רווח מתחת ל־X */
-            padding-bottom: 60px;
-        }
-
-        /* שם הפרק קטן יותר */
-        #player-title {
-            font-size: 16px;
-            /* במקום 20–24 */
-        }
-
-        /* ווליום וכפתור מהירות למטה */
-        .volume-slider {
-            /* מוריד מהמיקום האבסולוטי */
-            margin-top: 10px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .playback-speed-wrapper {
-            margin-left: 10px;
-        }
-    }
-</style>
-
+<div id="navbar"></div>
 
 <div class="flex items-center gap-2">
-    <a href="@programPage.Url()" class="program-link back-to-program btn">חזרה לעמוד התוכנית</a>
+    <a id="back-link" class="program-link back-to-program btn">חזרה לעמוד התוכנית</a>
 
     <div class="tooltip-container" style="margin-left: 240px; margin-top: 20px;">
         <button class="button-content" id="share-button">
@@ -462,52 +54,29 @@
 <div class="episode-container">
     <div class="episode-header">
             <div class="episode-image-wrapper">
-                <img src="@episode.Image" alt="@episode.Title" />
-                <div class="play-overlay" data-audio="@episode.AudioUrl" data-title="@episode.Title">
+                <img id="episode-image" alt="imgEpisode" />
+                <div class="play-overlay" data-title="@episode.Title">
                     <i class="fa-solid fa-circle-play"></i>
                 </div>
             </div>
-
         <div class="episode-details">
-            <h1>@episode.Title</h1>
-            <p>תאריך: @episode.PubDate</p>
-            <p>משך הפרק: @(episode.DurationSeconds / 60) דקות</p>
+            <h1 id="episode-title"></h1>
+            <p id="episode-date"></p>
+            <p id="duration"></p>
         </div>
     </div>
 
-    <div class="episode-description">
-        @Html.Raw(episode.Description)
+    <div  id="episode-description" class="episode-description">
     </div>
 
 </div>
+
 
 <section class="podcasts-section m-3">
     <hr />
     <h2 class="m-3" style="font-family: 'Assistant', sans-serif; text-align:right; direction:rtl;">מוזמנים להאזין גם
         לפרקים נוספים:</h2>
-    <div class="custom-episodes-wrapper">
-        @foreach (var ep in otherEpisodes)
-        {
-            var formattedDate = DateTime.TryParse(ep.PubDate, out var pubDate)
-            ? pubDate.ToString("dd.MM.yy")
-            : ep.PubDate;
-
-            <div class="custom-episode-card">
-                <a href="/episode?guid=@ep.Guid&programId=@ep.ProgramId">
-                    <i class="fa-solid fa-circle-play"></i>
-                </a>
-                <div class="card-text">
-                    <h4 style="direction: rtl; text-align: right;">@ep.Title</h4>
-                    <p style="direction: rtl; text-align: right;">@formattedDate</p>
-                </div>
-                @if (!string.IsNullOrEmpty(ep.Image))
-                {
-                    <a href="/episode?guid=@ep.Guid&programId=@ep.ProgramId">
-                        <img src="@ep.Image" alt="@ep.Title" />
-                    </a>
-                }
-            </div>
-        }
+    <div class="custom-episodes-wrapper" id="more-episodes">
     </div>
 </section>
 
@@ -516,7 +85,7 @@
 <!-- נגן צף בתחתית המסך -->
 <!-- נגן צף -->
 <div id="floating-player">
-    <audio id="real-audio"></audio>
+    <audio id="audio"></audio>
     <div class="close-player" id="close-player">
         <i class="fa-solid fa-xmark"></i>
     </div>
@@ -550,14 +119,11 @@
 
     <div class="player-content">
         <div class="player-layout">
-            @if (episode.Image != null)
-            {
                 <div class="episode-image">
-                    <img src="@episode.Image" alt="@episode.Title" />
+                    <img id="episode-player-image" alt="@episode.Title" />
                 </div>
-            }
             <div class="episode-info">
-                <h4 id="player-title" class="text-center">שם הפרק</h4>
+                <h4 id="episode-player-title" class="text-center"></h4>
 
                 <div class="progress-container">
                     <span id="current-time">00:00</span>
@@ -568,22 +134,21 @@
                 </div>
 
                 <div class="player-controls text-center">
-                    <button id="next-episode"><i class="bi bi-skip-forward-circle"></i></button>
+                    <button id="prev-episode"><i class="bi bi-skip-backward-circle"></i></button>
 
                     <button id="skip-forward" class="skip-btn">
-                        <img src="/media/ec3f0rwr/farward-icon-נערך.png" alt="קדימה 10 שניות">
+                        <img src="media/farward-icon-נערך.png" alt="קדימה 10 שניות">
                     </button>
 
                     <button id="play-pause" class="play-btn" style="font-size: 45px;"><i
                             class="bi bi-play-circle"></i></button>
 
                     <button id="skip-back" class="skip-btn">
-                        <img src="/media/fynlto4a/back-icon-נערך.png" alt="חזרה 10 שניות">
+                        <img src="media/back-icon-נערך.png" alt="חזרה 10 שניות">
                     </button>
 
-                    <button id="prev-episode"><i class="bi bi-skip-backward-circle"></i></button>
+                    <button id="next-episode"><i class="bi bi-skip-forward-circle"></i></button>
 
-                    <!-- <button id="stop-btn"><i class="fa-solid fa-stop"></i></button>  -->
                 </div>
 
             </div>
@@ -592,665 +157,393 @@
 </div>
 
 <script>
+/* ===== קריאת פרמטרים מה-URL ===== */
+const params = new URLSearchParams(location.search);
+const guid = params.get("guid");
+const programId = params.get("program");
 
-    const floatingPlayer = document.getElementById('floating-player');
-    const audioPlayer = document.getElementById('real-audio');
-    const playerTitle = document.getElementById('player-title');
-    const closeBtn = document.getElementById('close-player');
-    const playPauseBtn = document.getElementById('play-pause');
-    const progressFill = document.getElementById('progress-fill');
-    const currentTimeSpan = document.getElementById('current-time');
-    const durationSpan = document.getElementById('duration');
-    const skipBackBtn = document.getElementById('skip-back');
-    const skipForwardBtn = document.getElementById('skip-forward');
-    // const speedBtn = document.getElementById('speed-btn');
-    const volumeControl = document.getElementById('volume-control');
-    const volumeIcon = document.getElementById('volume-icon');
-
-    const speeds = [1, 1.2, 1.3, 1.5, 2];
-    let speedIndex = 0;
-
-    // פונקציות עזר
-    function formatTime(time) {
-        const minutes = Math.floor(time / 60).toString().padStart(2, '0');
-        const seconds = Math.floor(time % 60).toString().padStart(2, '0');
-        return `${minutes}:${seconds}`;
+/* ===== טעינת תוכניות ===== */
+fetch("data/programs.json")
+  .then(r => r.json())
+  .then(data => {
+    const program = data.programs.find(p => p.id === programId);
+    if (!program) {
+      document.body.innerHTML = "<h2>תוכנית לא נמצאה</h2>";
+      return;
     }
 
-    function updateProgress() {
-        if (!isNaN(audioPlayer.duration)) {
-            const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
-            progressFill.style.width = `${progress}%`;
-            currentTimeSpan.textContent = formatTime(audioPlayer.currentTime);
-            durationSpan.textContent = formatTime(audioPlayer.duration);
-        }
-    }
+    document.getElementById("back-link").href =
+      `program.html?id=${program.id}`;
 
-    // נגן
-    function togglePlay() {
-        if (audioPlayer.paused) {
-            audioPlayer.play().catch(err => console.log("Play failed:", err));
-            playPauseBtn.innerHTML = '<i class="bi bi-pause-circle"></i>';
-        } else {
-            audioPlayer.pause();
-            playPauseBtn.innerHTML = '<i class="bi bi-play-circle"></i>';
-        }
-    }
+    loadRSS(program.rss, program.id);
+  });
 
-    function stopAudio() {
-        audioPlayer.pause();
-        audioPlayer.currentTime = 0;
-        playPauseBtn.innerHTML = '<i class="bi bi-play-circle"></i>';
-        speedIndex = 0;
-        audioPlayer.playbackRate = speeds[speedIndex];
-        speedBtn.textContent = 'x' + speeds[speedIndex];
-    }
+/* ===== טעינת RSS ===== */
+function loadRSS(rssUrl, programId) {
+  fetch(rssUrl)
+    .then(r => r.text())
+    .then(str => {
+      const xml = new DOMParser().parseFromString(str, "application/xml");
+      const items = Array.from(xml.querySelectorAll("item"));
 
-    function skip(seconds) {
-        const newTime = audioPlayer.currentTime + seconds;
-        audioPlayer.currentTime = Math.max(0, Math.min(audioPlayer.duration, newTime));
-    }
+      const episodes = items.map(item => ({
+        guid: item.querySelector("guid")?.textContent,
+        title: item.querySelector("title")?.textContent,
+        description: item.querySelector("description")?.textContent,
+        audio: item.querySelector("enclosure")?.getAttribute("url"),
+        duration: item.getElementsByTagNameNS(
+              "http://www.itunes.com/dtds/podcast-1.0.dtd",
+              "duration"
+            )[0]?.textContent,
+        date: item.querySelector("pubDate")
+          ? new Date(item.querySelector("pubDate").textContent).toLocaleDateString("he-IL")
+          : "",
+        image: getEpisodeImage(item)
+      }));
 
-    // function toggleSpeed() {
-    //     speedIndex = (speedIndex + 1) % speeds.length;
-    //     audioPlayer.playbackRate = speeds[speedIndex];
-    //     speedBtn.textContent = 'x' + speeds[speedIndex];
-    // }
+      const episode = episodes.find(e => e.guid === guid);
+      if (!episode) {
+        document.body.innerHTML = "<h2>פרק לא נמצא</h2>";
+        return;
+      }
 
-    function seek(event) {
-        const bar = document.querySelector('.progress-bar');
-        const rect = bar.getBoundingClientRect();
-        const clickX = event.clientX - rect.left;
-        const percent = clickX / rect.width;
-        if (!isNaN(audioPlayer.duration)) {
-            audioPlayer.currentTime = percent * audioPlayer.duration;
-        }
-    }
+      episodesGlobal = episodes;
+      currentEpisodeIndex = episodes.findIndex(e => e.guid === guid);
 
-    // ווליום
-    volumeControl.addEventListener('input', (e) => {
-        audioPlayer.volume = e.target.value;
-        if (audioPlayer.volume == 0) {
-            volumeIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M4 9v6h4l5 5V4L8 9H4z" fill="currentColor"></path>
-            <line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="2"/>
-            <line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="2"/>
-        </svg>`;
-        } else {
-            volumeIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M18.36 19.36a1 1 0 0 1-.705-1.71C19.167 16.148 20 14.142 20 12s-.833-4.148-2.345-5.65a1 1 0 1 1 1.41-1.419C20.958 6.812 22 9.322 22 12s-1.042 5.188-2.935 7.069a.997.997 0 0 1-.705.291z" fill="currentColor"></path>
-            <path d="M15.53 16.53a.999.999 0 0 1-.703-1.711C15.572 14.082 16 13.054 16 12s-.428-2.082-1.173-2.819a1 1 0 1 1 1.406-1.422A6 6 0 0 1 18 12a6 6 0 0 1-1.767 4.241.996.996 0 0 1-.703.289zM12 22a1 1 0 0 1-.707-.293L6.586 17H4c-1.103 0-2-.897-2-2V9c0-1.103.897-2 2-2h2.586l4.707-4.707A.998.998 0 0 1 13 3v18a1 1 0 0 1-1 1z" fill="currentColor"></path>
-        </svg>`;
-        }
+      renderEpisode(episode);
+      renderMoreEpisodes(episodes, episode.guid, programId);
     });
+}
 
-    // אירועים
-    audioPlayer.addEventListener('timeupdate', updateProgress);
-    audioPlayer.addEventListener('loadedmetadata', () => {
-        durationSpan.textContent = formatTime(audioPlayer.duration);
-        currentTimeSpan.textContent = '00:00';
-        progressFill.style.width = '0%';
-        speedIndex = 0;
-        audioPlayer.playbackRate = speeds[speedIndex];
-        speedBtn.textContent = 'x' + speeds[speedIndex];
-    });
+function renderEpisodeByIndex(index) {
+  const ep = episodesGlobal[index];
+  if (!ep) return;
 
-    audioPlayer.addEventListener('ended', () => {
-        playPauseBtn.innerHTML = '<i class="bi bi-play-circle"></i>';
-    });
+  renderEpisode(ep);
 
-    // מאזינים
-    playPauseBtn.addEventListener('click', togglePlay);
-    skipBackBtn.addEventListener('click', () => skip(-10));
-    skipForwardBtn.addEventListener('click', () => skip(10));
-    // speedBtn.addEventListener('click', toggleSpeed);
-    closeBtn.addEventListener('click', () => {
-        // עצור את האודיו
-        audioPlayer.pause();
-        audioPlayer.currentTime = 0;
+  // עדכון URL בלי רענון
+  const url = new URL(window.location);
+  url.searchParams.set("guid", ep.guid);
+  history.replaceState({}, "", url);
 
-        // איפוס כפתור הפעלה
-        playPauseBtn.innerHTML = '<i class="bi bi-play-circle"></i>';
+  updatePrevNextButtons();
 
-        // הסתרת הנגן
-        floatingPlayer.style.display = 'none';
-    });
-    document.querySelector('.progress-container').addEventListener('click', seek);
+  const floatingPlayer = document.getElementById('floating-player');
+  const audio = document.getElementById('audio');
 
-    document.querySelectorAll('.play-overlay').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const audioUrl = btn.getAttribute('data-audio');
-            const title = btn.getAttribute('data-title');
-
-            playerTitle.textContent = title;
-
-            // עצור את האודיו הקיים והסר מאזינים קודמים
-            audioPlayer.pause();
-            audioPlayer.currentTime = 0;
-            audioPlayer.removeAttribute('src');
-            audioPlayer.load();
-
-            // הטענת קובץ חדש
-            audioPlayer.src = audioUrl;
-            audioPlayer.load();
-
-            // מאזין זמני שיתפעל פעם אחת בלבד
-            const canPlayHandler = () => {
-                audioPlayer.play().catch(err => console.log("Play failed:", err));
-                playPauseBtn.innerHTML = '<i class="bi bi-pause-circle"></i>';
-                audioPlayer.removeEventListener('canplaythrough', canPlayHandler);
-            };
-            audioPlayer.removeEventListener('canplaythrough', canPlayHandler);
-            audioPlayer.addEventListener('canplaythrough', canPlayHandler);
-
-            // טיפול בשגיאה
-            audioPlayer.onerror = () => {
-                alert('שגיאה בטעינת האודיו. הקובץ לא זמין.');
-            };
-
-            floatingPlayer.style.display = 'block';
-        });
-    });
-
-    // כפתורי פרק קודם/הבא
-    document.addEventListener('DOMContentLoaded', () => {
-        const currentIndex = episodes.findIndex(ep => ep.Guid === currentEpisodeId);
-        const previousEpisode = currentIndex > 0 ? episodes[currentIndex - 1] : null;
-        const nextEpisode = currentIndex < episodes.length - 1 ? episodes[currentIndex + 1] : null;
-
-        const prevBtn = document.getElementById("next-episode");
-        const nextBtn = document.getElementById("prev-episode");
-
-        if (prevBtn) {
-            if (!previousEpisode) prevBtn.style.display = 'none';
-            prevBtn.addEventListener("click", () => {
-                if (previousEpisode) {
-                    window.location.href = `/episode?guid=${previousEpisode.Guid}&programId=${programId}`;
-                }
-            });
-        }
-
-        if (nextBtn) {
-            if (!nextEpisode) nextBtn.style.display = 'none';
-            nextBtn.addEventListener("click", () => {
-                if (nextEpisode) {
-                    window.location.href = `/episode?guid=${nextEpisode.Guid}&programId=${programId}`;
-                }
-            });
-        }
-    });
-
-    document.addEventListener('DOMContentLoaded', () => {
-        const speedToggleBtn = document.getElementById('speed-toggle-btn');
-        const speedTooltip = document.getElementById('speed-tooltip');
-        const speedOptions = document.querySelectorAll('.speed-option');
-
-        // פונקציה לפתיחה/סגירה של הטולטיפ
-        speedToggleBtn.addEventListener('click', (event) => {
-            event.stopPropagation(); // מונע מהאירוע להגיע ל-document
-            const isVisible = speedTooltip.style.display === 'flex';
-            speedTooltip.style.display = isVisible ? 'none' : 'flex';
-        });
-
-        // פונקציה לסגירת הטולטיפ בלחיצה מחוץ לו
-        document.addEventListener('click', (event) => {
-            // אם הלחיצה לא הייתה על הטולטיפ או על כפתור ההפעלה, סגור אותו
-            if (!speedTooltip.contains(event.target) && event.target !== speedToggleBtn) {
-                speedTooltip.style.display = 'none';
-            }
-        });
-
-        // לוגיקה לסימון האפשרות שנבחרה
-        speedOptions.forEach(option => {
-            option.addEventListener('click', () => {
-                // הסר את הסימון מכל האפשרויות
-                speedOptions.forEach(opt => opt.classList.remove('active'));
-
-                // הוסף סימון לאפשרות הנוכחית
-                option.classList.add('active');
-
-                const selectedSpeed = option.getAttribute('data-speed');
-                console.log(`מהירות השמעה נבחרה: ${selectedSpeed}x`);
-
-                // עדכון הטקסט בכפתור הראשי
-                speedToggleBtn.textContent = `${selectedSpeed}x`;
-
-                // סגירת הטולטיפ
-                speedTooltip.style.display = 'none';
-
-                audioPlayer.playbackRate = selectedSpeed;
-            });
-        });
-    });
-
-</script>
-
-<style>
-    .podcasts-section {
-        font-family: Arial, sans-serif;
-    }
-
-    .custom-episodes-wrapper {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-        justify-content: center;
-        padding: 20px;
-    }
-
-    .custom-episode-card {
-        display: flex;
-        align-items: center;
-        background: white;
-        border-radius: 12px;
-        padding: 15px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        max-width: 100%;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    .custom-episode-card img {
-        width: 100px;
-        height: 100px;
-        object-fit: cover;
-        border-radius: 8px;
-        margin-left: 15px;
-    }
-
-    .card-text {
-        flex: 1;
-    }
-
-    .card-text h4 {
-        font-size: 20px;
-        margin: 0 0 5px;
-        font-weight: bold;
-    }
-
-    .card-text p {
-        font-size: 14px;
-        color: #555;
-        margin: 0;
-    }
-
-    .custom-episode-card i {
-        color: black;
-        font-size: 45px;
-        cursor: pointer;
-    }
-
-    .custom-episode-card i:hover {
-        color: #0078d7;
-    }
-
-    @@media (max-width: 768px) {
-        .custom-episodes-wrapper {
-            grid-template-columns: 1fr;
-            padding: 0;
-        }
-    }
-
-    .center-icon {
-        position: relative;
-        text-align: center;
-        margin: 20px 0;
-    }
-
-    .center-icon hr {
-        border: none;
-        border-top: 1.5px solid #999;
-        margin: 0;
-        position: relative;
-        top: 50%;
-    }
-
-    .center-icon img {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        padding: 0 10px;
-        height: 80px;
-        weight: 80px;
-        margin-bottom: 10px;
-    }
-
-    .episode-image-wrapper {
-        position: relative;
-        display: inline-block;
-    }
-
-    .episode-image-wrapper img {
-        width: 240px;
-        height: 240px;
-        object-fit: cover;
-        border-radius: 10px;
-    }
-
-    .play-overlay {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 60px;
-        color: white;
-        cursor: pointer;
-        opacity: 0.9;
-        transition: opacity 0.3s;
-    }
-
-    .slider {
-        /* slider */
-        --slider-width: 100%;
-        --slider-height: 6px;
-        --slider-bg: rgb(82, 82, 82);
-        --slider-border-radius: 999px;
-        /* level */
-        --level-color: #fff;
-        --level-transition-duration: .1s;
-        /* icon */
-        --icon-margin: 15px;
-        --icon-color: white;
-        --icon-size: 25px;
-    }
-
-    .slider {
-        cursor: pointer;
-        display: -webkit-inline-box;
-        display: -ms-inline-flexbox;
-        display: inline-flex;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: reverse;
-        -ms-flex-direction: row-reverse;
-        flex-direction: row-reverse;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-    }
-
-    .slider .volume {
-        display: inline-block;
-        vertical-align: top;
-        margin-right: var(--icon-margin);
-        color: var(--icon-color);
-        width: var(--icon-size);
-        height: auto;
-    }
-
-    .slider .level {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        width: var(--slider-width);
-        height: var(--slider-height);
-        background: var(--slider-bg);
-        overflow: hidden;
-        border-radius: var(--slider-border-radius);
-        -webkit-transition: height var(--level-transition-duration);
-        -o-transition: height var(--level-transition-duration);
-        transition: height var(--level-transition-duration);
-        cursor: inherit;
-    }
-
-    .slider .level::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        width: 0;
-        height: 0;
-        -webkit-box-shadow: -200px 0 0 200px var(--level-color);
-        box-shadow: -200px 0 0 200px var(--level-color);
-    }
-
-    .slider:hover .level {
-        height: calc(var(--slider-height) * 2);
-    }
-
-    .speed-btn {
-        width: 40px;
-        height: 40px;
-        border-radius: 100px;
-        border: 2px solid white;
-        color: white;
-        font-size: 13px;
-        font-weight: bold;
-        cursor: pointer;
-        margin-left: 15px;
-        background: transparent;
-        outline: none !important;
-        box-shadow: none !important;
-        flex-shrink: 0;
-    }
-
-    .speed-btn:focus {
-        outline: none !important;
-        box-shadow: none !important;
-    }
-
-    .player-controls {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 15px;
-        margin-top: 10px;
-    }
-
-    .skip-btn img {
-        width: 36px;
-        height: 36px;
-        object-fit: contain;
-    }
-
-    #prev-episode,
-    #next-episode,
-    #stop-btn {
-        background: none;
-        border: none;
-        color: white;
-        font-size: 30px;
-        cursor: pointer;
-    }
-
-    .playback-speed-wrapper {
-        position: relative;
-        /* חיוני למיקום הטולטיפ ביחס לכפתור */
-        display: inline-block;
-        direction: rtl;
-        /* כדי להבטיח יישור נכון */
-        margin-left: 30px;
-        outline: none;
-
-    }
-
-    .speed-toggle-btn {
-        background: linear-gradient(135deg, #0078d7, #00b4ff);
-        color: white;
-        border: none;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        font-size: 16px;
-        font-weight: bold;
-        cursor: pointer;
-        box-shadow: 0 4px 12px rgba(0, 120, 215, 0.3);
-        transition: transform 0.2s, 0.3s;
-        position: relative;
-        /* לוודא שהוא מעל */
-        z-index: 1000;
-    }
-
-    .speed-toggle-btn:hover {
-        transform: scale(1.1);
-        background: linear-gradient(135deg, #0064b5, #0096d6);
-    }
-
-    /* טולטיפ */
-    .speed-tooltip {
-        display: none;
-        position: absolute;
-        bottom: 130%;
-        left: 50%;
-        /* מיקום לפי אמצע */
-        transform: translateX(-50%);
-        /* תזוזה של חצי כדי למרכז */
-        background: #ffffff;
-        border-radius: 12px;
-        padding: 12px;
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-        z-index: 100;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        min-width: 260px;
-    }
-
-    /* שפיץ */
-    .speed-tooltip::after {
-        content: '';
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        /* באמצע */
-        transform: translateX(-50%);
-        /* מרכז אותו */
-        width: 0;
-        height: 0;
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        border-top: 10px solid #ffffff;
-    }
-
-    /* כותרת בתוך הטולטיפ */
-    .tooltip-header {
-        font-size: 14px;
-        font-weight: bold;
-        color: #0078d7;
-        margin-bottom: 10px;
-    }
-
-    /* קבוצה של אופציות */
-    .speed-options {
-        display: flex;
-        flex-direction: row-reverse;
-        gap: 10px;
-    }
-
-    /* כפתורים של מהירויות */
-    .speed-option {
-        width: 42px;
-        height: 42px;
-        border-radius: 50%;
-        background: #e6f4ff;
-        color: #0078d7;
-        font-size: 14px;
-        font-weight: bold;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: 0.2s, color 0.2s, transform 0.2s;
-    }
-
-    .speed-option:hover:not(.active) {
-        background: #0078d7;
-        color: white;
-        transform: scale(1.1);
-    }
-
-    .speed-option.active {
-        background: #0078d7;
-        color: white;
-        box-shadow: 0 0 0 2px #00b4ff;
-    }
-
-    /* נגן צף - התאמות מובייל - שינוי אחרון שעשיתי 10.11.25 */
-@@media (max-width: 600px) {
-
-  #floating-player {
-    padding: 10px 5px 110px 5px !important; /* מקום לתחתית הכפתורים */
-    font-size: 14px;
-    box-sizing: border-box;
+  if (audio) {
+    audio.pause();
+    audio.currentTime = 0;
   }
 
-  .player-layout {
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 10px !important;
-  }
-
-  .episode-image {
-    position: relative !important;
-    display: inline-block !important;
-  }
-
-  .episode-image img {
-    width: 150px !important;
-    height: 150px !important;
-    object-fit: cover !important;
-    border-radius: 10px !important;
-  }
-
-  /* מיקום כפתור x1 לימין התמונה, בלי לשנות HTML */
-  .playback-speed-wrapper {
-    position: absolute !important;
-    top: 40% !important;
-    left: calc(50% + 85px) !important; /* מרחק קל מימין לתמונה */
-    transform: translateY(-60%) !important;
-    z-index: 10 !important;
-  }
-
-  .speed-toggle-btn {
-    width: 46px !important;
-    height: 46px !important;
-    font-size: 15px !important;
-    border-radius: 10px !important;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15) !important;
-  }
-
-  /* ווליום בתחתית הנגן, במרכז */
-  .volume-slider {
-    position: absolute !important;
-    bottom: 12px !important;
-    left: 40% !important;
-    transform: translateX(-50%) !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    width: 80% !important;
-    gap: 10px !important;
-    z-index: 9 !important;
-  }
-
-  .volume-slider .level {
-    width: 70% !important;
-    max-width: 240px !important;
+  if (floatingPlayer) {
+    floatingPlayer.style.display = 'none';
   }
 
 }
 
+function updatePrevNextButtons() {
+  const prevBtn = document.getElementById('prev-episode');
+  const nextBtn = document.getElementById('next-episode');
 
-</style>
+  if (!prevBtn || !nextBtn) return;
+
+  // פרק ראשון
+  if (currentEpisodeIndex <= 0) {
+    prevBtn.style.display = 'none';
+  } else {
+    prevBtn.style.display = 'inline-block';
+  }
+
+  // פרק אחרון
+  if (currentEpisodeIndex >= episodesGlobal.length - 1) {
+    nextBtn.style.display = 'none';
+  } else {
+    nextBtn.style.display = 'inline-block';
+  }
+}
+
+
+/* ===== תמונת פרק ===== */
+function getEpisodeImage(item) {
+  const itunes = item.getElementsByTagNameNS(
+    "http://www.itunes.com/dtds/podcast-1.0.dtd",
+    "image"
+  );
+  if (itunes.length) return itunes[0].getAttribute("href");
+  return "media/default-episode.png";
+}
+
+/* ===== רינדור פרק ===== */
+function renderEpisode(ep) {
+  document.getElementById("episode-title").textContent = ep.title;
+  document.getElementById("episode-player-title").textContent = ep.title;
+  document.title = `${ep.title}`;
+  document.getElementById("episode-date").textContent = ep.date;
+  document.getElementById("episode-image").src = ep.image;
+  document.getElementById("episode-player-image").src = ep.image;
+  document.getElementById("episode-description").innerHTML = ep.description;
+  document.getElementById("audio").src = ep.audio;
+    const totalMinutes = Math.floor(ep.duration / 60);
+const hours = Math.floor(totalMinutes / 60);
+const minutes = totalMinutes % 60;
+
+let durationText = "משך הפרק: ";
+
+if (hours > 0 && minutes > 0) {
+    durationText += (hours === 1 ? "שעה" : hours + " שעות") + " ו" + minutes + " דקות";
+} else if (hours > 0) {
+    durationText += (hours === 1 ? "שעה" : hours + " שעות");
+} else {
+    durationText += minutes + " דקות";
+}
+
+document.getElementById("duration").textContent = durationText;
+
+updatePrevNextButtons();
+
+}
+
+/* ===== פרקים נוספים ===== */
+function renderMoreEpisodes(episodes, currentGuid, programId) {
+  const container = document.getElementById("more-episodes");
+
+  episodes
+    .filter(e => e.guid !== currentGuid)
+    .slice(0, 4)
+    .forEach(ep => {
+      container.innerHTML += `
+      <div class="custom-episode-card">
+        <a href="playerEpisode.html?guid=${encodeURIComponent(ep.guid)}&program=${programId}">
+                        <img src="${ep.image}" alt="${ep.title}" />
+                  </a>
+                <div class="card-text mr-1">
+                    <h4 style="direction: rtl; text-align: right;">${ep.title}</h4>
+                    <p style="direction: rtl; text-align: right;">${ep.date}</p>
+                </div>
+                  <a href="playerEpisode.html?guid=${encodeURIComponent(ep.guid)}&program=${programId}">
+                    <i class="fa-solid fa-circle-play"></i>
+                </a>
+        </div>
+      `;
+    });
+}
+
+fetch("partials/navbar.html")
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById("navbar").innerHTML = html;
+  });
+
+
+  fetch("partials/footer.html")
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById("footer").innerHTML = html;
+  });
+
+</script>
 
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const tooltip = document.getElementById("share-tooltip");
-        const button = document.getElementById("share-button");
+  let episodesGlobal = [];
+let currentEpisodeIndex = -1;
 
-        // פתיחה/סגירה של ה־tooltip בלחיצה על הכפתור
-        button.addEventListener("click", function (e) {
-            e.stopPropagation();
-            tooltip.style.display = tooltip.style.display === "block" ? "none" : "block";
-        });
+document.addEventListener('DOMContentLoaded', () => {
+  const floatingPlayer = document.getElementById('floating-player');
+  if (!floatingPlayer) return;
 
-        // סגירה בלחיצה מחוץ ל־tooltip
-        document.addEventListener("click", function (e) {
-            if (!tooltip.contains(e.target) && e.target !== button) {
-                tooltip.style.display = "none";
-            }
-        });
+  // בחרים מתוך ה־floating-player כדי להמנע מקונפליקטים עם IDs אחרים בעמוד
+  const audioPlayer = floatingPlayer.querySelector('audio') || document.getElementById('audio');
+  const playerTitleEl = floatingPlayer.querySelector('.episode-info h4');
+  const closeBtn = floatingPlayer.querySelector('#close-player');
+  const playPauseBtn = floatingPlayer.querySelector('#play-pause');
+  const progressFill = floatingPlayer.querySelector('#progress-fill');
+  const currentTimeSpan = floatingPlayer.querySelector('#current-time');
+  const durationSpan = floatingPlayer.querySelector('#duration');
+  const skipBackBtn = floatingPlayer.querySelector('#skip-back');
+  const skipForwardBtn = floatingPlayer.querySelector('#skip-forward');
+  const speedToggleBtn = document.getElementById('speed-toggle-btn'); // יש ב־HTML
+  const speedOptions = document.querySelectorAll('.speed-option');
+  const volumeControl = floatingPlayer.querySelector('#volume-control');
+  const volumeIcon = document.getElementById('volume-icon');
+audioPlayer.addEventListener('play', () => playPauseBtn.innerHTML = '<i class="bi bi-pause-circle"></i>');
+audioPlayer.addEventListener('pause', () => playPauseBtn.innerHTML = '<i class="bi bi-play-circle"></i>');
+audioPlayer.addEventListener('ended', () => playPauseBtn.innerHTML = '<i class="bi bi-play-circle"></i>');
+
+  const speeds = [1, 1.2, 1.3, 1.5, 2];
+  let speedIndex = 0;
+
+  // עזרי פורמט
+  function formatTime(time) {
+    if (isNaN(time)) return '00:00';
+    const minutes = Math.floor(time / 60).toString().padStart(2, '0');
+    const seconds = Math.floor(time % 60).toString().padStart(2, '0');
+    return `${minutes}:${seconds}`;
+  }
+
+  function updateProgress() {
+    if (!audioPlayer || isNaN(audioPlayer.duration)) return;
+    const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+    progressFill.style.width = `${progress}%`;
+    currentTimeSpan.textContent = formatTime(audioPlayer.currentTime);
+    durationSpan.textContent = formatTime(audioPlayer.duration);
+  }
+
+  function togglePlay() {
+    if (!audioPlayer) return;
+    if (audioPlayer.paused) {
+      audioPlayer.play().catch(err => console.warn('Play failed:', err));
+      playPauseBtn.innerHTML = '<i class="bi bi-pause-circle"></i>';
+    } else {
+      audioPlayer.pause();
+      playPauseBtn.innerHTML = '<i class="bi bi-play-circle"></i>';
+    }
+  }
+
+  function skip(seconds) {
+    if (!audioPlayer || isNaN(audioPlayer.duration)) return;
+    const newTime = audioPlayer.currentTime + seconds;
+    audioPlayer.currentTime = Math.max(0, Math.min(audioPlayer.duration, newTime));
+  }
+
+  function seek(event) {
+    const bar = floatingPlayer.querySelector('.progress-bar');
+    if (!bar || !audioPlayer || isNaN(audioPlayer.duration)) return;
+    const rect = bar.getBoundingClientRect();
+    const clickX = event.clientX - rect.left;
+    const percent = clickX / rect.width;
+    audioPlayer.currentTime = percent * audioPlayer.duration;
+  }
+
+  // ווליום
+  if (volumeControl && audioPlayer) {
+    volumeControl.addEventListener('input', (e) => {
+      audioPlayer.volume = e.target.value;
+      const vol = audioPlayer.volume;
+      if (vol == 0) {
+        volumeIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M4 9v6h4l5 5V4L8 9H4z" fill="currentColor"></path>
+          <line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="2"/>
+          <line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="2"/>
+        </svg>`;
+      } else {
+        volumeIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M18.36 19.36a1 1 0 0 1-.705-1.71C19.167 16.148 20 14.142 20 12s-.833-4.148-2.345-5.65a1 1 0 1 1 1.41-1.419C20.958 6.812 22 9.322 22 12s-1.042 5.188-2.935 7.069a.997.997 0 0 1-.705.291z" fill="currentColor"></path>
+          <path d="M15.53 16.53a.999.999 0 0 1-.703-1.711C15.572 14.082 16 13.054 16 12s-.428-2.082-1.173-2.819a1 1 0 1 1 1.406-1.422A6 6 0 0 1 18 12a6 6 0 0 1-1.767 4.241.996.996 0 0 1-.703.289zM12 22a1 1 0 0 1-.707-.293L6.586 17H4c-1.103 0-2-.897-2-2V9c0-1.103.897-2 2-2h2.586l4.707-4.707A.998.998 0 0 1 13 3v18a1 1 0 0 1-1 1z" fill="currentColor"></path>
+        </svg>`;
+      }
+    });
+  }
+
+  // מאזינים של האודיו
+  if (audioPlayer) {
+    audioPlayer.addEventListener('timeupdate', updateProgress);
+    audioPlayer.addEventListener('loadedmetadata', () => {
+      durationSpan.textContent = formatTime(audioPlayer.duration);
+      currentTimeSpan.textContent = '00:00';
+      progressFill.style.width = '0%';
+      speedIndex = 0;
+      if (speedToggleBtn) speedToggleBtn.textContent = '1x';
+      audioPlayer.playbackRate = speeds[speedIndex];
     });
 
-    // פונקציית שיתוף לרשתות
-    function shareTo(platform) {
+    audioPlayer.addEventListener('ended', () => {
+      if (playPauseBtn) playPauseBtn.innerHTML = '<i class="bi bi-play-circle"></i>';
+    });
+  }
+
+  // כפתורים
+  if (playPauseBtn) playPauseBtn.addEventListener('click', togglePlay);
+  if (skipBackBtn) skipBackBtn.addEventListener('click', () => skip(-10));
+  if (skipForwardBtn) skipForwardBtn.addEventListener('click', () => skip(10));
+  if (closeBtn) closeBtn.addEventListener('click', () => {
+    if (audioPlayer) {
+      audioPlayer.pause();
+      audioPlayer.currentTime = 0;
+    }
+    if (playPauseBtn) playPauseBtn.innerHTML = '<i class="bi bi-play-circle"></i>';
+    floatingPlayer.style.display = 'none';
+  });
+
+  const progressContainer = floatingPlayer.querySelector('.progress-container');
+  if (progressContainer) progressContainer.addEventListener('click', seek);
+
+  // מהירות
+  if (speedToggleBtn) {
+    speedToggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const st = document.getElementById('speed-tooltip');
+      if (st) st.style.display = (st.style.display === 'flex') ? 'none' : 'flex';
+    });
+  }
+  if (speedOptions) {
+    speedOptions.forEach(option => {
+      option.addEventListener('click', () => {
+        speedOptions.forEach(opt => opt.classList.remove('active'));
+        option.classList.add('active');
+        const selectedSpeed = parseFloat(option.getAttribute('data-speed')) || 1;
+        if (speedToggleBtn) speedToggleBtn.textContent = `${selectedSpeed}x`;
+        if (audioPlayer) audioPlayer.playbackRate = selectedSpeed;
+        const st = document.getElementById('speed-tooltip');
+        if (st) st.style.display = 'none';
+      });
+    });
+  }
+
+  // כפתור שיתוף - פשוט סוגר/פותח טולטיפ
+  const shareBtn = document.getElementById('share-button');
+  const shareTooltip = document.getElementById('share-tooltip');
+  if (shareBtn && shareTooltip) {
+    shareBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      shareTooltip.style.display = shareTooltip.style.display === 'block' ? 'none' : 'block';
+    });
+    document.addEventListener('click', (e) => {
+      if (!shareTooltip.contains(e.target) && e.target !== shareBtn) shareTooltip.style.display = 'none';
+    });
+  }
+
+// לחצני "Play overlay" - טוענים לפלוטינג פלייר
+document.querySelectorAll('.play-overlay').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const audioEl = document.getElementById('audio');
+    if (!audioEl || !audioEl.src) {
+      alert('קובץ האודיו לא נטען או כתובתו לא תקינה.');
+      return;
+    }
+    document.getElementById('floating-player').style.display = 'block';
+    audioEl.play().catch(err => console.warn('Play failed:', err));
+  });
+});
+
+  // סגירת טולטיפ המהירות בלחיצה מחוץ לו
+  document.addEventListener('click', (e) => {
+    const st = document.getElementById('speed-tooltip');
+    if (st && !st.contains(e.target) && e.target !== speedToggleBtn) st.style.display = 'none';
+  });
+
+});
+
+
+document.getElementById('prev-episode').addEventListener('click', () => {
+  if (currentEpisodeIndex > 0) {
+    currentEpisodeIndex--;
+    renderEpisodeByIndex(currentEpisodeIndex);
+    // לא פותחים נגן
+    // לא מנגנים אוטומטית
+  }
+});
+
+document.getElementById('next-episode').addEventListener('click', () => {
+  if (currentEpisodeIndex < episodesGlobal.length - 1) {
+    currentEpisodeIndex++;
+    renderEpisodeByIndex(currentEpisodeIndex);
+    // לא פותחים נגן
+    // לא מנגנים אוטומטית
+  }
+});
+
+function shareTo(platform) {
         const url = encodeURIComponent(window.location.href);
         const text = encodeURIComponent(document.title);
         let shareUrl = '';
@@ -1267,4 +560,12 @@
         }
         window.open(shareUrl, '_blank', 'width=600,height=400');
     }
+
+
 </script>
+
+
+  <div id="footer"></div>
+
+</body>
+</html>

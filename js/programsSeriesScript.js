@@ -4,20 +4,23 @@ const slug = params.get("id");
 fetch("data/series.json")
   .then((r) => r.json())
   .then((data) => {
-    const program = data.series.find((p) => p.slug === slug);
+    const program = data.series.find((p) => p.id === slug);
     if (!program) return;
 
     document.getElementById("programTitle").innerText = program.title;
     document.getElementById("description").innerHTML =
       program.description || "";
 
+    document.getElementById("generalDescription").innerHTML =
+      program.generalDescription || "";
+
     const grid = document.getElementById("episodesGrid");
 
     program.episodes.forEach((ep) => {
       grid.innerHTML += `
         <div class="episode-wrapper">
-          <a href="episode.html?series=${slug}&ep=${ep.id}" class="episode-card">
-            <img src="${ep.image}" loading="lazy">
+          <a href="episodeVideo.html?series=${slug}&episode=${ep.id}" class="episode-card">
+            <img src="${ep.image}" alt="${ep.title}" loading="lazy">
           </a>
           <h3 class="episode-title">${ep.title}</h3>
         </div>
@@ -42,7 +45,11 @@ function initFavorites(program) {
     const index = favorites.findIndex((p) => p.slug === program.slug);
 
     if (index === -1) {
-      favorites.push(program);
+      favorites.push({
+        slug: program.slug,
+        title: program.title,
+        image: program.image,
+      });
       icon.classList.replace("fa-regular", "fa-solid");
       icon.classList.add("favorited");
     } else {

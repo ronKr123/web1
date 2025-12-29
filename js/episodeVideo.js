@@ -1,43 +1,41 @@
-const params = new URLSearchParams(window.location.search);
-const episodeId = Number(params.get("id"));
+const params = new URLSearchParams(location.search);
+const seriesId = params.get("series");
+const episodeId = params.get("episode");
 
-fetch("data/programs.json")
+fetch("data/series.json") // הקובץ עם ה-JSON ששלחת
   .then((r) => r.json())
   .then((data) => {
-    const program = data.programs[0];
-    const episode = program.episodes.find((e) => e.id === episodeId);
+    const series = data.series.find((s) => s.id === seriesId);
+    if (!series) return;
 
-    // כותרת
-    document.getElementById("episodeTitle").innerText = episode.title;
+    const episode = series.episodes.find((e) => e.id === episodeId);
+    if (!episode) return;
 
-    // תיאור
-    document.getElementById("episodeDescription").innerHTML =
-      episode.description.replace(/\./g, ".<br>");
+    // כותרת + תיאור
+    document.getElementById("episodeTitle").textContent = episode.title;
+    document.getElementById("episodeDescription").textContent =
+      episode.description;
 
     // YouTube embed
-    let url = new URL(episode.youtube);
-    let videoId = url.searchParams.get("v");
-    let start = url.searchParams.get("t")?.replace("s", "");
-
+    const videoId = episode.youtube.split("v=")[1];
     document.getElementById(
       "videoFrame"
-    ).src = `https://www.youtube.com/embed/${videoId}${
-      start ? `?start=${start}` : ""
-    }`;
+    ).src = `https://www.youtube.com/embed/${videoId}`;
 
     // פרקים נוספים
-    const container = document.getElementById("otherEpisodes");
+    const other = document.getElementById("otherEpisodes");
+    series.episodes.forEach((ep) => {
+      if (ep.id === episode.id) return;
 
-    program.episodes
-      .filter((e) => e.id !== episodeId)
-      .forEach((ep) => {
-        container.innerHTML += `
-          <div class="episode-card">
-            <a href="episode.html?id=${ep.id}">
-              <img src="${ep.image}">
-              <h3>${ep.title}</h3>
-            </a>
-          </div>
-        `;
-      });
+      const card = document.createElement("div");
+      card.className = "episode-card";
+      card.innerHTML = `
+        <img src="${ep.image}" alt="${ep.title}">
+        <h3>${ep.title}</h3>
+        <a href="episodeVideo.html?series=${series.id}&episode=${ep.id}">
+          לצפייה בפרק
+        </a>
+      `;
+      other.appendChild(card);
+    });
   });

@@ -117,7 +117,7 @@ function renderMore() {
     div.innerHTML = `
     <div class="episode-image-container">
       <img src="${ep.image}" loading="lazy" alt="תמונה של ${ep.title}">
-      <a href="episode.html?guid=${encodeURIComponent(
+      <a href="playerEpisode.html?guid=${encodeURIComponent(
         ep.guid
       )}&program=${encodeURIComponent(programId)}" class="play-button">
         <i class="fa-solid fa-circle-play"></i>

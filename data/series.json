@@ -3,16 +3,15 @@
     {
       "id": "masa-comtot",
       "title": "מסע כומתות",
-      "slug": "masa-comtot",
       "image": "media\\האדם-השלישי.png",
-      "description": "ברוכים הבאים למסע הכומתות שלנו, או בקיצור מס\"כ. במהלך סדרת הרשת שלנו נחקור ונגלה יחידות מעניינות ומסקרנות בצה\"ל.",
+      "description": "ברוכים הבאים למסע הכומתות שלניחידות מעניינות ומסקרנות בצה\"ל.",
       "episodes": [
         {
           "id": "ep1",
           "title": "טקס סיום קורס חובשים",
-          "description": "הגענו לטקס סיום קורס חובשים | אחת ההכשרות המטורפות בצה\"ל שלושה חודשים של הקפצות, תחבושות, מופעי אור קוליים, נסרין קדרי ובובות!?נסענו לבה\"ד 10 לפגוש את הלוחמות והלוחמים שמצילים חיים והמשפחות הגאות שלהם ❤️ מסע כומתות, עונה חדשה, תצטרפו אלינו! 📸 (נסרין): אלי פולירוק חדד",
+          "description": "הגענן קדרי ובובות!?נסענו לבה\"ד 10 לפגוש את הלוחמות והלוחמים שמצילים חיים והמשפחות הגאות שלהם ❤️ מסע כומתות, עונה חדשה, תצטרפו אלינו! 📸 (נסרין): אלי פולירוק חדד",
           "duration": "12:35",
-          "image": "media\\hq720-3.png",
+          "image": "media\\ep4.jpg",
           "youtube": "https://www.youtube.com/watch?v=OJoJXp0fH08",
           "publishDate": "2025-01-10"
         },
@@ -22,8 +21,62 @@
           "description": "תיאור הפרק השני",
           "duration": "09:40",
           "image": "images/ep2.jpg",
-          "youtube": "https://www.youtube.com/watch?v=BBB222",
+          "youtube": "https://www.youtube.com/watch?v=fQrRlfAj1m8",
           "publishDate": "2025-01-17"
+        },
+        {
+          "id": "ep3",
+          "title": "פרק 3",
+          "description": "תיאור הפרק השלישי",
+          "duration": "11:20",
+          "image": "images/ep3.jpg",
+          "youtube": "https://www.youtube.com/watch?v=AbCdEfGhIjk",
+          "publishDate": "2025-01-24"
+        },
+        {
+          "id": "ep3",
+          "title": "פרק 3",
+          "description": "תיאור הפרק השלישי",
+          "duration": "11:20",
+          "image": "images/ep3.jpg",
+          "youtube": "https://www.youtube.com/watch?v=AbCdEfGhIjk",
+          "publishDate": "2025-01-24"
+        },
+        {
+          "id": "ep3",
+          "title": "פרק 3",
+          "description": "תיאור הפרק השלישי",
+          "duration": "11:20",
+          "image": "images/ep3.jpg",
+          "youtube": "https://www.youtube.com/watch?v=AbCdEfGhIjk",
+          "publishDate": "2025-01-24"
+        },
+        {
+          "id": "ep3",
+          "title": "פרק 3",
+          "description": "תיאור הפרק השלישי",
+          "duration": "11:20",
+          "image": "images/ep3.jpg",
+          "youtube": "https://www.youtube.com/watch?v=AbCdEfGhIjk",
+          "publishDate": "2025-01-24"
+        },
+        {
+          "id": "ep3",
+          "title": "פרק 3",
+          "description": "תיאור הפרק השלישי",
+          "duration": "11:20",
+          "image": "images/ep3.jpg",
+          "youtube": "https://www.youtube.com/watch?v=AbCdEfGhIjk",
+          "publishDate": "2025-01-24"
+        },
+        {
+          "id": "ep3",
+          "title": "פרק 3",
+          "description": "תיאור הפרק השלישי",
+          "duration": "11:20",
+          "image": "images/ep3.jpg",
+          "youtube": "https://www.youtube.com/watch?v=AbCdEfGhIjk",
+          "publishDate": "2025-01-24"
         }
       ]
     },
@@ -31,7 +84,6 @@
     {
       "id": "tech_talk",
       "title": "טק טוק",
-      "slug": "tech-talk",
       "image": "images/tech.jpg",
       "description": "סדרת טכנולוגיה",
       "episodes": [
