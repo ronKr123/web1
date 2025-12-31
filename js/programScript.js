@@ -176,7 +176,12 @@ function initFavorites(program) {
     const index = favorites.findIndex((p) => p.id === program.id);
 
     if (index === -1) {
-      favorites.push(program);
+      favorites.push({
+        id: program.id,
+        name: program.title,
+        image: program.tab,
+        urlProgram: `program.html?id=${program.id}`,
+      });
       icon.classList.replace("fa-regular", "fa-solid");
       icon.classList.add("favorited");
     } else {
