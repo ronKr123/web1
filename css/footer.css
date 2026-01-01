@@ -29,7 +29,7 @@ main {
 }
 
 .footer-column {
-  flex: 1 1 300px;
+  /* flex: 1 1 300px; ניסיון בלי*/
   min-width: 100px;
 }
 

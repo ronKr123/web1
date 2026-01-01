@@ -29,6 +29,7 @@
     document.getElementById("footer").innerHTML = html;
   });
 </script>
+
 </head>
 
 <body>
@@ -57,6 +58,7 @@
     });
   });
 </script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- רווח עליון לתוכן כדי למנוע חפיפה -->
 <!-- <div style="height:84px;" > </div> -->
@@ -327,7 +329,7 @@
     @media (max-width: 768px) {
         .custom-episodes-wrapper {
             grid-template-columns: 1fr;
-            padding: 10;
+            padding: 10; 
         }
     }
 
@@ -339,7 +341,9 @@
 
     @media (max-width: 600px) {
         .programs-grid {
-            grid-template-columns: 1fr !important;
+            /* grid-template-columns: 1fr !important; ניסיון בלי*/
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
         }
     }
 
