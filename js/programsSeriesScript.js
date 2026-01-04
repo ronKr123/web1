@@ -36,19 +36,20 @@ function initFavorites(program) {
   );
   const icon = document.getElementById("favorite-icon");
 
-  if (favorites.find((p) => p.slug === program.slug)) {
+  if (favorites.find((p) => p.id === program.id)) {
     icon.classList.replace("fa-regular", "fa-solid");
     icon.classList.add("favorited");
   }
 
   document.getElementById("favorite-btn").onclick = () => {
-    const index = favorites.findIndex((p) => p.slug === program.slug);
+    const index = favorites.findIndex((p) => p.id === program.id);
 
     if (index === -1) {
       favorites.push({
-        slug: program.slug,
-        title: program.title,
+        id: program.id,
+        name: program.title,
         image: program.image,
+        urlProgram: `programsSeries.html?id=${program.id}`,
       });
       icon.classList.replace("fa-regular", "fa-solid");
       icon.classList.add("favorited");

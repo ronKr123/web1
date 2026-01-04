@@ -2,6 +2,7 @@
 	<title>גלצ פלוס</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <link rel="icon" type="image/x-icon" href="media/favicon.ico">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;display=swap" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
@@ -39,12 +40,12 @@
 
       <!-- אמצע – הקישורים -->
       <div class="nav-center nav-links">
-        <a class="nav-link" href="/קטגוריות/מוזיקה/">מוזיקה</a>
-        <a class="nav-link" href="/הסכתים/">הסכתים</a>
-        <a class="nav-link" href="programsSeries.html">סדרות רשת</a>
-        <a class="nav-link" href="/תרבות-ופנאי/">תרבות ופנאי</a>
-        <a class="nav-link" href="/קטגוריות/ילדים-ונוער/">ילדים ונוער</a>
-        <a class="nav-link" href="/ארכיון/">ארכיון</a>
+        <a class="nav-link" href="musicPage.html">מוזיקה</a>
+        <a class="nav-link" href="podcastsPage.html">הסכתים</a>
+        <a class="nav-link" href="sadarotReshet.html">סדרות רשת</a>
+        <a class="nav-link" href="culturePage.html">תרבות ופנאי</a>
+        <a class="nav-link" href="kidsPage.html">ילדים ונוער</a>
+        <a class="nav-link" href="archivesPage.html">ארכיון</a>
       </div>
 
 
@@ -67,12 +68,12 @@
   </div>
 
   <div id="mobileMenu" class="mobile-menu">
-    <a href="/קטגוריות/מוזיקה/" data-close="">מוזיקה</a>
-    <a href="/הסכתים/" data-close="">הסכתים</a>
-    <a href="programsSeries.html" data-close="">סדרות רשת</a>
-    <a href="/תרבות-ופנאי/" data-close="">תרבות ופנאי</a>
-    <a href="/קטגוריות/ילדים-ונוער/" data-close="">ילדים ונוער</a>
-    <a href="/ארכיון/" data-close="">ארכיון</a>
+    <a href="musicPage.html" data-close="">מוזיקה</a>
+    <a href="podcastsPage.html" data-close="">הסכתים</a>
+    <a href="sadarotReshet.html" data-close="">סדרות רשת</a>
+    <a href="culturePage.html" data-close="">תרבות ופנאי</a>
+    <a href="kidsPage.html" data-close="">ילדים ונוער</a>
+    <a href="archivesPage.html" data-close="">ארכיון</a>
   </div>
 </nav>
 
@@ -124,37 +125,37 @@
   <div>
     <div class="icon-row">
           <div class="icon-item">
-            <a href="/ארכיון/">
+            <a href="archivesPage.html">
               <img src="media/ארכיון.png" alt="ארכיון">
             </a>
             <h3>ארכיון</h3>
           </div>
           <div class="icon-item">
-            <a href="/קטגוריות/ילדים-ונוער/">
+            <a href="kidsPage.html">
               <img src="media/ילדים-ונוער.png" alt="ילדים ונוער">
             </a>
             <h3>ילדים ונוער</h3>
           </div>
           <div class="icon-item">
-            <a href="/תרבות-ופנאי/">
+            <a href="culturePage.html">
               <img src="media/תרבות-ופנאי.png" alt="תרבות ופנאי">
             </a>
             <h3>תרבות ופנאי</h3>
           </div>
           <div class="icon-item">
-            <a href="programsSeries.html">
+            <a href="sadarotReshet.html">
               <img src="media/סדרות-רשת-0d-1.png" alt="סדרות רשת">
             </a>
             <h3>סדרות רשת</h3>
           </div>
           <div class="icon-item">
-            <a href="/הסכתים/">
+            <a href="podcastsPage.html">
               <img src="media/הסכתים.png" alt="הסכתים">
             </a>
             <h3>הסכתים</h3>
           </div>
           <div class="icon-item">
-            <a href="/קטגוריות/מוזיקה/">
+            <a href="musicPage.html">
               <img src="media/מוזיקה.png" alt="מוזיקה">
             </a>
             <h3>מוזיקה</h3>
@@ -168,7 +169,8 @@
   <div class="video-programs-section">
 
     <div class="programs-grid">
-          <a href="program.html?id=eamon" class="program-card">
+          <a href="program.html?id=eamon" class="program-card" data-title="מסע כומתות"
+   data-desc="מפגשים עם לוחמים, סיפורים אישיים ומשמעות השירות">
             <img src="media/בתןך-הפודקאסט-פי-2-3.png" alt="תכנית">
             <div class="play-button">
               <i class="bi bi-play-circle-fill"></i>
@@ -180,7 +182,7 @@
               <i class="bi bi-play-circle-fill"></i>
             </div>
           </a>
-          <a href="/תכניות/קולה-של-אמא-ההסכת/" class="program-card">
+          <a href="program.html?id=kulshPodcast" class="program-card">
             <img src="media/בתןך-הפודקאסט-פי-2-2.jpg" alt="תכנית">
             <div class="play-button">
               <i class="bi bi-play-circle-fill"></i>
@@ -1208,12 +1210,12 @@ iframe {
     <div class="footer-column footer-links text-center">
       <h3>עמודי האתר</h3>
       <ul>
-        <li><a href="/קטגוריות/ילדים-ונוער/">ילדים ונוער</a></li>
-        <li><a href="/קטגוריות/סדרות-רשת/">סדרות רשת</a></li>
-        <li><a href="/תרבות-ופנאי/">תרבות ופנאי</a></li>
-        <li><a href="/הסכתים/">הסכתים</a></li>
-        <li><a href="/קטגוריות/מוזיקה/">מוזיקה</a></li>
-        <li><a href="/ארכיון/">ארכיון</a></li>
+        <li><a href="kidsPage.html">ילדים ונוער</a></li>
+        <li><a href="sadarotReshet.html">סדרות רשת</a></li>
+        <li><a href="culturePage.html">תרבות ופנאי</a></li>
+        <li><a href="podcastsPage.html">הסכתים</a></li>
+        <li><a href="musicPage.html">מוזיקה</a></li>
+        <li><a href="archivesPage.html">ארכיון</a></li>
       </ul>
     </div>
 
