@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="css/HomeStyle.css">
     <link rel="stylesheet" href="css/podcastGridStyle.css">
     <link rel="stylesheet" href="css/NavigationBarStyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 
 
 <!-- Bootstrap CSS -->
@@ -169,26 +172,26 @@
   <div class="video-programs-section">
 
     <div class="programs-grid">
-          <a href="program.html?id=eamon" class="program-card" data-title="מסע כומתות"
-   data-desc="מפגשים עם לוחמים, סיפורים אישיים ומשמעות השירות">
+          <a href="program.html?id=eamon" class="program-card" data-title="אי אמון"
+   data-desc='"אי אמון" הוא הסכת שנולד מתוך כאב משותף ורצון לייצר שיח אחר...'>
             <img src="media/בתןך-הפודקאסט-פי-2-3.png" alt="תכנית">
             <div class="play-button">
               <i class="bi bi-play-circle-fill"></i>
             </div>
           </a>
-          <a href="program.html?id=music-tech" class="program-card">
+          <a href="program.html?id=music-tech" class="program-card" data-title="פודקאסט על מוזיקה וטכנולוגיה" data-desc='"פודקאסט על מוזיקה וטכנולוגיה" מיועד לכל מי שסקרן להבין את מהפכת המוזיקה והתרבות '>
             <img src="media/בתןך-הפודקאסט-פי-2-1.jpg" alt="תכנית">
             <div class="play-button">
               <i class="bi bi-play-circle-fill"></i>
             </div>
           </a>
-          <a href="program.html?id=kulshPodcast" class="program-card">
+          <a href="program.html?id=kulshPodcast" class="program-card" data-title="קולה של אמא - ההסכת" data-desc="כבר מעל ל-45 שנה שהתכנית &quot;קולה של אמא&quot; משודרת בגלי צה&quot;ל ומביאה לקדמת הבמה את הסיפורים של החיילים ומשפחותיהם">
             <img src="media/בתןך-הפודקאסט-פי-2-2.jpg" alt="תכנית">
             <div class="play-button">
               <i class="bi bi-play-circle-fill"></i>
             </div>
           </a>
-          <a href="/תכניות/מלך-בלייצר-חיים/" class="program-card">
+          <a href="/תכניות/מלך-בלייצר-חיים/" class="program-card" data-title="מלך בלייצר חיים" data-desc="בהסכת החדש של גלי צה&quot;ל, &quot;מלך בלייצר חיים&quot; בהגשת אבי הרוש, בכל פרק נארח אב שכול אחר לשיחה פתוחה על החיים שלפני, הקשיים וההתמודדויות ביום יום, החלומות, התחושות והמחשבות שמלווים אבות שכולים">
             <img src="media/אבי.jpg" alt="תכנית">
             <div class="play-button">
               <i class="bi bi-play-circle-fill"></i>
@@ -1192,6 +1195,104 @@ iframe {
       border-radius: 12px;
     }
   }
+
+
+  @media (max-width: 768px) {
+
+  /* מבטל גריד ריבועים והופך לרשימה */
+  .video-programs-section .programs-grid {
+    display: block;
+    width: 100%;
+    max-width: 700px;
+    aspect-ratio: auto;
+  }
+
+  /* כל כרטיס = שורת רשימה */
+  .video-programs-section .programs-grid .program-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 120px; /* טקסט | תמונה (RTL) */
+    column-gap: 12px;
+    align-items: center;
+
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+
+    border: 1px solid #eef2f5;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+
+    aspect-ratio: auto;
+    min-height: 82px;
+    overflow: hidden;
+  }
+
+  /* תמונה – עמודה ימנית */
+  .video-programs-section .programs-grid img {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    width: 120px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  /* שם תכנית – נשלף מ־data-title */
+  .video-programs-section .programs-grid .program-card::before {
+    content: attr(data-title);
+    grid-column: 1;
+    grid-row: 1;
+   font-family: "Rubik", sans-serif;
+   font-optical-sizing: auto;
+   font-weight: 800;
+    font-style: normal;
+    font-size: 20px;
+    font-weight: 800;
+    color: #0052BB;
+    text-align: right;
+    direction: rtl;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* תיאור – נשלף מ־data-desc */
+  .video-programs-section .programs-grid .program-card::after {
+    content: attr(data-desc);
+    grid-column: 1;
+    grid-row: 2;
+
+    margin-top: 2px;
+    font-family: "Rubik", sans-serif;
+   font-optical-sizing: auto;
+   font-weight: 800;
+    font-style: normal;
+    font-size: 15px;
+    color: rgba(0,0,0,0.65);
+    text-align: right;
+    direction: rtl;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* מסתיר play במובייל (אופציונלי) */
+  .video-programs-section .play-button {
+    display: none;
+  }
+
+  /* הווידאו יישאר מתחת לרשימה */
+  .video-programs-section .video-frame {
+    width: 100%;
+    max-width: 700px;
+    margin-top: 12px;
+  }
+}
+
 </style>
 
 	<link rel="stylesheet" href="/css/footer.css">
