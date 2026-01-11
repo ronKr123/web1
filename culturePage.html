@@ -11,10 +11,18 @@
 	<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&amp;family=Rubik:ital,wght@0,300..900;1,300..900&amp;display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/main.css">
 	<!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/footer.css">
 
 	<!-- Bootstrap JS -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
 
+  fetch("partials/footer.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("footer").innerHTML = html;
+    });
+</script>
 </head>
 
 <body>
@@ -25,7 +33,7 @@
     <div class="nav-row">
 
       <div class="nav-side brand">
-        <a href="/">
+        <a href="/web1">
           <img src="media/screenshot_2025-08-10_183245-removebg-preview-1.png" alt="logo" style="width: 90px; height: 60px; margin-left: 10px;">
         </a>
       </div>
@@ -412,76 +420,8 @@
 
 
 	<link rel="stylesheet" href="/css/footer.css">
-
-<footer class="custom-footer">
-  <div class="footer-container">
     
-    <!-- טור ימין עם לוגו -->
-    <div class="footer-logo">
-      <a href="/">
-        <img src="/media/rbinfkzw/screenshot_2025-08-10_183245-removebg-preview-1.png" alt="גלצ פלוס">
-      </a>
-    </div>
+</body>
+    <div id="footer"></div>
 
-    <!-- טור קישורים -->
-    <div class="footer-column footer-links text-center">
-      <h3>עמודי האתר</h3>
-      <ul>
-        <li><a href="/קטגוריות/ילדים-ונוער/">ילדים ונוער</a></li>
-        <li><a href="/קטגוריות/סדרות-רשת/">סדרות רשת</a></li>
-        <li><a href="/תרבות-ופנאי/">תרבות ופנאי</a></li>
-        <li><a href="/הסכתים/">הסכתים</a></li>
-        <li><a href="/קטגוריות/מוזיקה/">מוזיקה</a></li>
-        <li><a href="/ארכיון/">ארכיון</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-column footer-links text-center">
-      <h3>תכנים פופלרים</h3>
-      <ul>
-        <li><a href="/תכניות/בטלים-בשישי/">בטלים בשישי</a></li>
-        <li><a href="/תכניות/דור-הביט/">דור הביט</a></li>
-        <li><a href="/תכניות/הבית-של-יעל/">הבית של יעל</a></li>
-        <li><a href="/תכניות/ספיישלים-מוזיקלים/">ספיישלים מוזיקלים</a></li>
-        <li><a href="/תכניות/מסע-כומתות/">מסע כומתות</a></li>
-        <li><a href="/תכניות/פודקאסט-על-מוזיקה-וטכנולוגיה/">פודקאסט על מוזיקה וטכנולוגיה</a></li>
-      </ul>
-    </div>
-
-    <!-- טור אמצע: רשתות חברתיות -->
-    <div class="footer-column footer-social text-center">
-      <h3>עקבו אחרינו</h3>
-      <div class="social-icons">
-        <a href="https://did.li/EDo6q" target="_blank"><img src="/media/jzrgbn12/tik-tok1.svg" alt="TikTok"></a>
-        <a href="https://did.li/a1imC" target="_blank"><img src="/media/xa3hv3cn/youtube1.svg" alt="YouTube"></a>
-        <a href="https://did.li/P62aa" target="_blank"><img src="/media/sozpt2h4/facebook1.svg" alt="Facebook"></a>
-        <a href="https://did.li/hJ8TY" target="_blank"><img src="/media/u3hhzcov/instagram1.svg" alt="Instagram"></a>
-      </div>
-    </div>
-
-    <!-- טור שמאל: הורדה בנייד -->
-    <div class="footer-column footer-apps text-center">
-      <h3>להורדה גם בנייד</h3>
-      <div class="app-buttons">
-        <a href="https://did.li/sbLZH" target="_blank">
-          <img src="/media/jnpglslh/screenshot_2025-08-08_162822-removebg-preview.png" alt="Google Play">
-        </a>
-        <a href="https://did.li/UOQIw" target="_blank">
-          <img src="/media/fpcogxol/screenshot_2025-08-08_162822-removebg-preview-1.png" alt="App Store">
-        </a>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- זכויות יוצרים -->
-  <div class="footer-bottom">
-    <p>© 2025 כל הזכויות שמורות - גל"צ פלוס</p>
-  </div>
-</footer>
-
-
-
-
-
-</body></html>
+</html>
