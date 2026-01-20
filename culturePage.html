@@ -105,7 +105,7 @@
 <!-- <div style="height:84px;" > </div> -->
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<script src="js/newCulureProgramsScript.js" ></script>
 	
 <link rel="stylesheet" href="css/PodcastsPageGridStyleNew.css">
 
@@ -118,75 +118,21 @@
             תכניות אחרונות ששודרו</h1>
     </div>
 
-    <div class="custom-episodes-wrapper">
-            <div class="custom-episode-card">
-                <a href="/episode?guid=20cfa857-7fc0-4042-ab1c-b3bf00c775b2&amp;programId=1163">
-                    <i class="fa-solid fa-circle-play"></i>
-                </a>
-                <div class="card-text">
-                    <h4 style="direction: rtl; text-align: right;">בטלים בשישי | 26.12.25</h4>
-                    <p style="direction: rtl; text-align: right; font-size: 20px;">בטלים בשישי</p>
-                    <p style="direction: rtl; text-align: right; font-size: 19x;">26.12.25</p>
-                </div>
-                    <a href="/episode?guid=20cfa857-7fc0-4042-ab1c-b3bf00c775b2&amp;programId=1163">
-                        <img src="https://www.omnycontent.com/d/playlist/6dcbc33f-1fb6-49de-9ae2-ad8a00c01523/72413f6f-82a2-47a1-a7f3-adef00e55033/2e0ae20d-7e6b-4497-905e-adef00e63f35/image.jpg?t=1736324951&amp;size=Large" alt="בטלים בשישי | 26.12.25">
-                    </a>
-            </div>
-            <div class="custom-episode-card">
-                <a href="/episode?guid=1e4c20d7-bd50-48b4-9602-b3bd00d9a4cb&amp;programId=1647">
-                    <i class="fa-solid fa-circle-play"></i>
-                </a>
-                <div class="card-text">
-                    <h4 style="direction: rtl; text-align: right;">טוב שבאתם | דני פרידלנדר | 24.12.25</h4>
-                    <p style="direction: rtl; text-align: right; font-size: 20px;">טוב שבאתם</p>
-                    <p style="direction: rtl; text-align: right; font-size: 19x;">24.12.25</p>
-                </div>
-                    <a href="/episode?guid=1e4c20d7-bd50-48b4-9602-b3bd00d9a4cb&amp;programId=1647">
-                        <img src="https://www.omnycontent.com/d/playlist/6dcbc33f-1fb6-49de-9ae2-ad8a00c01523/21b1861a-97dc-4b77-aa78-b37e00aa8557/0a1ccc9f-04d1-4319-9120-b37e00aa8993/image.jpg?t=1761482049&amp;size=Large" alt="טוב שבאתם | דני פרידלנדר | 24.12.25">
-                    </a>
-            </div>
-            <div class="custom-episode-card">
-                <a href="/episode?guid=18f0c63a-e426-4169-af52-b3be00e71635&amp;programId=1444">
-                    <i class="fa-solid fa-circle-play"></i>
-                </a>
-                <div class="card-text">
-                    <h4 style="direction: rtl; text-align: right;">בן וקובי פרג' | 25.12.25</h4>
-                    <p style="direction: rtl; text-align: right; font-size: 20px;">בן וקובי פרג'</p>
-                    <p style="direction: rtl; text-align: right; font-size: 19x;">25.12.25</p>
-                </div>
-                    <a href="/episode?guid=18f0c63a-e426-4169-af52-b3be00e71635&amp;programId=1444">
-                        <img src="https://www.omnycontent.com/d/playlist/6dcbc33f-1fb6-49de-9ae2-ad8a00c01523/d544bcd9-b945-478e-9cae-ade900ce8878/a780796e-e795-4019-ae57-ade900cf087f/image.jpg?t=1741001123&amp;size=Large" alt="בן וקובי פרג' | 25.12.25">
-                    </a>
-            </div>
-            <div class="custom-episode-card">
-                <a href="/episode?guid=c13f2024-c361-48c5-84ff-b3b90074d8e3&amp;programId=1588">
-                    <i class="fa-solid fa-circle-play"></i>
-                </a>
-                <div class="card-text">
-                    <h4 style="direction: rtl; text-align: right;">שמונה לקפה | פרופסור דפנה יואל, חוקרת מוח | 20.12.25</h4>
-                    <p style="direction: rtl; text-align: right; font-size: 20px;">שמונה לקפה</p>
-                    <p style="direction: rtl; text-align: right; font-size: 19x;">20.12.25</p>
-                </div>
-                    <a href="/episode?guid=c13f2024-c361-48c5-84ff-b3b90074d8e3&amp;programId=1588">
-                        <img src="https://www.omnycontent.com/d/playlist/6dcbc33f-1fb6-49de-9ae2-ad8a00c01523/d56930f1-a4d7-4547-b554-afaf009affab/e86acaeb-2f12-4226-9ee3-afaf009b9004/image.jpg?t=1676978361&amp;size=Large" alt="שמונה לקפה | פרופסור דפנה יואל, חוקרת מוח | 20.12.25">
-                    </a>
-            </div>
-    </div>
+        <div class="custom-episodes-wrapper" id="latest-episodes"></div>
+
 </section>
-
-
 
     <h1 class="page-title text-center mt-3" style="font-family: 'Assistant', sans-serif; font-size: 36px; font-weight: 700; color: #0B3D91; margin: 0; margin-top: 10px;">
         תכניות תרבות ופנאי</h1>
     <div class="programs-grid" style="direction:rtl;">
             <div class="program-card">
-                <a href="/תכניות/בטלים-בשישי/">
+                <a href="program.html?id=betalim">
                     <img src="media/בתןך-הפודקאסט-פי-2-4.png" alt="בטלים בשישי">
                     <h4 class="text-center">בטלים בשישי</h4>
                 </a>
             </div>
             <div class="program-card">
-                <a href="/תכניות/טוב-שבאתם/">
+                <a href="program.html?id=tov-shebatem">
                     <img src="media/בתןך-הפודקאסט-פי-2-1.png" alt="טוב שבאתם">
                     <h4 class="text-center">טוב שבאתם</h4>
                 </a>

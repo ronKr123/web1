@@ -1,10 +1,10 @@
 const RSS_PROXY = "https://api.rss2json.com/v1/api.json?rss_url=";
 
 const selectedProgramIds = [
-  "tov-shebatem",
   "music-tech",
   "kulshPodcast",
   "eamon",
+  "melechblayizerhaim",
 ];
 
 fetch("data/programs.json")

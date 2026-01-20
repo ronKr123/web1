@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>סדרות-רשת-0d-1</title>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* גובה הקרוסלה - תופסת חלק גדול מהעמוד */
+    .hero {
+  height: 65vh;
+  min-height: 420px;
+  overflow: hidden;
+}
+
+.hero .carousel-item {
+  height: 65vh;
+  min-height: 420px;
+  background-size:contain;      /* חשוב */
+  background-position: center;
+  background-position: left;  /* מיקום התמונה בצד ימין */
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to left,
+    rgba(6, 23, 60, 0.95) 35%,
+    rgba(6, 23, 60, 0.6) 55%,
+    rgba(0, 0, 0, 0) 75%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* תוכן בצד ימין */
+}
+
+.hero-content {
+  color: white;
+  margin-right: 90px;   /* רווח מהחץ הימני */
+  max-width: 420px;
+  text-align: right;
+}
+
+
+.hero-logo {
+  max-width: 260px;
+  margin-bottom: 20px;
+}
+
+.hero-text {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+/* כפתור בסגנון גלולה */
+.hero-btn {
+  background: white;
+  color: #0d2cff;
+  font-weight: 600;
+  border-radius: 50px;
+  padding: 10px 22px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.hero-btn:hover {
+  background: #f1f1f1;
+  color: #0d2cff;
+}
+
+/* נקודות */
+.carousel-indicators [data-bs-target] {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.carousel-control-prev {
+  right: auto;
+  left: 20px;
+}
+
+.carousel-control-next {
+  right: 20px;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: drop-shadow(0 0 6px rgba(0,0,0,0.6));
+}
+
+
+    /* סגנון לכרטיסים של הפרקים והתכניות */
+    .big-card .card-img-top {
+      height: 220px;
+      object-fit: cover;
+    }
+    .series-card .card-img-top {
+      height: 180px;
+      object-fit: cover;
+    }
+
+    /* כותרת מעוצבת */
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin: 32px 0 16px;
+      display: inline-block;
+      position: relative;
+    }
+    .section-title::after {
+      content: "";
+      height: 6px;
+      width: 64px;
+      background: #0d6efd;
+      position: absolute;
+      left: -78px; /* בגלל RTL - הקו יהיה משמאל לכותרת */
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 4px;
+    }
+
+    /* התאמות למסכים קטנים */
+    @media (max-width: 767.98px) {
+      .slide-overlay { left: 16px; max-width: 80%; }
+      .slide-overlay img.logo { max-width: 160px; }
+      .carousel-item::before { background: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.2)); }
+    }
+  </style>
+</head>
+<body class="bg-light">
+
+  <div id="heroCarousel" class="carousel slide hero" data-bs-ride="carousel">
+
+  <!-- נקודות -->
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+  </div>
+<button class="carousel-control-prev" type="button"
+        data-bs-target="#heroCarousel" data-bs-slide="prev">
+  <span class="carousel-control-prev-icon"></span>
+</button>
+
+<button class="carousel-control-next" type="button"
+        data-bs-target="#heroCarousel" data-bs-slide="next">
+  <span class="carousel-control-next-icon"></span>
+</button>
+
+  <div class="carousel-inner">
+
+    <!-- שקופית 1 -->
+    <div class="carousel-item active" style="background-image:url('/media/hq720-3.png')">
+      <div class="hero-overlay">
+        <div class="hero-content">
+          <img src="/media/hq720-3.png" class="hero-logo" alt="">
+          <p class="hero-text">
+            תיאור קצר של סדרת הרשת שלך<br>
+            עם משפט שיווקי חמוד
+          </p>
+          <a href="#" class="btn hero-btn">לצפייה בפרק הראשון</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- שקופית 2 -->
+    <div class="carousel-item" style="background-image:url('img/slide2.jpg')">
+      <div class="hero-overlay">
+        <div class="hero-content">
+          <img src="img/logo2.png" class="hero-logo" alt="">
+          <p class="hero-text">טקסט אחר</p>
+          <a href="#" class="btn hero-btn">לצפייה בפרק הראשון</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- שקופית 3 -->
+    <div class="carousel-item" style="background-image:url('img/slide3.jpg')">
+      <div class="hero-overlay">
+        <div class="hero-content">
+          <img src="img/logo3.png" class="hero-logo" alt="">
+          <p class="hero-text">עוד תוכן</p>
+          <a href="#" class="btn hero-btn">לצפייה בפרק הראשון</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+  <!-- תוכן תחתון - מרווח -->
+  <div class="container mt-4">
+
+    <!-- 4 כרטיסי פרקים גדולים -->
+    <div class="row g-3 mb-4">
+      <div class="col-12">
+        <h2 class="section-title">פרקים נבחרים</h2>
+      </div>
+
+      <!-- כרטיס 1 -->
+      <div class="col-12 col-sm-6 col-md-3">
+        <div class="card big-card shadow-sm">
+          <img src="URL_של_תמונה_פרק1.jpg" class="card-img-top" alt="פרק 1">
+          <div class="card-body">
+            <h5 class="card-title">שם הפרק 1</h5>
+            <!-- אם תרצה תיאור קצר אפשר להוסיף פה -->
+          </div>
+        </div>
+      </div>
+
+      <!-- כרטיס 2 -->
+      <div class="col-12 col-sm-6 col-md-3">
+        <div class="card big-card shadow-sm">
+          <img src="URL_של_תמונה_פרק2.jpg" class="card-img-top" alt="פרק 2">
+          <div class="card-body">
+            <h5 class="card-title">שם הפרק 2</h5>
+          </div>
+        </div>
+      </div>
+
+      <!-- כרטיס 3 -->
+      <div class="col-12 col-sm-6 col-md-3">
+        <div class="card big-card shadow-sm">
+          <img src="URL_של_תמונה_פרק3.jpg" class="card-img-top" alt="פרק 3">
+          <div class="card-body">
+            <h5 class="card-title">שם הפרק 3</h5>
+          </div>
+        </div>
+      </div>
+
+      <!-- כרטיס 4 -->
+      <div class="col-12 col-sm-6 col-md-3">
+        <div class="card big-card shadow-sm">
+          <img src="URL_של_תמונה_פרק4.jpg" class="card-img-top" alt="פרק 4">
+          <div class="card-body">
+            <h5 class="card-title">שם הפרק 4</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- כותרת סדרות -->
+    <div class="mb-3">
+      <h2 class="section-title">סדרות הרשת שלנו</h2>
+    </div>
+
+    <!-- רשת סדרות - עד 4 בשורה -->
+    <div class="row g-3">
+      <!-- סדרה 1 -->
+      <div class="col-12 col-sm-6 col-md-3">
+        <div class="card series-card shadow-sm">
+          <img src="URL_של_תמונת_סדרה1.jpg" class="card-img-top" alt="סדרה 1">
+          <div class="card-body text-center">
+            <h6 class="mb-0">שם סדרת רשת 1</h6>
+          </div>
+        </div>
+      </div>
+
+      <!-- סדרה 2 -->
+      <div class="col-12 col-sm-6 col-md-3">
+        <div class="card series-card shadow-sm">
+          <img src="URL_של_תמונת_סדרה2.jpg" class="card-img-top" alt="סדרה 2">
+          <div class="card-body text-center">
+            <h6 class="mb-0">שם סדרת רשת 2</h6>
+          </div>
+        </div>
+      </div>
+
+      <!-- סדרה 3 -->
+      <div class="col-12 col-sm-6 col-md-3">
+        <div class="card series-card shadow-sm">
+          <img src="URL_של_תמונת_סדרה3.jpg" class="card-img-top" alt="סדרה 3">
+          <div class="card-body text-center">
+            <h6 class="mb-0">שם סדרת רשת 3</h6>
+          </div>
+        </div>
+      </div>
+
+      <!-- סדרה 4 -->
+      <div class="col-12 col-sm-6 col-md-3">
+        <div class="card series-card shadow-sm">
+          <img src="URL_של_תמונת_סדרה4.jpg" class="card-img-top" alt="סדרה 4">
+          <div class="card-body text-center">
+            <h6 class="mb-0">שם סדרת רשת 4</h6>
+          </div>
+        </div>
+      </div>
+
+      <!-- אם תרצה להוסיף סדרות נוספות, שכפל את אחד ה-col ושנה את התמונה/שם -->
+    </div>
+
+  </div>
+
+  <!-- Bootstrap JS bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
