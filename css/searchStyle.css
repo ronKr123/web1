@@ -1,5 +1,5 @@
 body {
-        background-image: url('/media/backimg.png');
+        background-image: url('media/backimg.png');
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
@@ -50,6 +50,8 @@ body {
         padding: 15px;
         gap: 15px;
         margin-bottom: 5px;
+        flex-direction: row-reverse; 
+        text-align: right;
     }
 
     .program-info {

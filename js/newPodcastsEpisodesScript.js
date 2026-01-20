@@ -11,7 +11,7 @@ fetch("data/programs.json")
   .then((r) => r.json())
   .then((data) => {
     const programs = data.programs.filter((p) =>
-      selectedProgramIds.includes(p.id)
+      selectedProgramIds.includes(p.id),
     );
 
     programs.forEach(loadLatestEpisode);
@@ -47,8 +47,8 @@ function renderEpisodeCard(program, ep) {
     `
     <div class="custom-episode-card">
       <a href="playerEpisode.html?guid=${encodeURIComponent(ep.guid)}&program=${
-      program.id
-    }">
+        program.id
+      }">
         <i class="fa-solid fa-circle-play"></i>
       </a>
 
@@ -65,11 +65,11 @@ function renderEpisodeCard(program, ep) {
       </div>
 
       <a href="playerEpisode.html?guid=${encodeURIComponent(ep.guid)}&program=${
-      program.id
-    }">
+        program.id
+      }">
         <img src="${image}" alt="${ep.title}">
       </a>
     </div>
-    `
+    `,
   );
 }
