@@ -119,7 +119,7 @@
              פרקים אחרונים ששודרו</h1>
     </div>
 
-<div class="container-fluid px-4 mt-4 mb-4">
+<div class="container-fluid px-4 mt-4 mb-4 cards">
   <div class="row gx-3">
 
 <div class="col-12 col-sm-6 col-md-3">
@@ -213,7 +213,7 @@
             </div>
             <div class="program-card text-center">
                 <a href="programsSeries.html?id=trip">
-                    <img src="/media/tiol2.png" alt="טיול לא מאורגן">
+                    <img src="media/tiol2.png" alt="טיול לא מאורגן">
                     <h4>טיול לא מאורגן</h4>
                 </a>
             </div>
@@ -382,16 +382,22 @@
 /* מובייל */
 @media (max-width: 768px) {
 
-
   .episode-card-flat{
     margin: 20px auto;
   }
+
+  .row {
+  flex-direction: row-reverse;
+}
+
+
 }
 
 .episode-card-flat,
 .episode-card-flat:hover {
   text-decoration: none !important;
 }
+
 
 
 </style>
