@@ -18,9 +18,8 @@ fetch("data/series.json") // הקובץ עם ה-JSON ששלחת
 
     // YouTube embed
     const videoId = episode.youtube.split("v=")[1];
-    document.getElementById(
-      "videoFrame"
-    ).src = `https://www.youtube.com/embed/${videoId}`;
+    document.getElementById("videoFrame").src =
+      `https://www.youtube.com/embed/${videoId}`;
 
     // פרקים נוספים
     const other = document.getElementById("otherEpisodes");
@@ -30,10 +29,9 @@ fetch("data/series.json") // הקובץ עם ה-JSON ששלחת
       const card = document.createElement("div");
       card.className = "episode-card";
       card.innerHTML = `
+        <a href="episodeVideo.html?series=${series.id}&episode=${ep.id}" style="text-decoration: none; color: inherit;">
         <img src="${ep.image}" alt="${ep.title}">
         <h3>${ep.title}</h3>
-        <a href="episodeVideo.html?series=${series.id}&episode=${ep.id}">
-          לצפייה בפרק
         </a>
       `;
       other.appendChild(card);

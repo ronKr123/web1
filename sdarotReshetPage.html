@@ -1,302 +1,402 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>סדרות-רשת-0d-1</title>
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    /* גובה הקרוסלה - תופסת חלק גדול מהעמוד */
-    .hero {
-  height: 65vh;
-  min-height: 420px;
-  overflow: hidden;
-}
+<html><head>
+	<title>גלצ פלוס</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;display=swap" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&amp;display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&amp;display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&amp;family=Rubik:ital,wght@0,300..900;1,300..900&amp;display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/footer.css">
+	<!-- Bootstrap CSS -->
 
-.hero .carousel-item {
-  height: 65vh;
-  min-height: 420px;
-  background-size:contain;      /* חשוב */
-  background-position: center;
-  background-position: left;  /* מיקום התמונה בצד ימין */
-  background-repeat: no-repeat;
-  position: relative;
-}
+	<!-- Bootstrap JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to left,
-    rgba(6, 23, 60, 0.95) 35%,
-    rgba(6, 23, 60, 0.6) 55%,
-    rgba(0, 0, 0, 0) 75%
-  );
-  display: flex;
-  align-items: center;
-  justify-content: flex-end; /* תוכן בצד ימין */
-}
-
-.hero-content {
-  color: white;
-  margin-right: 90px;   /* רווח מהחץ הימני */
-  max-width: 420px;
-  text-align: right;
-}
-
-
-.hero-logo {
-  max-width: 260px;
-  margin-bottom: 20px;
-}
-
-.hero-text {
-  font-size: 1.1rem;
-  margin-bottom: 25px;
-  line-height: 1.5;
-}
-
-/* כפתור בסגנון גלולה */
-.hero-btn {
-  background: white;
-  color: #0d2cff;
-  font-weight: 600;
-  border-radius: 50px;
-  padding: 10px 22px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-}
-
-.hero-btn:hover {
-  background: #f1f1f1;
-  color: #0d2cff;
-}
-
-/* נקודות */
-.carousel-indicators [data-bs-target] {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-.carousel-control-prev {
-  right: auto;
-  left: 20px;
-}
-
-.carousel-control-next {
-  right: 20px;
-}
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  filter: drop-shadow(0 0 6px rgba(0,0,0,0.6));
-}
-
-
-    /* סגנון לכרטיסים של הפרקים והתכניות */
-    .big-card .card-img-top {
-      height: 220px;
-      object-fit: cover;
-    }
-    .series-card .card-img-top {
-      height: 180px;
-      object-fit: cover;
-    }
-
-    /* כותרת מעוצבת */
-    .section-title {
-      font-size: 1.6rem;
-      font-weight: 700;
-      margin: 32px 0 16px;
-      display: inline-block;
-      position: relative;
-    }
-    .section-title::after {
-      content: "";
-      height: 6px;
-      width: 64px;
-      background: #0d6efd;
-      position: absolute;
-      left: -78px; /* בגלל RTL - הקו יהיה משמאל לכותרת */
-      top: 50%;
-      transform: translateY(-50%);
-      border-radius: 4px;
-    }
-
-    /* התאמות למסכים קטנים */
-    @media (max-width: 767.98px) {
-      .slide-overlay { left: 16px; max-width: 80%; }
-      .slide-overlay img.logo { max-width: 160px; }
-      .carousel-item::before { background: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.2)); }
-    }
-  </style>
 </head>
-<body class="bg-light">
 
-  <div id="heroCarousel" class="carousel slide hero" data-bs-ride="carousel">
+<body>
+	<link rel="stylesheet" href="css/NavigationBarStyle.css">
 
-  <!-- נקודות -->
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
-    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
-    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+<nav class="navbar" role="navigation" aria-label="Main Navigation">
+  <div class="nav-container">
+    <div class="nav-row">
+
+      <div class="nav-side brand">
+        <a href="/web1">
+          <img src="media/screenshot_2025-08-10_183245-removebg-preview-1.png" alt="logo" style="width: 90px; height: 60px; margin-left: 10px;">
+        </a>
+      </div>
+
+
+      <!-- אמצע – הקישורים -->
+      <div class="nav-center nav-links">
+        <a class="nav-link" href="musicPage.html">מוזיקה</a>
+        <a class="nav-link" href="podcastsPage.html">הסכתים</a>
+        <a class="nav-link" href="sadarotReshet.html">סדרות רשת</a>
+        <a class="nav-link" href="culturePage.html">תרבות ופנאי</a>
+        <a class="nav-link" href="kidsPage.html">ילדים ונוער</a>
+        <a class="nav-link" href="archivesPage.html">ארכיון</a>
+      </div>
+
+
+      <!-- שמאל – כפתורים -->
+      <div class="nav-side actions mr-1">
+        <a href="search.html" style="color: none; text-decoration: none;" class="icon-btn" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass" style="font-size: 24px;"></i>
+        </a>
+
+        <a href="favoritesPage.html" style="color: none; text-decoration: none;" class="icon-btn" aria-label="Favorites">
+          <i class="fa-regular fa-heart" style="font-size: 24px;"></i>
+        </a>
+
+        <button class="icon-btn mobile-toggle" id="mobileMenuBtn" aria-expanded="false" aria-controls="mobileMenu">
+          <i class="fa-solid fa-bars" id="mobileMenuIcon"></i>
+        </button>
+      </div>
+
+    </div>
   </div>
-<button class="carousel-control-prev" type="button"
-        data-bs-target="#heroCarousel" data-bs-slide="prev">
-  <span class="carousel-control-prev-icon"></span>
-</button>
 
-<button class="carousel-control-next" type="button"
-        data-bs-target="#heroCarousel" data-bs-slide="next">
-  <span class="carousel-control-next-icon"></span>
-</button>
-
-  <div class="carousel-inner">
-
-    <!-- שקופית 1 -->
-    <div class="carousel-item active" style="background-image:url('/media/hq720-3.png')">
-      <div class="hero-overlay">
-        <div class="hero-content">
-          <img src="/media/hq720-3.png" class="hero-logo" alt="">
-          <p class="hero-text">
-            תיאור קצר של סדרת הרשת שלך<br>
-            עם משפט שיווקי חמוד
-          </p>
-          <a href="#" class="btn hero-btn">לצפייה בפרק הראשון</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- שקופית 2 -->
-    <div class="carousel-item" style="background-image:url('img/slide2.jpg')">
-      <div class="hero-overlay">
-        <div class="hero-content">
-          <img src="img/logo2.png" class="hero-logo" alt="">
-          <p class="hero-text">טקסט אחר</p>
-          <a href="#" class="btn hero-btn">לצפייה בפרק הראשון</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- שקופית 3 -->
-    <div class="carousel-item" style="background-image:url('img/slide3.jpg')">
-      <div class="hero-overlay">
-        <div class="hero-content">
-          <img src="img/logo3.png" class="hero-logo" alt="">
-          <p class="hero-text">עוד תוכן</p>
-          <a href="#" class="btn hero-btn">לצפייה בפרק הראשון</a>
-        </div>
-      </div>
-    </div>
-
+  <div id="mobileMenu" class="mobile-menu">
+    <a href="musicPage.html" data-close="">מוזיקה</a>
+    <a href="podcastsPage.html" data-close="">הסכתים</a>
+    <a href="sadarotReshet.html" data-close="">סדרות רשת</a>
+    <a href="culturePage.html" data-close="">תרבות ופנאי</a>
+    <a href="kidsPage.html" data-close="">ילדים ונוער</a>
+    <a href="archivesPage.html" data-close="">ארכיון</a>
   </div>
+</nav>
+
+<script>
+  const mobileBtn = document.getElementById("mobileMenuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const mobileIcon = document.getElementById("mobileMenuIcon");
+
+  mobileBtn.addEventListener("click", () => {
+    const isOpen = mobileMenu.classList.toggle("open");
+    mobileBtn.setAttribute("aria-expanded", isOpen);
+    mobileIcon.classList.toggle("fa-bars", !isOpen);
+    mobileIcon.classList.toggle("fa-xmark", isOpen);
+  });
+
+  // סגירה אוטומטית בלחיצה על לינק עם data-close
+  document.querySelectorAll("#mobileMenu a[data-close]").forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.remove("open");
+      mobileBtn.setAttribute("aria-expanded", false);
+      mobileIcon.classList.add("fa-bars");
+      mobileIcon.classList.remove("fa-xmark");
+    });
+  });
+</script>
+
+<script>
+  fetch("partials/footer.html")
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById("footer").innerHTML = html;
+  });
+</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	
+<link rel="stylesheet" href="css/CategoryStyle.css">
+
+
+    <title>סדרות רשת</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+    <div class="header-with-icon">
+            <img src="media/סדרות-רשת-0d-1.png" alt="סדרות רשת" class="header-icon">
+
+        <h1 class="page-title" style="font-family: 'Assistant', sans-serif; font-size: 36px; font-weight: 700; color: #0B3D91; margin: 0;">
+             פרקים אחרונים ששודרו</h1>
+    </div>
+
+<div class="container-fluid px-4 mt-4 mb-4">
+  <div class="row gx-3">
+
+<div class="col-12 col-sm-6 col-md-3">
+    <a href="episode.html?id=ep1" class="episode-card-flat">
+      
+      <img src="/media/לייזה-חדש.png" alt="פרק 1" class="episode-img" >
+
+      <div class="episode-body">
+        <h3 class="episode-title text-center">
+טיול לא מאורגן: עם לייזה פאנלים🌴
+        </h3>
+
+        <p class="episode-desc" style="text-align: right;">
+מה באמת קורה במחנה קיץ של הצופים?⚜️ לייזה פאנלים יצאה עם גלי צה״ל לטיול לא מאורגן במחנה קיץ של הצופים - על מנהיגות, כפיתות ומנות גורמה בתנאי שטח 🍽️🌴 מה שבטוח? היה חם🥵        </p>
+      </div>
+
+    </a>
+  </div>
+<div class="col-12 col-sm-6 col-md-3">
+    <a href="episode.html?id=ep1" class="episode-card-flat">
+      
+      <img src="/media/ep4.jpg" alt="פרק 1" class="episode-img" >
+
+      <div class="episode-body">
+        <h3 class="episode-title text-center">
+מסע כומתות | חטיבת כרמלי
+        </h3>
+
+        <p class="episode-desc" style="text-align: right;">
+אחרי סבב מילואים שישי!!! 🤎
+הצטרפנו לגולנצ'יקים של חטיבת כרמלי במעמד היציאה מעזה, וניסינו להבין מה עושים בגדוד כשבית"ר ירושלים מפסידה? ומה עדיף - לנתק לאשתך או לפגוש מחבלים??        </p>
+      </div>
+
+    </a>
+  </div>
+
+  <div class="col-12 col-sm-6 col-md-3">
+    <a href="episode.html?id=ep1" class="episode-card-flat">
+      
+      <img src="/media/השתחררתי טאב הוריזונטלי פרק 2.jpg" alt="פרק 1" class="episode-img" style="width: calc(100% + 20px);">
+
+      <div class="episode-body">
+        <h3 class="episode-title text-center">
+          פרק 2 - זכויות המשתחרר ועבודה מועדפת
+        </h3>
+
+        <p class="episode-desc" style="text-align: right;">
+בפרק השני בסדרה "השתחררתי, מה עכשיו?" אנחנו עם השאלות לכמה וכמה נושאים שמפחידים צעירים שיוצאים לעולם הגדול, והתשובות שקיבלנו - בהחלט הורידו את הפאניקה</p>
+      </div>
+
+    </a>
+  </div>
+
+  <div class="col-12 col-sm-6 col-md-3">
+    <a href="episode.html?id=ep1" class="episode-card-flat">
+      
+      <img src="/media/קורות חיים.jpg" alt="פרק 1" class="episode-img" style="width: calc(100% + 20px);">
+      <div class="episode-body">
+        <h3 class="episode-title text-center">
+          פרק 3 - קורות חיים
+        </h3>
+
+        <p class="episode-desc" style="text-align: right;">
+מסמך קורות החיים הוא דף אחד שאמור להכריע האם נתקבל לעבודת החלומות שלנו, אז כדאי שנדע לכתוב אותו טוב! בדיוק בשביל זה אנחנו כאן עם הפרק השלישי בסדרה "השתחררתי, מה עכשיו?"
+        </p>
+      </div>
+
+    </a>
+  </div>
+
+</div>
 </div>
 
 
-  <!-- תוכן תחתון - מרווח -->
-  <div class="container mt-4">
 
-    <!-- 4 כרטיסי פרקים גדולים -->
-    <div class="row g-3 mb-4">
-      <div class="col-12">
-        <h2 class="section-title">פרקים נבחרים</h2>
-      </div>
+<h1 class="page-title" style="font-family: 'Assistant', sans-serif; font-size: 36px; font-weight: 700; color: #0B3D91; margin-bottom: -5px; text-align: center;">
+              סדרות רשת</h1>
 
-      <!-- כרטיס 1 -->
-      <div class="col-12 col-sm-6 col-md-3">
-        <div class="card big-card shadow-sm">
-          <img src="URL_של_תמונה_פרק1.jpg" class="card-img-top" alt="פרק 1">
-          <div class="card-body">
-            <h5 class="card-title">שם הפרק 1</h5>
-            <!-- אם תרצה תיאור קצר אפשר להוסיף פה -->
-          </div>
-        </div>
-      </div>
-
-      <!-- כרטיס 2 -->
-      <div class="col-12 col-sm-6 col-md-3">
-        <div class="card big-card shadow-sm">
-          <img src="URL_של_תמונה_פרק2.jpg" class="card-img-top" alt="פרק 2">
-          <div class="card-body">
-            <h5 class="card-title">שם הפרק 2</h5>
-          </div>
-        </div>
-      </div>
-
-      <!-- כרטיס 3 -->
-      <div class="col-12 col-sm-6 col-md-3">
-        <div class="card big-card shadow-sm">
-          <img src="URL_של_תמונה_פרק3.jpg" class="card-img-top" alt="פרק 3">
-          <div class="card-body">
-            <h5 class="card-title">שם הפרק 3</h5>
-          </div>
-        </div>
-      </div>
-
-      <!-- כרטיס 4 -->
-      <div class="col-12 col-sm-6 col-md-3">
-        <div class="card big-card shadow-sm">
-          <img src="URL_של_תמונה_פרק4.jpg" class="card-img-top" alt="פרק 4">
-          <div class="card-body">
-            <h5 class="card-title">שם הפרק 4</h5>
-          </div>
-        </div>
-      </div>
+    <div class="programs-grid">
+        <div class="program-card text-center">
+                <a href="programsSeries.html?id=histacharty">
+                    <img src="media\טאב.png">
+                    <h4>התשחררתי, מה עכשיו?</h4>
+                </a>
+            </div>
+            <div class="program-card text-center">
+                <a href="programsSeries.html?id=masa-comtot">
+                    <img src="media\האדם-השלישי.png" alt="מסע כומתות">
+                    <h4>מסע כומתות</h4>
+                </a>
+            </div>
+            <div class="program-card text-center">
+                <a href="programsSeries.html?id=trip">
+                    <img src="/media/tiol2.png" alt="טיול לא מאורגן">
+                    <h4>טיול לא מאורגן</h4>
+                </a>
+            </div>
+            <div class="program-card text-center">
+                <a href="programsSeries.html?id=sepcial-glz">
+                    <img src="media/המיוחדים-של-גלצ.png" alt="המיוחדים של גל&quot;צ">
+                    <h4>המיוחדים של גל"צ</h4>
+                </a>
+            </div>
     </div>
 
-    <!-- כותרת סדרות -->
-    <div class="mb-3">
-      <h2 class="section-title">סדרות הרשת שלנו</h2>
-    </div>
 
-    <!-- רשת סדרות - עד 4 בשורה -->
-    <div class="row g-3">
-      <!-- סדרה 1 -->
-      <div class="col-12 col-sm-6 col-md-3">
-        <div class="card series-card shadow-sm">
-          <img src="URL_של_תמונת_סדרה1.jpg" class="card-img-top" alt="סדרה 1">
-          <div class="card-body text-center">
-            <h6 class="mb-0">שם סדרת רשת 1</h6>
-          </div>
-        </div>
-      </div>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+    }
 
-      <!-- סדרה 2 -->
-      <div class="col-12 col-sm-6 col-md-3">
-        <div class="card series-card shadow-sm">
-          <img src="URL_של_תמונת_סדרה2.jpg" class="card-img-top" alt="סדרה 2">
-          <div class="card-body text-center">
-            <h6 class="mb-0">שם סדרת רשת 2</h6>
-          </div>
-        </div>
-      </div>
+    .programs-grid {
+        direction: rtl;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        padding: 60px;
+        background-color: #e6f0fa;
+    }
 
-      <!-- סדרה 3 -->
-      <div class="col-12 col-sm-6 col-md-3">
-        <div class="card series-card shadow-sm">
-          <img src="URL_של_תמונת_סדרה3.jpg" class="card-img-top" alt="סדרה 3">
-          <div class="card-body text-center">
-            <h6 class="mb-0">שם סדרת רשת 3</h6>
-          </div>
-        </div>
-      </div>
+    @media (max-width: 992px) {
+        .programs-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+        }
+    }
 
-      <!-- סדרה 4 -->
-      <div class="col-12 col-sm-6 col-md-3">
-        <div class="card series-card shadow-sm">
-          <img src="URL_של_תמונת_סדרה4.jpg" class="card-img-top" alt="סדרה 4">
-          <div class="card-body text-center">
-            <h6 class="mb-0">שם סדרת רשת 4</h6>
-          </div>
-        </div>
-      </div>
+    @media (max-width: 600px) {
+        .programs-grid {
+            grid-template-columns: 1fr !important;
+        }
+    }
 
-      <!-- אם תרצה להוסיף סדרות נוספות, שכפל את אחד ה-col ושנה את התמונה/שם -->
-    </div>
 
-  </div>
+    .program-card {
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-  <!-- Bootstrap JS bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    .program-card a {
+        text-decoration: none;
+        color: inherit;
+    }
 
-</body>
-</html>
+    .program-card img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .program-card:hover img {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .program-card h4 {
+        margin-top: 8px;
+        font-size: 25px;
+        font-weight: 600;
+        color: #0B3D91;
+        font-family: 'Assistant', sans-serif;
+    }
+
+    .pagination {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .pagination a,
+    .pagination span {
+        margin: 0 5px;
+        padding: 8px 12px;
+        color: white;
+        background-color: #007acc;
+        border-radius: 4px;
+        text-decoration: none;
+    }
+
+    .pagination span.current {
+        background-color: #005ea2;
+        font-weight: bold;
+    }
+
+    .header-with-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        margin: 30px 0 2px;
+    }
+
+    .header-icon {
+        width: 110px;
+        height: 110px;
+    }
+
+
+/* כרטיס */
+.episode-card-flat {
+  display: block;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  color: inherit;
+  transition: transform .25s ease, box-shadow .25s ease;
+  direction: rtl;
+
+  width: calc(100% + 16px);
+  margin-left: -3px;
+  margin-right: -3px;
+}
+
+
+/* תמונה – רחבה טיפה יותר */
+.episode-img {
+  width: calc(100% + 20px); /* ההרחבה העדינה */
+  margin-right: -12px;
+  margin-left: -12px;
+  /* height: 220px; */
+  object-fit: cover;
+  display: block;
+}
+
+/* גוף הטקסט */
+.episode-body {
+  padding: 14px 16px 18px;
+  text-decoration: none;
+}
+
+/* כותרת */
+.episode-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0B3D91;
+  margin: 0 0 6px;
+  text-decoration: none;
+}
+
+/* תיאור */
+.episode-desc {
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: #0B3D91;
+  margin: 0;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Hover */
+.episode-card-flat:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+}
+
+/* מובייל */
+@media (max-width: 768px) {
+  .episode-img {
+  }
+
+  .episode-card-flat{
+    margin: 20px auto;
+  }
+}
+
+.episode-card-flat,
+.episode-card-flat:hover {
+  text-decoration: none !important;
+}
+
+
+</style>
+
+<div id="footer"></div>
+
+</body></html>

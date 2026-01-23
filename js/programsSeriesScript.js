@@ -32,7 +32,7 @@ fetch("data/series.json")
 
 function initFavorites(program) {
   const favorites = JSON.parse(
-    localStorage.getItem("favoritePrograms") || "[]"
+    localStorage.getItem("favoritePrograms") || "[]",
   );
   const icon = document.getElementById("favorite-icon");
 
