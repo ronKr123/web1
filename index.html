@@ -365,9 +365,158 @@
 
 
 
+  <h1 class="text-center page-title">מומלצים וחדשים</h1>
+<div class="container-fluid px-4 mt-4 mb-4 cards">
+  <div class="row gx-3">
+
+<div class="col-12 col-sm-6 col-md-3">
+    <a href="episode.html?id=ep1" class="episode-card-flat">
+      
+      <img src="media/קורות חיים.jpg" alt="פרק 1" class="episode-img" >
+
+      <div class="episode-body">
+        <h3 class="episode-title text-center">
+טיול לא מאורגן: עם לייזה פאנלים🌴
+        </h3>
+
+        <p class="episode-desc" style="text-align: right;">
+מה באמת קורה במחנה קיץ של הצופים?⚜️ לייזה פאנלים יצאה עם גלי צה״ל לטיול לא מאורגן במחנה קיץ של הצופים - על מנהיגות, כפיתות ומנות גורמה בתנאי שטח 🍽️🌴 מה שבטוח? היה חם🥵        </p>
+      </div>
+
+    </a>
+  </div>
+<div class="col-12 col-sm-6 col-md-3">
+    <a href="episode.html?id=ep1" class="episode-card-flat">
+      
+      <img src="media/ep4.jpg" alt="פרק 1" class="episode-img" >
+
+      <div class="episode-body">
+        <h3 class="episode-title text-center">
+מסע כומתות | חטיבת כרמלי
+        </h3>
+
+        <p class="episode-desc" style="text-align: right;">
+אחרי סבב מילואים שישי!!! 🤎
+הצטרפנו לגולנצ'יקים של חטיבת כרמלי במעמד היציאה מעזה, וניסינו להבין מה עושים בגדוד כשבית"ר ירושלים מפסידה? ומה עדיף - לנתק לאשתך או לפגוש מחבלים??        </p>
+      </div>
+
+    </a>
+  </div>
+
+  <div class="col-12 col-sm-6 col-md-3">
+    <a href="episode.html?id=ep1" class="episode-card-flat">
+      
+      <img src="media/השתחררתי טאב הוריזונטלי פרק 2.jpg" alt="פרק 1" class="episode-img" style="width: calc(100% + 20px);">
+
+      <div class="episode-body">
+        <h3 class="episode-title text-center">
+          פרק 2 - זכויות המשתחרר ועבודה מועדפת
+        </h3>
+
+        <p class="episode-desc" style="text-align: right;">
+בפרק השני בסדרה "השתחררתי, מה עכשיו?" אנחנו עם השאלות לכמה וכמה נושאים שמפחידים צעירים שיוצאים לעולם הגדול, והתשובות שקיבלנו - בהחלט הורידו את הפאניקה</p>
+      </div>
+
+    </a>
+  </div>
+
+  <div class="col-12 col-sm-6 col-md-3">
+    <a href="episode.html?id=ep1" class="episode-card-flat">
+      
+      <img src="media/קורות חיים.jpg" alt="פרק 1" class="episode-img" style="width: calc(100% + 20px);">
+      <div class="episode-body">
+        <h3 class="episode-title text-center">
+          פרק 3 - קורות חיים
+        </h3>
+
+        <p class="episode-desc" style="text-align: right;">
+מסמך קורות החיים הוא דף אחד שאמור להכריע האם נתקבל לעבודת החלומות שלנו, אז כדאי שנדע לכתוב אותו טוב! בדיוק בשביל זה אנחנו כאן עם הפרק השלישי בסדרה "השתחררתי, מה עכשיו?"
+        </p>
+      </div>
+
+    </a>
+  </div>
+
+</div>
+</div>
+
+<style>
+  /* כרטיס */
+.episode-card-flat {
+  display: block;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  color: inherit;
+  transition: transform .25s ease, box-shadow .25s ease;
+  direction: rtl;
+
+  width: calc(100% + 16px);
+  margin-left: -3px;
+  margin-right: -3px;
+}
 
 
+/* תמונה – רחבה טיפה יותר */
+.episode-img {
+  width: calc(100% + 20px); /* ההרחבה העדינה */
+  margin-right: -12px;
+  margin-left: -12px;
+  height: 270px;
+  object-fit: cover;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
 
+/* גוף הטקסט */
+.episode-body {
+  padding: 14px 16px 18px;
+  text-decoration: none;
+}
+
+/* כותרת */
+.episode-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0B3D91;
+  margin: 0 0 6px;
+  text-decoration: none;
+}
+
+/* תיאור */
+.episode-desc {
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: #0B3D91;
+  margin: 0;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Hover */
+.episode-card-flat:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+}
+
+/* מובייל */
+@media (max-width: 500px) {
+
+  .episode-card-flat{
+    margin: 20px auto;
+  }
+
+  
+}
+
+
+.episode-card-flat,
+.episode-card-flat:hover {
+  text-decoration: none !important;
+}
+
+</style>
 
 
 <section class="podcastsClass">
