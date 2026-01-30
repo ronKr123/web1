@@ -365,46 +365,43 @@
 
 
 
-  <h1 class="text-center page-title">מומלצים וחדשים</h1>
+  <h1 class="text-center page-title cards-title" style="direction: rtl; unicode-bidi: plaintext;">מומלצים וחדשים✨</h1>
+  
 <div class="container-fluid px-4 mt-4 mb-4 cards">
   <div class="row gx-3">
 
 <div class="col-12 col-sm-6 col-md-3">
-    <a href="episode.html?id=ep1" class="episode-card-flat">
+    <a href="playerEpisode.html?guid=750bb97c-9da9-43d8-8dd1-b3df010275aa&program=tov-shebatem" class="episode-card-flat">
       
-      <img src="media/קורות חיים.jpg" alt="פרק 1" class="episode-img" >
+      <img src="media/בתןך-הפודקאסט-פי-2jpg-1.jpeg" alt="פרק 1" class="episode-img" >
 
       <div class="episode-body">
         <h3 class="episode-title text-center">
-טיול לא מאורגן: עם לייזה פאנלים🌴
+טוב שבאתם עם נונו | 27.01.26
         </h3>
 
         <p class="episode-desc" style="text-align: right;">
-מה באמת קורה במחנה קיץ של הצופים?⚜️ לייזה פאנלים יצאה עם גלי צה״ל לטיול לא מאורגן במחנה קיץ של הצופים - על מנהיגות, כפיתות ומנות גורמה בתנאי שטח 🍽️🌴 מה שבטוח? היה חם🥵        </p>
-      </div>
+ממשיכים את השבוע יחד עם נונו שהגיעה אלינו לאולפן לשיחה על מה עומד מאחורי הדמות, מה הסיפור מאחורי השיר ״אל תציע לי״? שאותו גם ביצעה באולפן!      </div>
 
     </a>
   </div>
 <div class="col-12 col-sm-6 col-md-3">
-    <a href="episode.html?id=ep1" class="episode-card-flat">
+    <a href="episodeVideo.html?series=masa-comtot&episode=ep1" class="episode-card-flat">
       
-      <img src="media/ep4.jpg" alt="פרק 1" class="episode-img" >
+      <img src="media/taq.jpg" alt="פרק 1" class="episode-img" >
 
       <div class="episode-body">
         <h3 class="episode-title text-center">
-מסע כומתות | חטיבת כרמלי
+          פרק 4 - ממדים ללימודים
         </h3>
 
         <p class="episode-desc" style="text-align: right;">
-אחרי סבב מילואים שישי!!! 🤎
-הצטרפנו לגולנצ'יקים של חטיבת כרמלי במעמד היציאה מעזה, וניסינו להבין מה עושים בגדוד כשבית"ר ירושלים מפסידה? ומה עדיף - לנתק לאשתך או לפגוש מחבלים??        </p>
-      </div>
-
+בפרק הרביעי בסדרה ״השתחררתי, מה עכשיו?״ קיבלנו תשובות לכל השאלות שמעסיקות את כל המשתחררים והכי חשוב - איך אני מקבל ציון מספיק בבחינה הפסיכומטרית?</div>
     </a>
   </div>
 
   <div class="col-12 col-sm-6 col-md-3">
-    <a href="episode.html?id=ep1" class="episode-card-flat">
+    <a href="episodeVideo.html?series=histacharty&episode=ep2" class="episode-card-flat">
       
       <img src="media/השתחררתי טאב הוריזונטלי פרק 2.jpg" alt="פרק 1" class="episode-img" style="width: calc(100% + 20px);">
 
@@ -421,7 +418,7 @@
   </div>
 
   <div class="col-12 col-sm-6 col-md-3">
-    <a href="episode.html?id=ep1" class="episode-card-flat">
+    <a href="episodeVideo.html?series=histacharty&episode=ep3" class="episode-card-flat">
       
       <img src="media/קורות חיים.jpg" alt="פרק 1" class="episode-img" style="width: calc(100% + 20px);">
       <div class="episode-body">
@@ -465,7 +462,6 @@
   margin-left: -12px;
   height: 270px;
   object-fit: cover;
-  aspect-ratio: 16 / 9;
   overflow: hidden;
 }
 
@@ -492,6 +488,13 @@
   margin: 0;
   text-decoration: none;
   font-weight: 500;
+
+  height: 60px;         /* גובה אחיד לכל התיאורים */
+  overflow: hidden;     /* חותך טקסט ארוך מדי */
+  display: -webkit-box; 
+  -webkit-line-clamp: 3;  /* חותך אחרי 3 שורות */
+  line-clamp: 3;        /* standard property for compatibility */
+  -webkit-box-orient: vertical;
 }
 
 /* Hover */
@@ -507,6 +510,10 @@
     margin: 20px auto;
   }
 
+  .cards-title {
+    font-size: 2.9rem;
+  }
+
   
 }
 
@@ -519,7 +526,7 @@
 </style>
 
 
-<section class="podcastsClass">
+<section class="podcastsClass" style="padding: 40px 0 0 0 !important;">
   <h1 class="text-center page-title">הסכתי גל"צ</h1>
 
 
@@ -774,16 +781,16 @@ iframe {
 
 
 
-<div style="height: 10px;"> </div>
+<div style="height: 5px;"> </div>
 
 
 
 
-<section class="podcastsClass">
+<section class="podcastsClass" style="padding: 0 !important;">
   <h1 class="text-center page-title">תרבות ופנאי</h1>
 
 
-  <div class="row podcast-grid">
+  <div class="row podcast-grid" >
           <div class="col-6 col-md-4 col-lg-3 mb-5">
             <a href="/תכניות/האחיות-גרים/" class="program-link program-card-image">
               <img src="media/2-8.png" alt="האחיות גרים" class="program-image">
