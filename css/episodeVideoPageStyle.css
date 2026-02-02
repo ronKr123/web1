@@ -24,6 +24,7 @@ body{
         margin-top: 5px;
         font-size: 30px;
         margin-bottom: 20px;
+        font-family: rubik, Arial, sans-serif;
     }
 
     .episodes-grid {
@@ -66,4 +67,7 @@ body{
 
     p{
         color: black;
+        font-family: rubik, Arial, sans-serif;
+        font-size: large;
     }
+    

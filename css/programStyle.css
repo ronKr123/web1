@@ -87,7 +87,7 @@ body {
   .episode-card {
     display: flex;
     align-items: center;
-    flex-direction: row-reverse;
+    /* flex-direction: row-reverse; הופך תמונת פרק מימין לשמאל*/
     justify-content: space-between;
     border-bottom: 1px solid #ddd;
     padding: 15px 0;
@@ -147,7 +147,7 @@ body {
   .episode-info p.description {
     margin: 4px 0;
     font-size: 20px;
-    color: #666;
+    color: #aaa;
     font-family: Arial, sans-serif;
   }
 
@@ -302,8 +302,8 @@ body {
   }
 
   .episode-info .duration {
-    font-size: 15px;
-    color: #444;
+    font-size: 18px;
+    color: #aaa;
     margin-top: 4px;
   }
 
@@ -357,7 +357,7 @@ body {
       align-items: center;
       padding: 8px 0;
       gap: 10px;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      /* border-bottom: 1px solid rgba(0, 0, 0, 0.08); */
       min-width: 0;
       /* חשוב כדי לאפשר shrink של ילדים ב-flex */
     }
@@ -445,6 +445,36 @@ body {
       font-size: 18px;
       margin: 18px auto;
     }
+
+
+    #scrollTopBtn {
+  position: fixed;
+  left: 20px;
+  bottom: 40px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: #092782;
+  color: #F7EA59;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 999;
+}
+
+#scrollTopBtn.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+#scrollTopBtn:hover {
+  background: #012694;
+}
+
   }
 
   #scrollTopBtn {

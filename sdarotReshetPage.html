@@ -94,11 +94,16 @@
 </script>
 
 <script>
+ document.addEventListener("DOMContentLoaded", () => {
+
   fetch("partials/footer.html")
-  .then(res => res.text())
-  .then(html => {
-    document.getElementById("footer").innerHTML = html;
-  });
+    .then(res => res.text())
+    .then(html => {
+      const footer = document.getElementById("footer");
+      if (footer) footer.innerHTML = html;
+    });
+
+});
 </script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">

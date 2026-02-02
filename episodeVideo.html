@@ -121,11 +121,16 @@
 
 <script>
 
+document.addEventListener("DOMContentLoaded", () => {
+
   fetch("partials/footer.html")
     .then(res => res.text())
     .then(html => {
-      document.getElementById("footer").innerHTML = html;
+      const footer = document.getElementById("footer");
+      if (footer) footer.innerHTML = html;
     });
+
+});
 </script>
 
 </body>

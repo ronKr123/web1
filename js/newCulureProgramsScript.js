@@ -1,11 +1,6 @@
 const RSS_PROXY = "https://api.rss2json.com/v1/api.json?rss_url=";
 
-const selectedProgramIds = [
-  "tov-shebatem",
-  "betalim",
-  "eamon",
-  "melechblayizerhaim",
-];
+const selectedProgramIds = ["tov-shebatem", "betalim", "grim", "pargaim"];
 
 fetch("data/programs.json")
   .then((r) => r.json())

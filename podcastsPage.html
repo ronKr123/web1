@@ -13,11 +13,16 @@
     <link rel="stylesheet" href="css/footer.css">
 
 <script async>
+ document.addEventListener("DOMContentLoaded", () => {
+
   fetch("partials/footer.html")
-  .then(res => res.text())
-  .then(html => {
-    document.getElementById("footer").innerHTML = html;
-  });
+    .then(res => res.text())
+    .then(html => {
+      const footer = document.getElementById("footer");
+      if (footer) footer.innerHTML = html;
+    });
+
+});
 </script>
 
     <script src="js/newPodcastsEpisodesScript.js" ></script>
@@ -246,10 +251,10 @@
             </div>
     </div>
 
-    <div class="pagination" style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">
+    <!-- <div class="pagination" style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;">
                 <span class="current">1</span>
                 <a href="?page=2">2</a>
-    </div>
+    </div> -->
 
 <style>
     body {

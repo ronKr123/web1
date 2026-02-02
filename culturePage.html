@@ -16,12 +16,16 @@
 	<!-- Bootstrap JS -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
+document.addEventListener("DOMContentLoaded", () => {
 
   fetch("partials/footer.html")
     .then(res => res.text())
     .then(html => {
-      document.getElementById("footer").innerHTML = html;
+      const footer = document.getElementById("footer");
+      if (footer) footer.innerHTML = html;
     });
+
+});
 </script>
 </head>
 
@@ -144,14 +148,14 @@
                 </a>
             </div>
             <div class="program-card">
-                <a href="/תכניות/בן-וקובי-פרג/">
+                <a href="program.html?id=pargaim">
                     <img src="media/screenshot-2025-08-31-195150.png" alt="בן וקובי פרג'">
                     <h4 class="text-center">בן וקובי פרג'</h4>
                 </a>
             </div>
             <div class="program-card">
-                <a href="/תכניות/האחיות-גרים/">
-                    <img src="media/2-8.png" alt="האחיות גרים">
+                <a href="program.html?id=grim">
+                    <img src="media/האחיות גרים חדש.jpg" alt="האחיות גרים">
                     <h4 class="text-center">האחיות גרים</h4>
                 </a>
             </div>
@@ -163,7 +167,7 @@
             </div>
             <div class="program-card">
                 <a href="/תכניות/רדיו-אקטיבי/">
-                    <img src="/media/2mqfywga/רדיו-אקטיבי-תמונה.png" alt="רדיו-אקטיבי">
+                    <img src="media/רדיו-אקטיבי-תמונה.png" alt="רדיו-אקטיבי">
                     <h4 class="text-center">רדיו-אקטיבי</h4>
                 </a>
             </div>
@@ -175,7 +179,7 @@
             </div>
             <div class="program-card">
                 <a href="/תכניות/מחשבות-בעמ/">
-                    <img src="/media/1ifgk1gy/בתןך-הפודקאסט-פי-2-5.png" alt="מחשבות בע&quot;מ">
+                    <img src="media/בתןך-הפודקאסט-פי-2-5.png" alt="מחשבות בע&quot;מ">
                     <h4 class="text-center">מחשבות בע"מ</h4>
                 </a>
             </div>
@@ -191,19 +195,19 @@
                     <h4 class="text-center">זה המקום עם אהוד בנאי</h4>
                 </a>
             </div>
-            <div class="program-card">
+            <!-- <div class="program-card">
                 <a href="/תכניות/קולה-של-אמא/">
                     <img src="/media/1cydpsy4/בתןך-הפודקאסט-פי-2-8.png" alt="קולה של אמא">
                     <h4 class="text-center">קולה של אמא</h4>
                 </a>
-            </div>
+            </div> -->
             <div class="program-card">
                 <a href="/תכניות/ספרים-רבותיי-ספרים/">
                     <img src="media/books.png" alt="ספרים רבותיי ספרים">
                     <h4 class="text-center">ספרים רבותיי ספרים</h4>
                 </a>
             </div>
-            <div class="program-card">
+            <!-- <div class="program-card">
                 <a href="/תכניות/סוף-שבוע-זוגי-סיון-רהב-מאיר-וידידיה-מאיר/">
                     <img src="/media/gaulg2ps/2-13.jpg" alt="סוף שבוע זוגי - סיון רהב מאיר וידידיה מאיר">
                     <h4 class="text-center">סוף שבוע זוגי - סיון רהב מאיר וידידיה מאיר</h4>
@@ -220,7 +224,7 @@
                     <img src="/media/isinoylu/2-14.jpg" alt="שמונה לקפה">
                     <h4 class="text-center">שמונה לקפה</h4>
                 </a>
-            </div>
+            </div> -->
     </div>
 
 

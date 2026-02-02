@@ -12,17 +12,20 @@
 	<!-- Bootstrap CSS -->
 <link rel="stylesheet" href="css/ArchivesPageStyle.css" >
 	<link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="css/footer.css">
 
 	<!-- Bootstrap JS -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
+document.addEventListener("DOMContentLoaded", () => {
 
   fetch("partials/footer.html")
-  .then(res => res.text())
-  .then(html => {
-    document.getElementById("footer").innerHTML = html;
-  });
+    .then(res => res.text())
+    .then(html => {
+      const footer = document.getElementById("footer");
+      if (footer) footer.innerHTML = html;
+    });
+
+});
 </script>
 
 </head>
@@ -147,7 +150,7 @@
     <div class="grid row2">
             <a href="/תכניות/מרתון-אריאל-זילבר-שבועות-1989/" class="card">
                 <div class="card small">
-                    <img src="media\יהודית רביץ בתוך.jpg" alt="img">
+                    <img src="media/תיאטרון.png" alt="img">
                 </div>
             </a>
             <a href="/תכניות/האדם-השלישי/" class="card">
@@ -348,7 +351,7 @@ hr {
 
     .program-card img {
         width: 100%;
-        /* height: 280px; */
+        height: 250px; 
         object-fit: cover;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0,0,0,0.2);
@@ -631,7 +634,7 @@ const swiper = new Swiper(".mySwiper", {
     <div class="swiper-wrapper" id="swiper-wrapper-a1035f632c71d2c73" aria-live="polite">
                     <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 6" style="width: 216.25px; margin-left: 18px;">
                         <a href="/תכניות/ארכיון-גלצ-צביקה-פיק-זל/" title="ארכיון גל&quot;צ: צביקה פיק ז&quot;ל">
-                            <img src="/media/pugp04dq/2-9.jpg" alt="ארכיון גל&quot;צ: צביקה פיק ז&quot;ל">
+                            <img src="/media/2-9.jpg" alt="ארכיון גל&quot;צ: צביקה פיק ז&quot;ל">
                             <h3>ארכיון גל"צ: צביקה פיק ז"ל</h3>
                         </a>
                     </div>
@@ -643,25 +646,25 @@ const swiper = new Swiper(".mySwiper", {
                     </div>
                     <div class="swiper-slide" role="group" aria-label="3 / 6" style="width: 216.25px; margin-left: 18px;">
                         <a href="/תכניות/ארכיון-גלצ-נעמי-פולני-זל/" title="ארכיון גל&quot;צ: נעמי פולני ז&quot;ל">
-                            <img src="/media/znldsnhd/noamipolani.png" alt="ארכיון גל&quot;צ: נעמי פולני ז&quot;ל">
+                            <img src="media/noamipolani.png" alt="ארכיון גל&quot;צ: נעמי פולני ז&quot;ל">
                             <h3>ארכיון גל"צ: נעמי פולני ז"ל</h3>
                         </a>
                     </div>
                     <div class="swiper-slide" role="group" aria-label="4 / 6" style="width: 216.25px; margin-left: 18px;">
                         <a href="/תכניות/ארכיון-גלצ-מאיר-שלו/" title="ארכיון גל&quot;צ: מאיר שלו">
-                            <img src="/media/1kajigz4/2-8.png" alt="ארכיון גל&quot;צ: מאיר שלו">
+                            <img src="media/2-81.png" alt="ארכיון גל&quot;צ: מאיר שלו">
                             <h3>ארכיון גל"צ: מאיר שלו</h3>
                         </a>
                     </div>
                     <div class="swiper-slide" role="group" aria-label="5 / 6" style="width: 216.25px; margin-left: 18px;">
                         <a href="/תכניות/ארכיון-גלצ-חיים-טופול/" title="ארכיון גל&quot;צ: חיים טופול">
-                            <img src="/media/i04m3x5r/2-7.png" alt="ארכיון גל&quot;צ: חיים טופול">
+                            <img src="media/2-7.png" alt="ארכיון גל&quot;צ: חיים טופול">
                             <h3>ארכיון גל"צ: חיים טופול</h3>
                         </a>
                     </div>
                     <div class="swiper-slide" role="group" aria-label="6 / 6" style="width: 216.25px; margin-left: 18px;">
                         <a href="/תכניות/ארכיון-גלצ-יהונתן-גפן/" title="ארכיון גל&quot;צ: יהונתן גפן">
-                            <img src="/media/bfylwlcr/2-1.jpg" alt="ארכיון גל&quot;צ: יהונתן גפן">
+                            <img src="media/2-1.jpg" alt="ארכיון גל&quot;צ: יהונתן גפן">
                             <h3>ארכיון גל"צ: יהונתן גפן</h3>
                         </a>
                     </div>
@@ -705,7 +708,7 @@ const swiper2 = new Swiper(".mySwiper2", {
                 </div>
                 <div class="program-card text-center">
                     <a href="/תכניות/משפחת-שמחון/">
-                        <img src="/media/5blpat5s/1201podcastbannerbig.png" alt="משפחת שמחון">
+                        <img src="media/1201podcastbannerbig.png" alt="משפחת שמחון">
                         <h4>משפחת שמחון</h4>
                     </a>
                 </div>
@@ -717,31 +720,31 @@ const swiper2 = new Swiper(".mySwiper2", {
                 </div>
                 <div class="program-card text-center">
                     <a href="/תכניות/שירה-מהשמירה/">
-                        <img src="/media/q0op0g5c/באנר-אתר-1-11.jpg" alt="שירה מהשמירה">
+                        <img src="media/2-1-1.jpg" alt="שירה מהשמירה">
                         <h4>שירה מהשמירה</h4>
                     </a>
                 </div>
                 <div class="program-card text-center">
                     <a href="/תכניות/קול-הכבוד/">
-                        <img src="/media/qlrbrt01/2-4-1.jpg" alt="קול הכבוד">
+                        <img src="media/2-4-1.jpg" alt="קול הכבוד">
                         <h4>קול הכבוד</h4>
                     </a>
                 </div>
                 <div class="program-card text-center">
                     <a href="/תכניות/ערב-שירי-משוררים/">
-                        <img src="media/erev.jpg" alt="ערב שירי משוררים">
+                        <img src="media/2-5.jpg" alt="ערב שירי משוררים">
                         <h4>ערב שירי משוררים</h4>
                     </a>
                 </div>
                 <div class="program-card text-center">
                     <a href="/תכניות/חלומות/">
-                        <img src="/media/yiinbukh/2-6-1.png" alt="חלומות">
+                        <img src="media/2-6-1.png" alt="חלומות">
                         <h4>חלומות</h4>
                     </a>
                 </div>
                 <div class="program-card text-center">
                     <a href="/תכניות/ממי-קיבלתי-את-התורה/">
-                        <img src="/media/z4nj5yy4/2-6.jpg" alt="ממי קיבלתי את התורה?">
+                        <img src="media/2-6.jpg" alt="ממי קיבלתי את התורה?">
                         <h4>ממי קיבלתי את התורה?</h4>
                     </a>
                 </div>
