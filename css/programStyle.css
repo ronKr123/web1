@@ -384,7 +384,7 @@ body {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background: rgba(0, 0, 0, 0.45);
+      /* background: rgba(0, 0, 0, 0.45); */
     }
 
     .episode-info {
@@ -449,7 +449,7 @@ body {
 
     #scrollTopBtn {
   position: fixed;
-  left: 20px;
+  left: 25px;
   bottom: 40px;
   width: 48px;
   height: 48px;

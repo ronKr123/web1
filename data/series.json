@@ -50,77 +50,14 @@
       "image": "media\\האדם-השלישי.png",
       "description": "ברוכים הבאים למסע הכומתות שלניחידות מעניינות ומסקרנות בצה\"ל.",
       "episodes": [
-        {
-          "id": "ep1",
-          "title": "טקס סיום קורס חובשים",
-          "description": "הגענן קדרי ובובות!?נסענו לבה\"ד 10 לפגוש את הלוחמות והלוחמים שמצילים חיים והמשפחות הגאות שלהם ❤️ מסע כומתות, עונה חדשה, תצטרפו אלינו! 📸 (נסרין): אלי פולירוק חדד",
-          "duration": "12:35",
-          "image": "media\\ep4.jpg",
-          "youtube": "https://www.youtube.com/watch?v=OJoJXp0fH08",
-          "publishDate": "2025-01-10"
-        },
-        {
-          "id": "ep2",
-          "title": "פרק 2",
-          "description": "תיאור הפרק השני",
-          "duration": "09:40",
-          "image": "images/ep2.jpg",
+{
+  "id": "ep1",
+  "title": "מסע כומתות | חטיבת כרמלי",
+  "description": "אחרי סבב מילואים שישי!!! 🤎\nהצטרפנו לגולנצ'יקים של חטיבת כרמלי במעמד היציאה מעזה, וניסינו להבין מה עושים בגדוד כשבית\"ר ירושלים מפסידה? ומה עדיף - לנתק לאשתך או לפגוש מחבלים??",
+  "duration": "12:35",
+          "image": "media\\טאב-חטיבת-כרמלי.png",
           "youtube": "https://www.youtube.com/watch?v=fQrRlfAj1m8",
-          "publishDate": "2025-01-17"
-        },
-        {
-          "id": "ep3",
-          "title": "פרק 3",
-          "description": "תיאור הפרק השלישי",
-          "duration": "11:20",
-          "image": "images/ep3.jpg",
-          "youtube": "https://www.youtube.com/watch?v=AbCdEfGhIjk",
-          "publishDate": "2025-01-24"
-        },
-        {
-          "id": "ep3",
-          "title": "פרק 3",
-          "description": "תיאור הפרק השלישי",
-          "duration": "11:20",
-          "image": "images/ep3.jpg",
-          "youtube": "https://www.youtube.com/watch?v=AbCdEfGhIjk",
-          "publishDate": "2025-01-24"
-        },
-        {
-          "id": "ep3",
-          "title": "פרק 3",
-          "description": "תיאור הפרק השלישי",
-          "duration": "11:20",
-          "image": "images/ep3.jpg",
-          "youtube": "https://www.youtube.com/watch?v=AbCdEfGhIjk",
-          "publishDate": "2025-01-24"
-        },
-        {
-          "id": "ep3",
-          "title": "פרק 3",
-          "description": "תיאור הפרק השלישי",
-          "duration": "11:20",
-          "image": "images/ep3.jpg",
-          "youtube": "https://www.youtube.com/watch?v=AbCdEfGhIjk",
-          "publishDate": "2025-01-24"
-        },
-        {
-          "id": "ep3",
-          "title": "פרק 3",
-          "description": "תיאור הפרק השלישי",
-          "duration": "11:20",
-          "image": "images/ep3.jpg",
-          "youtube": "https://www.youtube.com/watch?v=AbCdEfGhIjk",
-          "publishDate": "2025-01-24"
-        },
-        {
-          "id": "ep3",
-          "title": "פרק 3",
-          "description": "תיאור הפרק השלישי",
-          "duration": "11:20",
-          "image": "images/ep3.jpg",
-          "youtube": "https://www.youtube.com/watch?v=AbCdEfGhIjk",
-          "publishDate": "2025-01-24"
+          "publishDate": "2025-01-10"
         }
       ]
     },
