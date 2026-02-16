@@ -71,6 +71,14 @@
       "banner": "media/באנר-אתר12.jpg",
       "tab": "media/2-6.jpg",
       "rss": "https://www.omnycontent.com/d/playlist/6dcbc33f-1fb6-49de-9ae2-ad8a00c01523/311939bd-7013-42bb-bd04-adff00e0c25a/77672a8c-4128-4ed6-8967-ae13006904e1/podcast.rss"
+    },
+    {
+      "id": "mati-caspi",
+      "title": "ארכיון גל\"צ : מתי כספי ז״ל",
+      "description": "המלחין והיוצר מתי כספי הלך לעולמו בגיל 76 לאחר מאבק ממושך במחלת הסרטן. כספי, זוכה פרס אקו״ם, נחשב לאחד המוזיקאים החשובים במוזיקה הישראלית ואמון על יותר מאלף שירים ביניהם ״ברית עולם״, ״הנה הנה״ ו״כשאלוהים אמר בפעם הראשונה״. יהי זכרו ברוך",
+      "banner": "media/באנר-אתר-10.png",
+      "tab": "media/mati.png",
+      "rss": "https://www.omnycontent.com/d/playlist/6dcbc33f-1fb6-49de-9ae2-ad8a00c01523/2cda3fb8-c635-493f-b080-b30d00ad6421/19e32eb3-8c0f-4768-b226-b30d00ad6992/podcast.rss"
     }
   ]
 }

@@ -11,6 +11,9 @@ fetch("data/series.json") // הקובץ עם ה-JSON ששלחת
     const episode = series.episodes.find((e) => e.id === episodeId);
     if (!episode) return;
 
+    document.getElementById("back-link").href =
+      `programsSeries.html?id=${seriesId}`;
+
     // כותרת + תיאור
     document.getElementById("episodeTitle").textContent = episode.title;
     document.getElementById("episodeDescription").textContent =

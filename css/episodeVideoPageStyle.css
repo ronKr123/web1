@@ -70,4 +70,34 @@ body{
         font-family: rubik, Arial, sans-serif;
         font-size: large;
     }
+
+
+    .back-to-program {
+    position: absolute;
+    top: 80px;
+    left: 20px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #0078d7, #005bb5);
+    color: white !important;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.back-to-program:hover {
+        background: linear-gradient(135deg, #005bb5, #004494);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+    }
+
+.program-link {
+    display: block;
+    margin-top: 20px;
+    font-size: 16px;
+    color: blue;
+    text-decoration: none;
+}
     

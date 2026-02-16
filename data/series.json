@@ -41,6 +41,15 @@
             "image": "media\\taq.jpg",
             "youtube": "https://www.youtube.com/watch?v=urzNI6JXP48",
           "publishDate": "2025-02-04"
+        },
+        {
+          "id": "ep4",
+          "title": "פרק 4 - ממדים ללימודים",
+"description": "לימודים הם שלב מכריע בחייו של כל צעיר - הרגע שבו אתה צריך לבחור \"מה תרצה לעשות כשתהיה גדול?\" \nלא צריך להילחץ - בפרק הרביעי בסדרה \\\"השתחררתי, מה עכשיו?\\\" קיבלנו תשובות לכל השאלות שמעסיקות את כל המשתחררים - איך אני מחליט מה אני רוצה ללמוד? איך בוחרים מוסד לימודים? והכי חשוב - איך אני מקבל ציון מספיק בבחינה הפסיכומטרית? \nריכזנו את כל העצות ממש כאן!",
+          "duration": "16:10",
+            "image": "media\\taq.jpg",
+            "youtube": "https://www.youtube.com/watch?v=urzNI6JXP48",
+          "publishDate": "2025-02-04"
         }
       ]
     },
@@ -64,7 +73,7 @@
     {
       "id": "trip",
       "title": "טיול לא מאורגן",
-      "image": "media/טיול-לא-מאורגן-2.png",
+      "image": "media/tiol2.png",
       "description": "טיול לא מאורגן עם גלי צה\"ל בסדרת רשת חדשה שתוציא אתכם מהמשרד - ישר לשטח 🌴אז תארזו תיק, תתארגנו על כובע ומימייה והצטרפו אלינו! 🥾",
       "episodes": [
         {
