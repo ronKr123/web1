@@ -79,6 +79,22 @@
       "banner": "media/באנר-אתר-10.png",
       "tab": "media/mati.png",
       "rss": "https://www.omnycontent.com/d/playlist/6dcbc33f-1fb6-49de-9ae2-ad8a00c01523/2cda3fb8-c635-493f-b080-b30d00ad6421/19e32eb3-8c0f-4768-b226-b30d00ad6992/podcast.rss"
-    }
+    },
+    {
+        "id": "artsisraeli-metzuy",
+        "title": "הסכת ארצישראלי מצוי",
+        "description": "מה עושות האיילות בלילות? באיזו טיסה הגיעו ארצה היחמורים? מה עושים יעלים עם מגבונים? ומה מחפש תן בקומה 15? גלי צה״ל ורשות הטבע והגנים מכניסות אתכם לסבך המקומי בפודקאסט חדש לאוהבי חיות, טבע ובני אדם. בכל פרק נפגשת נעמה טוכפלד עם מומחים שונים לשיחה על חיות הבר, המערכת האקולוגית שמתקיימת סביבן, ההשלכות הדרמטיות של מעשי האדם על הטבע ומה ניתן לעשות לגביהן.",
+        "banner": "media/באנר-אתר111.png",
+        "tab": "media/archi.png",
+        "rss": "https://www.omnycontent.com/d/playlist/6dcbc33f-1fb6-49de-9ae2-ad8a00c01523/4067cd63-c0fb-4c2a-85a9-ae0b00da7a44/530e5558-fffe-4898-a891-ae0b00dabb66/podcast.rss"
+      },
+      {
+        "id": "dor-bit",
+        "title": "דור הביט",
+        "description": "לירון תאני וחברים מדברים על עלייתו ונפילתו ועלייתו של העוף המוזר שנקרא \"היפ הופ ישראלי\". סדרת-בת של הפודקאסט החצר האחורית בגלצ",
+        "banner": "media/עותק-של-image00003.png",
+        "tab": "media/עותק-של-image00002.png",
+        "rss": "https://www.omnycontent.com/d/playlist/6dcbc33f-1fb6-49de-9ae2-ad8a00c01523/cf565102-d309-4890-b8e5-b2cf00a052dd/6a34c218-1924-4463-9b43-b2cf00a05855/podcast.rss"
+      }
   ]
 }
