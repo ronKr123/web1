@@ -95,6 +95,22 @@
         "banner": "media/עותק-של-image00003.png",
         "tab": "media/עותק-של-image00002.png",
         "rss": "https://www.omnycontent.com/d/playlist/6dcbc33f-1fb6-49de-9ae2-ad8a00c01523/cf565102-d309-4890-b8e5-b2cf00a052dd/6a34c218-1924-4463-9b43-b2cf00a05855/podcast.rss"
-      }
+      },
+      {
+        "id": "habit-shel-yael",
+        "title": "הבית של יעל",
+        "description": "בית הוא מרחב לשיתוף והקשבה אך בתקופה האחרונה הבתים של כולנו חוו טלטלה. בבית של יעל מתוך שיחות עם מרואיינים מתמודדי פוסט טראומה נלמד איך להכיר את הטראומה, להחזיק את הכאב ולהתמודד איתו יחד.",
+        "banner": "media/באנר-אתר-1.png",
+        "tab": "media/יעל.png",
+        "rss": "https://www.omnycontent.com/d/playlist/6dcbc33f-1fb6-49de-9ae2-ad8a00c01523/d6df0ec8-3423-4c6e-a47c-b2d300e12167/6c6fdf37-7493-4a7c-b947-b2d300e127d6/podcast.rss"
+      },
+      {
+          "id": "stand-up4Israel",
+          "title": "StandUp4Israel עם שחר חסון ויוחאי ספונדר",
+          "description": "נראה שהעולם לא לגמרי מבין מה קורה בישראל. אז צריך שמישהו יסביר לו. באנגלית. יוסף חדאד היה עסוק, אז נאלצנו להתפשר על שני האנשים הכי (לא) מתאימים למשימה - הסטנדאפיסטים שחר חסון ויוחאי ספונדר.",
+          "banner": "media/באנר-אתר12.png",
+          "tab": "media/2.png",
+          "rss": "https://www.omnycontent.com/d/playlist/6dcbc33f-1fb6-49de-9ae2-ad8a00c01523/9eb34dcc-e3d2-4188-b501-b0ab00e64b60/62de4b43-7ca7-4ae0-b3d6-b0ab00e9434d/podcast.rss"
+        }
   ]
 }
