@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="he">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>חיפוש תכניות</title>
+
+<!-- Bootstrap 4 (כפי שיש לך) + Icons -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+<!-- פונטים (אופציונלי) -->
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&amp;display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --accent:#0077cc;
+    --bg:#f7f9fc;
+    --card-bg:#fff;
+    --muted:#666;
+    --gap:14px;
+    font-family: 'Assistant', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  }
+  html,body{ height:100%; }
+  body{
+    margin:0;
+    background:var(--bg);
+    direction:rtl; /* עברית */
+    color:#111;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+  }
+
+ .container{
+  width:100%;
+  max-width:none;   /* מבטל את ההגבלה */
+  padding:0 60px;   /* ריווח מהצדדים */
+  margin:30px 0;
+}
+
+
+  .search-wrap{
+  display:flex;
+  justify-content:center;
+  margin-bottom:30px;
+}
+
+.search{
+  position:relative;
+  width:300px;   /* רוחב קבוע */
+  max-width:40%;
+}
+
+  .search input[type="search"]{
+    width:100%;
+    box-sizing:border-box;
+    padding:14px 48px 14px 16px; /* ריווח מצד ימין לאייקון */
+    border-radius:12px;
+    border:1px solid #e0e6ef;
+    background:#fff;
+    box-shadow:0 1px 4px rgba(16,24,40,0.04);
+    font-size:16px;
+    outline:none;
+  }
+  .search input[type="search"]:focus{
+    border-color:var(--accent);
+    box-shadow:0 8px 24px rgba(0,119,204,0.08);
+  }
+
+  /* אייקון זכוכית מגדלת מימין בתוך השדה */
+  .search .icon{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    right:14px; /* בצד ימין */
+    width:28px;
+    height:28px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    pointer-events:none;
+    opacity:0.8;
+    color:var(--muted);
+  }
+
+  /* קטגוריות ככפתורים/פילים */
+  .categories{
+    display:flex;
+  justify-content:center;   /* ממרכז אופקית */
+  align-items:center;
+  flex-wrap:wrap;           /* שבירה לשורה נוספת במסכים קטנים */
+  gap:12px;
+  margin:25px 0 35px;
+  }
+  .cat{
+    padding:8px 12px;
+    border-radius:999px;
+    background:transparent;
+    border:1px solid transparent;
+    cursor:pointer;
+    user-select:none;
+    font-weight:600;
+    color:var(--muted);
+    transition:all .18s ease;
+    box-shadow: none;
+  }
+  .cat:hover{ transform:translateY(-3px); }
+  .cat.active{
+    background:var(--accent);
+    color:white;
+    border-color:rgba(0,0,0,0.04);
+    box-shadow:0 8px 30px rgba(0,119,204,0.12);
+  }
+
+  /* גלריית כרטיסים - משתמש ב־CSS Grid כדי לשמור על העיצוב הרספונסיבי */
+ .grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(400px,1fr));
+  gap:40px;
+}
+
+
+/* כרטיס */
+.card{
+  background:transparent;
+  border:none;
+  text-decoration:none;
+  color:#111;
+  transition:transform .25s ease;
+}
+
+/* ביטול scale שגרם לריצוד */
+.card:hover{
+  transform:translateY(-8px);
+}
+
+/* תמונה */
+.thumb{
+  width:100%;
+  height:300px;
+  object-fit:cover;
+  border-radius:18px;
+  transition:box-shadow .25s ease;
+}
+
+/* Hover רק צל – בלי scale */
+.card:hover .thumb{
+  box-shadow:0 20px 50px rgba(0,0,0,0.25);
+}
+
+/* כותרת מתחת לתמונה */
+.title{
+  margin-top: 8px;
+    font-size: 25px;
+    font-weight: 600;
+    color: #0B3D91;
+    font-family: 'Assistant', sans-serif;
+    text-align: center;
+}
+
+  .meta{
+    font-size:12px;
+    color:var(--muted);
+  }
+
+  /* הודעות קטנות */
+  .notice{
+    margin-top:12px;
+    color:var(--muted);
+    font-size:20px;
+    text-align: right;
+    margin-right: 10px;
+  }
+
+  /* small screens */
+  @media (max-width:520px){
+    .search input[type="search"]{ padding:12px 44px 12px 12px; font-size:15px; }
+    .grid{ grid-template-columns:repeat(2,1fr); gap:10px; }
+  }
+
+  /* navbar simple tweaks אם רוצים */
+  nav.navbar{ background:transparent; padding:8px 0; }
+  nav .nav-link{ color:#222; font-weight:600; margin:0 6px; }
+  nav .nav-link:hover{ color:var(--accent); text-decoration:none; }
+</style>
+</head>
+<body>
+
+<!-- ====== (שמור את הניווט שלך כפי שאת/ה מעדיף) ====== -->
+<nav class="navbar" role="navigation" aria-label="Main Navigation">
+  <div class="container-fluid">
+    <div class="d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center">
+        <a href="/web1" class="mr-3">
+          <img src="media/screenshot_2025-08-10_183245-removebg-preview-1.png" alt="logo" style="width: 90px; height: 60px;">
+        </a>
+        <div class="d-none d-md-flex align-items-center">
+          <a class="nav-link" href="musicPage.html">מוזיקה</a>
+          <a class="nav-link" href="podcastsPage.html">הסכתים</a>
+          <a class="nav-link" href="sdarotReshetPage.html">סדרות רשת</a>
+          <a class="nav-link" href="culturePage.html">תרבות ופנאי</a>
+          <a class="nav-link" href="kidsPage.html">ילדים ונוער</a>
+          <a class="nav-link" href="archivesPage.html">ארכיון</a>
+        </div>
+      </div>
+
+      <div class="d-flex align-items-center">
+        <a href="search.html" class="mr-3" aria-label="Search"><i class="bi bi-search" style="font-size:20px;"></i></a>
+        <a href="favoritesPage.html" class="mr-3" aria-label="Favorites"><i class="bi bi-heart" style="font-size:20px;"></i></a>
+        <button class="btn btn-sm btn-outline-secondary d-md-none" id="mobileMenuBtn" aria-expanded="false" aria-controls="mobileMenu">
+          <i class="bi bi-list"></i>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="d-none">
+      <a href="musicPage.html" class="d-block py-2">מוזיקה</a>
+      <a href="podcastsPage.html" class="d-block py-2">הסכתים</a>
+      <a href="sdarotReshetPage.html" class="d-block py-2">סדרות רשת</a>
+      <a href="culturePage.html" class="d-block py-2">תרבות ופנאי</a>
+      <a href="kidsPage.html" class="d-block py-2">ילדים ונוער</a>
+      <a href="archivesPage.html" class="d-block py-2">ארכיון</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+<h1 class="text-center mt-3"
+    style="font-family: 'Assistant', sans-serif; font-size: 40px; font-weight: 700; color: #0B3D91; margin-bottom: 10px;">חיפוש תכנית</h1>
+
+  <div class="search-wrap">
+    <div class="search" role="search" style="flex:1">
+      <input id="searchInput" type="search" placeholder="חפש תוכנית לפי כותרת..." aria-label="חיפוש תכניות" />
+      <div class="icon" aria-hidden="true">
+        <i class="bi bi-search" style="font-size:18px;"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="categories" id="categories" aria-label="קטגוריות">
+    <!-- כפתורי קטגוריות יתמלאו דינמית -->
+  </div>
+
+  <div id="grid" class="grid" aria-live="polite" role="list">
+    <!-- כרטיסים -->
+  </div>
+
+  <div id="notice" class="notice"></div>
+</div>
+
+<!-- ====== JavaScript ====== -->
+<script>
+/*
+  גרסה מותאמת למבנה ה־JSON שלך:
+  - programs.json: { "programs": [ ... ] }
+  - series.json: { "series": [ ... ] }
+
+  נשתמש בשדות:
+  - לתכניות: id, title, tab (או banner), description, rss (במידה ויש) -> category ייקח מהשדה אם קיים, אחרת ננחש 'הסכתים' אם יש rss
+  - לסדרות: id, title, image, description -> category = 'סדרות רשת'
+*/
+
+const CATEGORIES = ["כל התכניות","הסכתים","תרבות ופנאי","ארכיון","ילדים ונוער","מוזיקה","סדרות רשת"];
+
+// כאן נתיבים יחסיים לקבצי JSON שלך - עדכן אם צריך
+const programsUrl = 'data/programs.json';
+const sedraUrl    = 'data/series.json';
+
+let allItems = [];       // כל הפריטים (program + sedra) לאחר טעינה
+let randomSnapshot = []; // ה־20 הראשוניים ערבובים (המצב שחוזר אליו אם מבטלים קטגוריה)
+let activeCategory = null;
+let filteredItems = [];  // תוצאת חיפוש/מסנן נוכחי
+
+const grid = document.getElementById('grid');
+const notice = document.getElementById('notice');
+const categoriesEl = document.getElementById('categories');
+const searchInput = document.getElementById('searchInput');
+
+// ---- UI: כפתורי קטגוריות ----
+function createCategoryButtons(){
+  categoriesEl.innerHTML = '';
+  CATEGORIES.forEach(cat=>{
+    const btn = document.createElement('button');
+    btn.className = 'cat';
+    btn.textContent = cat;
+    btn.dataset.cat = cat;
+    btn.type = 'button';
+    btn.addEventListener('click', onCategoryClick);
+    categoriesEl.appendChild(btn);
+  });
+}
+
+function setActiveCategory(cat){
+  activeCategory = (activeCategory === cat) ? null : cat;
+  // עדכון כפתורים
+  Array.from(categoriesEl.children).forEach(btn=>{
+    btn.classList.toggle('active', btn.dataset.cat === activeCategory);
+  });
+  // בחר מה להציג:
+  if(activeCategory){
+    if(activeCategory === 'סדרות רשת'){
+      filteredItems = allItems.filter(i => i.source === 'sedra');
+    } else {
+      filteredItems = allItems.filter(i => i.source === 'program' && i.category === activeCategory);
+    }
+  } else {
+    // חזרה למצב הקודם (ה־randomSnapshot)
+    filteredItems = [...randomSnapshot];
+  }
+  applySearchAndRender();
+}
+
+function onCategoryClick(e){
+  const cat = e.currentTarget.dataset.cat;
+  setActiveCategory(cat);
+}
+
+// ---- עזר: ערבוב ולוק אקראי ----
+function shuffle(a){
+  for(let i=a.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [a[i],a[j]]=[a[j],a[i]];
+  }
+  return a;
+}
+
+function takeRandomMixed(items, limit=20){
+  shuffle(items);
+  return items.slice(0, Math.min(limit, items.length));
+}
+
+// ---- רינדור כרטיסים ----
+function renderItems(items){
+  grid.innerHTML = '';
+  if(!items || items.length === 0){
+    notice.textContent = 'לא נמצאו פריטים.';
+    return;
+  } else {
+    notice.textContent = '';
+  }
+
+  items.forEach(item=>{
+    // יצירת כרטיס
+    const a = document.createElement('a');
+    a.className='card';
+    a.href = (item.source === 'sedra') ? `programsSeries.html?id=${encodeURIComponent(item.id)}` : `program.html?id=${encodeURIComponent(item.id)}`;
+    a.title = item.title;
+    a.setAttribute('aria-label', item.title);
+    // בחר שדה תמונה לפי מקור
+    const imgSrc = item.image || item.tab || item.banner || '';
+    // בטחון - בריחת טקסט
+    const safeTitle = escapeHtml(item.title || '');
+    const meta = item.source === 'sedra' ? 'סדרת רשת' : (item.category || '');
+
+    a.innerHTML = `
+      <img class="thumb" loading="lazy" src="${encodeURI(imgSrc)}" alt="${safeTitle}"
+        onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22160%22 height=%2290%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23e9eef6%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23666%22 font-size=%2210%22>אין תמונה</text></svg>';">
+        <div class="title">${safeTitle}</div>
+    `;
+    grid.appendChild(a);
+  });
+}
+
+// ---- עדכון ספואטסטטוס ----
+function updateNoticeCounts(){
+  const totalPrograms = allItems.filter(i=>i.source==='program').length;
+  const totalSedra = allItems.filter(i=>i.source==='sedra').length;
+  notice.textContent = `מציג ${filteredItems.length} פריטים — סך הכל: ${totalPrograms} תכניות, ${totalSedra} סדרות רשת.`;
+}
+
+// ---- חיפוש (עם ניקוי ניקוד/טעמים בעברית) ----
+function normalizeTextForSearch(s){
+  if(!s) return '';
+  // מורידים ניקוד (טעמים) ומשתנים ל־lower
+  return s.normalize('NFD').replace(/[\u0591-\u05C7]/g,'').toLowerCase();
+}
+
+function applySearchAndRender(){
+  const q = searchInput.value.trim();
+  let itemsToShow = filteredItems;
+  if(q.length > 0){
+    const qq = normalizeTextForSearch(q);
+    itemsToShow = filteredItems.filter(it=>{
+      const t = normalizeTextForSearch(it.title || '');
+      return t.includes(qq);
+    });
+  }
+  renderItems(itemsToShow);
+}
+
+// ---- בריחת HTML בטוחה ----
+function escapeHtml(str){
+  return String(str || '').replace(/[&<>"']/g, (m)=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m]));
+}
+
+// ---- debounce לחיפוש בזמן אמת ----
+function debounce(func, delay) {
+  let timeout;
+  return function(...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, args), delay);
+  };
+}
+
+// ---- אתחול וטעינת JSON ----
+async function init(){
+  createCategoryButtons();
+  try{
+    // fetch שתי קבצי JSON
+    const [pRes, sRes] = await Promise.all([
+      fetch(programsUrl),
+      fetch(sedraUrl)
+    ]);
+
+    if(!pRes.ok || !sRes.ok) throw new Error('שגיאת נטיסה בטעינת קבצי JSON');
+
+    const pData = await pRes.json();
+    const sData = await sRes.json();
+
+    // מערכי מקורות (יתאימו למבנה שלך)
+    const programsArr = Array.isArray(pData.programs) ? pData.programs : (Array.isArray(pData) ? pData : []);
+    const seriesArr   = Array.isArray(sData.series) ? sData.series : (Array.isArray(sData) ? sData : []);
+
+    // המרת תוכניות ל-items אחידים
+    const programs = programsArr.map(p => ({
+      id: p.id,
+      title: p.title,
+      description: p.description || '',
+      tab: p.tab || p.banner || '',
+      banner: p.banner || '',
+      rss: p.rss || '',
+      // category: השתמש אם יש ב־JSON, אחרת ננחש לפי rss
+      category: p.category || (p.rss ? 'הסכתים' : (p.type || 'תרבות ופנאי')),
+      source: 'program'
+    }));
+
+    // המרת סדרות ל-items אחידים
+    const series = seriesArr.map(s => ({
+      id: s.id,
+      title: s.title,
+      description: s.description || '',
+      image: s.image || s.tab || '',
+      source: 'sedra',
+      category: 'סדרות רשת',
+      // שדה episodes נשמר אם תרצה להשתמש בו בעתיד
+      episodes: s.episodes || []
+    }));
+
+    // איחוד רשימת כל הפריטים
+    allItems = [...programs, ...series];
+
+    // בחר 20 רנדומליים להצגה התחלתית (מערבבים בין כולם)
+    randomSnapshot = takeRandomMixed([...allItems], 20);
+    filteredItems = [...randomSnapshot];
+
+    // רינדור ראשוני
+    renderItems(filteredItems);
+    updateNoticeCounts();
+
+  } catch(err){
+    console.error(err);
+    notice.textContent = 'שגיאה בטעינת הנתונים — יש לוודא שקבצי programs.json ו־series.json נגישים ואינם בפורמט שגוי.';
+  }
+}
+
+// ---- אירועי UI ----
+searchInput.addEventListener('input', debounce(() => {
+  // כאשר יש חיפוש — מתקבל בסיס החיפוש מתוך המצב הנוכחי:
+  // אם יש קטגוריה פעילה -> מחפשים בתוך הפריטים של אותה קטגוריה
+  // אחרת מחפש במצב ההתחלתי (randomSnapshot)
+  const base = activeCategory ? (activeCategory === 'סדרות רשת' ? allItems.filter(i=>i.source==='sedra') : allItems.filter(i=>i.source==='program' && i.category === activeCategory)) : [...randomSnapshot];
+  filteredItems = base;
+  applySearchAndRender();
+}, 300));
+
+searchInput.addEventListener('keydown', (e)=>{
+  if(e.key === 'Enter'){ e.preventDefault(); applySearchAndRender(); }
+});
+
+// הפעלת הדף
+init();
+
+// ---- small mobile menu toggle (optional) ----
+document.getElementById('mobileMenuBtn')?.addEventListener('click', ()=>{
+  const m = document.getElementById('mobileMenu');
+  if(!m) return;
+  const show = m.classList.toggle('d-block');
+  document.getElementById('mobileMenuBtn').setAttribute('aria-expanded', show);
+});
+</script>
+
+</body>
+</html>
