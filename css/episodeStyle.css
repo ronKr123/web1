@@ -887,6 +887,13 @@ body {
             grid-template-columns: 1fr;
             padding: 0;
         }
+
+        .episode-container {
+        text-align: center;
+        margin: 20px;
+        max-width: 800px;
+    }
+    
     }
 
     .center-icon {

@@ -147,15 +147,15 @@
     direction: rtl;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    /* white-space: nowrap; */
   }
 
   /* תיאור — עמודה שמאלית שורה 2, מקסימום 2 שורות */
   .podcast-grid .program-description {
     grid-column: 1;
     grid-row: 2;
-    margin: 0;
-    margin-top: 6px;
+    /* margin: 0;
+    margin-top: 6px; */
     color: rgba(0,0,0,0.66);
     font-size: 13px;
     text-align: right;
