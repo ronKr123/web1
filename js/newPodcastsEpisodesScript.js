@@ -1,9 +1,9 @@
 const RSS_PROXY = "https://api.rss2json.com/v1/api.json?rss_url=";
 
 const selectedProgramIds = [
-  "enoshi",
   "kulshPodcast",
   "eamon",
+  "noaiva",
   "melechblayizerhaim",
 ];
 

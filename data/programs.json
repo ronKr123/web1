@@ -287,6 +287,62 @@
           "banner": "media\\לל.png",
           "tab": "media/בתןך-הפודקאסט-פי-2-2.png",
           "rss": "https://www.omnycontent.com/d/playlist/6dcbc33f-1fb6-49de-9ae2-ad8a00c01523/3bdbd1d8-bd37-4860-b61b-b37b0070721c/45db35e7-b3df-4eb3-927d-b37b007075f6/podcast.rss"
-      }
+      },
+      {
+          "id": "noaiva",
+          "title": "ואתם רוקדים - הסיפור של פסטיבל נואיבה",
+          "description": "הסיפור המלא על פסטיבל הפופ הראשון בישראל, דרך תיעודים נדירים שנשמרו בארכיון גלי צה\"ל, עם אורחים מיוחדים והאנשים שהיו שם.",
+          "banner": "media\\באנר-נואיבה-מיוחד.png",
+          "tab": "media\\תמונה-מלבנית.png",
+          "rss": "https://www.omnycontent.com/d/playlist/6dcbc33f-1fb6-49de-9ae2-ad8a00c01523/5cc525e5-aa3c-4579-bf74-b3dd00a38cb9/86f9288b-7444-4ceb-8d96-b3dd00a390e3/podcast.rss"
+      },
+        {
+            "id": "dreams",
+            "title": "חלומות",
+            "description": "תסכיתים קצרים שיפתחו בפניכם את המסעות המשונים של תת המודע שלנו. האנשים המוכרים לנו מהסרטים, ההצגות והשירים ברדיו נותנים הצצה למתרחש בראשם בשעות הקטנות של הלילה.",
+            "banner": "media\\dreams (2).png",
+            "tab": "media\\dreams (2).png",
+            "rss": "https://www.omnycontent.com/d/playlist/6dcbc33f-1fb6-49de-9ae2-ad8a00c01523/f53502bf-0a99-46ba-b897-ae53008baebb/3193efa2-6a9d-4f8f-b70a-ae53008c5823/podcast.rss"
+        },
+          {
+              "id": "peopleAtNight",
+              "title": "אנשים בלילה",
+              "description": ".התכנית שודרה בין השנים 2010-2014 בהגשתו של איש הרדיו והטלוויזיה קובי מידן. במסגרת התכנית רואיינו מעל לחמש מאות אישים מכל גווני הקשת הישראלית: אישי ציבור, פעילים חברתיים, ידוענים, אמנים ואישי רוח לשיחה אישית, מעמיקה, רגועה וזורמת כאחד. עם הזמן החלו מגישים מחליפים להגיש מידי פעם את התכנית, ביניהם בן שני",
+              "banner": "media\\ChatGPT Image Apr 24, 2026, 12_45_12 PM.png",
+              "tab": "media\\ChatGPT Image Apr 24, 2026, 12_45_12 PM.png",
+              "rss": "https://www.omnycontent.com/d/playlist/6dcbc33f-1fb6-49de-9ae2-ad8a00c01523/f53502bf-0a99-46ba-b897-ae53008baebb/95b7991b-f155-437d-98d3-ae5300a78d11/podcast.rss"
+          },
+            {
+                "id": "masa-hakesm",
+                "title": "מסע הקסם המסתורי",
+                "description": "התוכנית שודרה בשנים 1981-1982 בהגשתו ובעריכתו של יואב קוטנר והיא מספרת את סיפורה של הלהקה המפורסמת ביותר בעולם, \"הביטלס\". בתוכנית הושמעו שירים, הקלטות נדירות, סיפורים על חברי הלהקה וראיונות עמם. בנוסף בתוכנית סורק קוטנר את נקודות הציון החשובות של הלהקה ומשמיע את הלהיטים הגדולים מתוך נקודת מבטו הייחודית עליהן מבט ייחודי עליהם. התכנית כוללת 60 פרקים הכוללים מבט מקיף, ייחודי ונדיר על חברי להקת החיפושיות ועל החותם שהותירו על פני הארץ.",
+                "banner": "media\\ChatGPT Image Apr 24, 2026, 12_45_52 PM.png",
+                "tab": "media\\ChatGPT Image Apr 24, 2026, 12_45_52 PM.png",
+                "rss": "https://www.omnycontent.com/d/playlist/6dcbc33f-1fb6-49de-9ae2-ad8a00c01523/f53502bf-0a99-46ba-b897-ae53008baebb/fdbb53f2-6ff3-4b57-96f8-ae53008e6dec/podcast.rss"
+            },
+              {
+                  "id": "radio-street",
+                  "title": "רדיו רחוב",
+                  "description": "ענת קורול יוצאת עם מיקרופון לרחובות ישראל, לשיחות עם עוברי אורח על נושאים יומיומיים וישראליים.",
+                  "banner": "media\\ChatGPT Image Apr 24, 2026, 12_46_19 PM.png",
+                  "tab": "media\\ChatGPT Image Apr 24, 2026, 12_46_19 PM.png",
+                  "rss": "https://www.omnycontent.com/d/playlist/6dcbc33f-1fb6-49de-9ae2-ad8a00c01523/f53502bf-0a99-46ba-b897-ae53008baebb/219863a2-a97a-4e14-9953-ae5300a3fc68/podcast.rss"
+              },
+              {
+                  "id": "lotInArafel",
+                  "title": "לוט בערפל",
+                  "description": "תכנית בהגשתו ועריכתו של איתיאל דינר על התופעות הטכנולוגיות, התרבותיות והחברתיות שצפויות להתרחש בעולמנו בעתיד הקרוב - בשר סינטטי, מכוניות אוטונומיות, מפלגות העתיד ועוד. ננסה להנגיש את המושגים בצורה קלילה, להסביר איך התופעות יתרחשו בפועל, והאם כדאי כבר עכשיו לארוז מזוודה ולקנות כרטיס טיסה חד כיווני למאדים?",
+                  "banner": "media\\ChatGPT Image Apr 24, 2026, 12_46_27 PM.png",
+                  "tab": "media\\ChatGPT Image Apr 24, 2026, 12_46_27 PM.png",
+                  "rss": "https://www.omnycontent.com/d/playlist/6dcbc33f-1fb6-49de-9ae2-ad8a00c01523/f53502bf-0a99-46ba-b897-ae53008baebb/39f66afa-4b1c-4454-a37d-ae5300998d2e/podcast.rss"
+              },
+                {
+                    "id": "gali-atari",
+                    "title": "מרתון גלי עטרי",
+                    "description": "ראיונות מיוחדים והקלטות נדירות מתוך המרתונים המוזיקליים ממעמקי ארכיון גלי צה\"ל. והפעם - גלי עטריהתכנית שודרה ב-1989, מגישה: שירה גרא",
+                    "banner": "media/gali.jpg",
+                    "tab": "media/gali.jpg",
+                    "rss": "https://www.omnycontent.com/d/playlist/6dcbc33f-1fb6-49de-9ae2-ad8a00c01523/2dc66ddb-c379-411b-a065-b2f701370c4f/976c1910-4a71-4522-923d-b3010135987d/podcast.rss"
+                }
   ]
 }
