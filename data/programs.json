@@ -343,6 +343,14 @@
                     "banner": "media/gali.jpg",
                     "tab": "media/gali.jpg",
                     "rss": "https://www.omnycontent.com/d/playlist/6dcbc33f-1fb6-49de-9ae2-ad8a00c01523/2dc66ddb-c379-411b-a065-b2f701370c4f/976c1910-4a71-4522-923d-b3010135987d/podcast.rss"
+                },
+                {
+                    "id": "shavout",
+                    "title": "שבועות בגלי צה\"ל",
+                    "description": "תוכניות מיוחדות לכבוד חג השבועות בגלי צה\"ל!",
+                    "banner": "media\\שבועות1.png",
+                    "tab": "media\\שבועות1.png",
+                    "rss": "https://www.omnycontent.com/d/playlist/6dcbc33f-1fb6-49de-9ae2-ad8a00c01523/311939bd-7013-42bb-bd04-adff00e0c25a/03b1b43e-bd73-40ef-a234-adff00e2f388/podcast.rss"
                 }
   ]
 }

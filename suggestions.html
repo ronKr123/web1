@@ -1,0 +1,590 @@
+<html><head>
+	<title>גלצ פלוס</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+      <link rel="icon" type="image/x-icon" href="media/favicon.ico">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;display=swap" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&amp;display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&amp;display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&amp;family=Rubik:ital,wght@0,300..900;1,300..900&amp;display=swap" rel="stylesheet">
+  	<link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/CategoryStyle.css">
+
+	<!-- Bootstrap JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  fetch("partials/footer.html")
+    .then(res => res.text())
+    .then(html => {
+      const footer = document.getElementById("footer");
+      if (footer) footer.innerHTML = html;
+    });
+
+});
+</script>
+</head>
+
+<body>
+	<link rel="stylesheet" href="css/NavigationBarStyle.css">
+
+<nav class="navbar" role="navigation" aria-label="Main Navigation">
+  <div class="nav-container">
+    <div class="nav-row">
+
+      <div class="nav-side brand">
+        <a href="/web1">
+          <img src="media/screenshot_2025-08-10_183245-removebg-preview-1.png" alt="logo" style="width: 90px; height: 60px; margin-left: 10px;">
+        </a>
+      </div>
+
+
+      <!-- אמצע – הקישורים -->
+      <div class="nav-center nav-links">
+        <a class="nav-link" href="musicPage.html">מוזיקה</a>
+        <a class="nav-link" href="podcastsPage.html">הסכתים</a>
+        <a class="nav-link"  href="sdarotReshetPage.html">סדרות רשת</a>
+        <a class="nav-link" href="culturePage.html">תרבות ופנאי</a>
+        <a class="nav-link" href="kidsPage.html">ילדים ונוער</a>
+        <a class="nav-link" href="archivesPage.html">ארכיון</a>
+        <a class="nav-link" href="suggestions.html">אולי יעניין אותך</a>
+
+      </div>
+
+
+      <!-- שמאל – כפתורים -->
+      <div class="nav-side actions mr-1">
+        <a href="search.html" style="color: none; text-decoration: none;" class="icon-btn" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass" style="font-size: 24px;"></i>
+        </a>
+
+        <a href="favoritesPage.html" style="color: none; text-decoration: none;" class="icon-btn" aria-label="Favorites">
+          <i class="fa-regular fa-heart" style="font-size: 24px;"></i>
+        </a>
+
+        <button class="icon-btn mobile-toggle" id="mobileMenuBtn" aria-expanded="false" aria-controls="mobileMenu">
+          <i class="fa-solid fa-bars" id="mobileMenuIcon"></i>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="mobileMenu" class="mobile-menu">
+    <a href="musicPage.html" data-close="">מוזיקה</a>
+    <a href="podcastsPage.html" data-close="">הסכתים</a>
+    <a href="sdarotReshetPage.html" data-close="">סדרות רשת</a>
+    <a href="culturePage.html" data-close="">תרבות ופנאי</a>
+    <a href="kidsPage.html" data-close="">ילדים ונוער</a>
+    <a href="archivesPage.html" data-close="">ארכיון</a>
+  </div>
+</nav>
+
+<script>
+  const mobileBtn = document.getElementById("mobileMenuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const mobileIcon = document.getElementById("mobileMenuIcon");
+
+  mobileBtn.addEventListener("click", () => {
+    const isOpen = mobileMenu.classList.toggle("open");
+    mobileBtn.setAttribute("aria-expanded", isOpen);
+    mobileIcon.classList.toggle("fa-bars", !isOpen);
+    mobileIcon.classList.toggle("fa-xmark", isOpen);
+  });
+
+  // סגירה אוטומטית בלחיצה על לינק עם data-close
+  document.querySelectorAll("#mobileMenu a[data-close]").forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.remove("open");
+      mobileBtn.setAttribute("aria-expanded", false);
+      mobileIcon.classList.add("fa-bars");
+      mobileIcon.classList.remove("fa-xmark");
+    });
+  });
+</script>
+
+<!-- רווח עליון לתוכן כדי למנוע חפיפה -->
+<!-- <div style="height:84px;" > </div> -->
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+    }
+
+    .programs-grid {
+        direction: rtl;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        padding: 60px;
+        background-color: #e6f0fa;
+    }
+
+    @media (max-width: 992px) {
+        .programs-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .programs-grid {
+            grid-template-columns: 1fr !important;
+        }
+    }
+
+
+    .program-card {
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .program-card a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .program-card img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .program-card:hover img {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .program-card h4 {
+        margin-top: 8px;
+        font-size: 25px;
+        font-weight: 600;
+        color: #0B3D91;
+        font-family: 'Assistant', sans-serif;
+    }
+
+    .pagination {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .pagination a,
+    .pagination span {
+        margin: 0 5px;
+        padding: 8px 12px;
+        color: white;
+        background-color: #007acc;
+        border-radius: 4px;
+        text-decoration: none;
+    }
+
+    .pagination span.current {
+        background-color: #005ea2;
+        font-weight: bold;
+    }
+
+    .header-with-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        margin: 30px 0 2px;
+    }
+
+    .header-icon {
+        width: 110px;
+        height: 110px;
+    }
+</style>
+	
+ <style>
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .section {
+            margin-bottom: 50px;
+        }
+        .section-title {
+            font-size: 26px;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            padding-right: 15px;
+            border-right: 5px solid #2b6cb0;
+            text-align: end;
+            font-family: 'Assistant', sans-serif; font-size: 36px; font-weight: 700; color: #0B3D91;
+        }
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid #eaeaea;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        .card-image {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background-color: #e1e4e8;
+            background-size: cover;
+            background-position: center;
+        }
+        .card-content {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .card-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #2b6cb0;
+            margin: 0 0 8px 0;
+            line-height: 1.3;
+        }
+        .card-desc {
+            font-size: 13px;
+            color: #4a5568;
+            margin: 0;
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Responsive Mobile & Tablet */
+        @media (max-width: 1100px) {
+            .cards-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* עיצוב רשימה לטלפון - Mobile List View */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px 10px;
+            }
+            .section {
+                margin-bottom: 30px;
+            }
+            .section-title {
+                font-size: 22px;
+                margin-bottom: 15px;
+            }
+            .cards-grid {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
+            .card {
+                flex-direction: row;
+                height: 110px;
+                border-radius: 10px;
+            }
+            .card-image {
+                width: 130px;
+                height: 100%;
+                aspect-ratio: auto;
+                flex-shrink: 0;
+            }
+            .card-content {
+                padding: 12px 15px;
+                justify-content: center;
+            }
+            .card-title {
+                font-size: 15px;
+                margin-bottom: 5px;
+                -webkit-line-clamp: 2;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+            .card-desc {
+                font-size: 12px;
+                -webkit-line-clamp: 2;
+            }
+        }
+    </style>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>ילדים ונוער</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+    <div class="header-with-icon">
+            <img src="media/suggests-removebg-preview.png" alt="ילדים ונוער" class="header-icon">
+
+        <h1 class="page-title" style="font-family: 'Assistant', sans-serif; font-size: 36px; font-weight: 700; color: #0B3D91; margin: 0;">
+           אולי יעניין אותך</h1>
+    </div>
+    <div class="container">
+
+        <div class="section">
+            <h2 class="section-title">מומלצים עבורך</h2>
+            <div class="cards-grid">
+                <a href="#" class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, hsl(0, 60%, 70%), hsl(0, 50%, 50%));"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">כותרת הפרק 1 - נושא מרתק</h3>
+                        <p class="card-desc">כאן יופיע תיאור קצר של התוכן, בדומה למה שמופיע בתמונה. מתאים למספר שורות ומעוצב בקפידה.</p>
+                    </div>
+                </a>
+                <a href="#" class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, hsl(30, 60%, 70%), hsl(30, 50%, 50%));"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">כותרת הפרק 2 - נושא מרתק</h3>
+                        <p class="card-desc">כאן יופיע תיאור קצר של התוכן, בדומה למה שמופיע בתמונה. מתאים למספר שורות ומעוצב בקפידה.</p>
+                    </div>
+                </a>
+                <a href="#" class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, hsl(60, 60%, 70%), hsl(60, 50%, 50%));"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">כותרת הפרק 3 - נושא מרתק</h3>
+                        <p class="card-desc">כאן יופיע תיאור קצר של התוכן, בדומה למה שמופיע בתמונה. מתאים למספר שורות ומעוצב בקפידה.</p>
+                    </div>
+                </a>
+                <a href="#" class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, hsl(90, 60%, 70%), hsl(90, 50%, 50%));"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">כותרת הפרק 4 - נושא מרתק</h3>
+                        <p class="card-desc">כאן יופיע תיאור קצר של התוכן, בדומה למה שמופיע בתמונה. מתאים למספר שורות ומעוצב בקפידה.</p>
+                    </div>
+                </a>
+                <a href="#" class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, hsl(120, 60%, 70%), hsl(120, 50%, 50%));"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">כותרת הפרק 5 - נושא מרתק</h3>
+                        <p class="card-desc">כאן יופיע תיאור קצר של התוכן, בדומה למה שמופיע בתמונה. מתאים למספר שורות ומעוצב בקפידה.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="section">
+            <h2 class="section-title">פודקאסטים חדשים</h2>
+            <div class="cards-grid">
+                <a href="#" class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, hsl(50, 60%, 70%), hsl(50, 50%, 50%));"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">כותרת הפרק 1 - נושא מרתק</h3>
+                        <p class="card-desc">כאן יופיע תיאור קצר של התוכן, בדומה למה שמופיע בתמונה. מתאים למספר שורות ומעוצב בקפידה.</p>
+                    </div>
+                </a>
+                <a href="#" class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, hsl(80, 60%, 70%), hsl(80, 50%, 50%));"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">כותרת הפרק 2 - נושא מרתק</h3>
+                        <p class="card-desc">כאן יופיע תיאור קצר של התוכן, בדומה למה שמופיע בתמונה. מתאים למספר שורות ומעוצב בקפידה.</p>
+                    </div>
+                </a>
+                <a href="#" class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, hsl(110, 60%, 70%), hsl(110, 50%, 50%));"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">כותרת הפרק 3 - נושא מרתק</h3>
+                        <p class="card-desc">כאן יופיע תיאור קצר של התוכן, בדומה למה שמופיע בתמונה. מתאים למספר שורות ומעוצב בקפידה.</p>
+                    </div>
+                </a>
+                <a href="#" class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, hsl(140, 60%, 70%), hsl(140, 50%, 50%));"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">כותרת הפרק 4 - נושא מרתק</h3>
+                        <p class="card-desc">כאן יופיע תיאור קצר של התוכן, בדומה למה שמופיע בתמונה. מתאים למספר שורות ומעוצב בקפידה.</p>
+                    </div>
+                </a>
+                <a href="#" class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, hsl(170, 60%, 70%), hsl(170, 50%, 50%));"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">כותרת הפרק 5 - נושא מרתק</h3>
+                        <p class="card-desc">כאן יופיע תיאור קצר של התוכן, בדומה למה שמופיע בתמונה. מתאים למספר שורות ומעוצב בקפידה.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="section">
+            <h2 class="section-title">ראיונות בלעדיים</h2>
+            <div class="cards-grid">
+                <a href="#" class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, hsl(100, 60%, 70%), hsl(100, 50%, 50%));"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">כותרת הפרק 1 - נושא מרתק</h3>
+                        <p class="card-desc">כאן יופיע תיאור קצר של התוכן, בדומה למה שמופיע בתמונה. מתאים למספר שורות ומעוצב בקפידה.</p>
+                    </div>
+                </a>
+                <a href="#" class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, hsl(130, 60%, 70%), hsl(130, 50%, 50%));"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">כותרת הפרק 2 - נושא מרתק</h3>
+                        <p class="card-desc">כאן יופיע תיאור קצר של התוכן, בדומה למה שמופיע בתמונה. מתאים למספר שורות ומעוצב בקפידה.</p>
+                    </div>
+                </a>
+                <a href="#" class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, hsl(160, 60%, 70%), hsl(160, 50%, 50%));"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">כותרת הפרק 3 - נושא מרתק</h3>
+                        <p class="card-desc">כאן יופיע תיאור קצר של התוכן, בדומה למה שמופיע בתמונה. מתאים למספר שורות ומעוצב בקפידה.</p>
+                    </div>
+                </a>
+                <a href="#" class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, hsl(190, 60%, 70%), hsl(190, 50%, 50%));"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">כותרת הפרק 4 - נושא מרתק</h3>
+                        <p class="card-desc">כאן יופיע תיאור קצר של התוכן, בדומה למה שמופיע בתמונה. מתאים למספר שורות ומעוצב בקפידה.</p>
+                    </div>
+                </a>
+                <a href="#" class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, hsl(220, 60%, 70%), hsl(220, 50%, 50%));"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">כותרת הפרק 5 - נושא מרתק</h3>
+                        <p class="card-desc">כאן יופיע תיאור קצר של התוכן, בדומה למה שמופיע בתמונה. מתאים למספר שורות ומעוצב בקפידה.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="section">
+            <h2 class="section-title">כלכלה ועסקים</h2>
+            <div class="cards-grid">
+                <a href="#" class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, hsl(150, 60%, 70%), hsl(150, 50%, 50%));"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">כותרת הפרק 1 - נושא מרתק</h3>
+                        <p class="card-desc">כאן יופיע תיאור קצר של התוכן, בדומה למה שמופיע בתמונה. מתאים למספר שורות ומעוצב בקפידה.</p>
+                    </div>
+                </a>
+                <a href="#" class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, hsl(180, 60%, 70%), hsl(180, 50%, 50%));"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">כותרת הפרק 2 - נושא מרתק</h3>
+                        <p class="card-desc">כאן יופיע תיאור קצר של התוכן, בדומה למה שמופיע בתמונה. מתאים למספר שורות ומעוצב בקפידה.</p>
+                    </div>
+                </a>
+                <a href="#" class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, hsl(210, 60%, 70%), hsl(210, 50%, 50%));"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">כותרת הפרק 3 - נושא מרתק</h3>
+                        <p class="card-desc">כאן יופיע תיאור קצר של התוכן, בדומה למה שמופיע בתמונה. מתאים למספר שורות ומעוצב בקפידה.</p>
+                    </div>
+                </a>
+                <a href="#" class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, hsl(240, 60%, 70%), hsl(240, 50%, 50%));"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">כותרת הפרק 4 - נושא מרתק</h3>
+                        <p class="card-desc">כאן יופיע תיאור קצר של התוכן, בדומה למה שמופיע בתמונה. מתאים למספר שורות ומעוצב בקפידה.</p>
+                    </div>
+                </a>
+                <a href="#" class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, hsl(270, 60%, 70%), hsl(270, 50%, 50%));"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">כותרת הפרק 5 - נושא מרתק</h3>
+                        <p class="card-desc">כאן יופיע תיאור קצר של התוכן, בדומה למה שמופיע בתמונה. מתאים למספר שורות ומעוצב בקפידה.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="section">
+            <h2 class="section-title">תרבות ופנאי</h2>
+            <div class="cards-grid">
+                <a href="#" class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, hsl(200, 60%, 70%), hsl(200, 50%, 50%));"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">כותרת הפרק 1 - נושא מרתק</h3>
+                        <p class="card-desc">כאן יופיע תיאור קצר של התוכן, בדומה למה שמופיע בתמונה. מתאים למספר שורות ומעוצב בקפידה.</p>
+                    </div>
+                </a>
+                <a href="#" class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, hsl(230, 60%, 70%), hsl(230, 50%, 50%));"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">כותרת הפרק 2 - נושא מרתק</h3>
+                        <p class="card-desc">כאן יופיע תיאור קצר של התוכן, בדומה למה שמופיע בתמונה. מתאים למספר שורות ומעוצב בקפידה.</p>
+                    </div>
+                </a>
+                <a href="#" class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, hsl(260, 60%, 70%), hsl(260, 50%, 50%));"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">כותרת הפרק 3 - נושא מרתק</h3>
+                        <p class="card-desc">כאן יופיע תיאור קצר של התוכן, בדומה למה שמופיע בתמונה. מתאים למספר שורות ומעוצב בקפידה.</p>
+                    </div>
+                </a>
+                <a href="#" class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, hsl(290, 60%, 70%), hsl(290, 50%, 50%));"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">כותרת הפרק 4 - נושא מרתק</h3>
+                        <p class="card-desc">כאן יופיע תיאור קצר של התוכן, בדומה למה שמופיע בתמונה. מתאים למספר שורות ומעוצב בקפידה.</p>
+                    </div>
+                </a>
+                <a href="#" class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, hsl(320, 60%, 70%), hsl(320, 50%, 50%));"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">כותרת הפרק 5 - נושא מרתק</h3>
+                        <p class="card-desc">כאן יופיע תיאור קצר של התוכן, בדומה למה שמופיע בתמונה. מתאים למספר שורות ומעוצב בקפידה.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="section">
+            <h2 class="section-title">היסטוריה ודוקו</h2>
+            <div class="cards-grid">
+                <a href="#" class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, hsl(250, 60%, 70%), hsl(250, 50%, 50%));"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">כותרת הפרק 1 - נושא מרתק</h3>
+                        <p class="card-desc">כאן יופיע תיאור קצר של התוכן, בדומה למה שמופיע בתמונה. מתאים למספר שורות ומעוצב בקפידה.</p>
+                    </div>
+                </a>
+                <a href="#" class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, hsl(280, 60%, 70%), hsl(280, 50%, 50%));"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">כותרת הפרק 2 - נושא מרתק</h3>
+                        <p class="card-desc">כאן יופיע תיאור קצר של התוכן, בדומה למה שמופיע בתמונה. מתאים למספר שורות ומעוצב בקפידה.</p>
+                    </div>
+                </a>
+                <a href="#" class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, hsl(310, 60%, 70%), hsl(310, 50%, 50%));"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">כותרת הפרק 3 - נושא מרתק</h3>
+                        <p class="card-desc">כאן יופיע תיאור קצר של התוכן, בדומה למה שמופיע בתמונה. מתאים למספר שורות ומעוצב בקפידה.</p>
+                    </div>
+                </a>
+                <a href="#" class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, hsl(340, 60%, 70%), hsl(340, 50%, 50%));"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">כותרת הפרק 4 - נושא מרתק</h3>
+                        <p class="card-desc">כאן יופיע תיאור קצר של התוכן, בדומה למה שמופיע בתמונה. מתאים למספר שורות ומעוצב בקפידה.</p>
+                    </div>
+                </a>
+                <a href="#" class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, hsl(10, 60%, 70%), hsl(10, 50%, 50%));"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">כותרת הפרק 5 - נושא מרתק</h3>
+                        <p class="card-desc">כאן יופיע תיאור קצר של התוכן, בדומה למה שמופיע בתמונה. מתאים למספר שורות ומעוצב בקפידה.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer"></div>
+
+</body></html>

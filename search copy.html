@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>חיפוש תכנית</title>
+  <link rel="stylesheet" href="css/searchStyle.css">
+    <link rel="icon" type="image/x-icon" href="media/favicon.ico">
+  	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;display=swap" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&amp;display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&amp;display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&amp;family=Rubik:ital,wght@0,300..900;1,300..900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/NavigationBarStyle.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <style>
+    #loadMoreBtn:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+    transition: 0.2s;
+}
+
+.program-card {
+    transition: 0.2s;
+}
+
+.program-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+}
+  </style>
+  <script>
+
+  document.addEventListener("DOMContentLoaded", () => {
+
+  fetch("partials/footer.html")
+    .then(res => res.text())
+    .then(html => {
+      const footer = document.getElementById("footer");
+      if (footer) footer.innerHTML = html;
+    });
+
+});
+</script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="Main Navigation">
+  <div class="nav-container">
+    <div class="nav-row">
+
+      <div class="nav-side brand">
+        <a href="/web1">
+          <img src="media/screenshot_2025-08-10_183245-removebg-preview-1.png" alt="logo" style="width: 90px; height: 60px; margin-left: 10px;">
+        </a>
+      </div>
+
+
+      <!-- אמצע – הקישורים -->
+      <div class="nav-center nav-links">
+        <a class="nav-link" href="musicPage.html">מוזיקה</a>
+        <a class="nav-link" href="podcastsPage.html">הסכתים</a>
+        <a class="nav-link"  href="sdarotReshetPage.html">סדרות רשת</a>
+        <a class="nav-link" href="culturePage.html">תרבות ופנאי</a>
+        <a class="nav-link" href="kidsPage.html">ילדים ונוער</a>
+        <a class="nav-link" href="archivesPage.html">ארכיון</a>
+      </div>
+
+
+      <!-- שמאל – כפתורים -->
+      <div class="nav-side actions mr-1">
+        <a href="search.html" style="color: none; text-decoration: none;" class="icon-btn" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass" style="font-size: 24px;"></i>
+        </a>
+
+        <a href="favoritesPage.html" style="color: none; text-decoration: none;" class="icon-btn" aria-label="Favorites">
+          <i class="fa-regular fa-heart" style="font-size: 24px;"></i>
+        </a>
+
+        <button class="icon-btn mobile-toggle" id="mobileMenuBtn" aria-expanded="false" aria-controls="mobileMenu">
+          <i class="fa-solid fa-bars" id="mobileMenuIcon"></i>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="mobileMenu" class="mobile-menu">
+    <a href="musicPage.html" data-close="">מוזיקה</a>
+    <a href="podcastsPage.html" data-close="">הסכתים</a>
+    <a href="sdarotReshetPage.html" data-close="">סדרות רשת</a>
+    <a href="culturePage.html" data-close="">תרבות ופנאי</a>
+    <a href="kidsPage.html" data-close="">ילדים ונוער</a>
+    <a href="archivesPage.html" data-close="">ארכיון</a>
+  </div>
+</nav>
+
+<script>
+  const mobileBtn = document.getElementById("mobileMenuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const mobileIcon = document.getElementById("mobileMenuIcon");
+
+  mobileBtn.addEventListener("click", () => {
+    const isOpen = mobileMenu.classList.toggle("open");
+    mobileBtn.setAttribute("aria-expanded", isOpen);
+    mobileIcon.classList.toggle("fa-bars", !isOpen);
+    mobileIcon.classList.toggle("fa-xmark", isOpen);
+  });
+
+  // סגירה אוטומטית בלחיצה על לינק עם data-close
+  document.querySelectorAll("#mobileMenu a[data-close]").forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.remove("open");
+      mobileBtn.setAttribute("aria-expanded", false);
+      mobileIcon.classList.add("fa-bars");
+      mobileIcon.classList.remove("fa-xmark");
+    });
+  });
+</script>
+
+<script>
+  fetch("partials/footer.html")
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById("footer").innerHTML = html;
+  });
+</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<h1 class="text-center mt-3"
+    style="font-family: 'Assistant', sans-serif; font-size: 40px; font-weight: 700; color: #0B3D91;">חיפוש תכנית</h1>
+
+<div class="search-wrapper">
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="חפש תוכנית...">
+    <button><i class="fas fa-search"></i></button>
+  </div>
+</div>
+
+<div id="searchResultsTitle" style="display:none; text-align: center; margin-bottom: 20px;">
+  תוצאות החיפוש עבור "<span id="searchQuery"></span>"
+</div>
+
+<div id="noResults">אין תוצאות</div>
+
+<div class="container" id="programList"></div>
+
+<script>
+const searchInput = document.getElementById("searchInput");
+const programList = document.getElementById("programList");
+const noResults = document.getElementById("noResults");
+const searchResultsTitle = document.getElementById("searchResultsTitle");
+const searchQuerySpan = document.getElementById("searchQuery");
+const searchButton = document.querySelector(".search-box button");
+
+let programs = [];
+let series = [];
+let searchIndex = [];   // כל מה שמחפשים בו
+let allResults = [];    // תוצאות החיפוש הנוכחיות
+let visibleCount = 10;
+let isReady = false;
+let debounceTimer = null;
+
+function escapeHtml(text) {
+  return String(text ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function normalize(text) {
+  return String(text ?? "").toLowerCase().trim();
+}
+
+function stripHtml(html) {
+  return String(html ?? "").replace(/<[^>]*>/g, "");
+}
+
+function truncate(text, max = 180) {
+  const clean = String(text ?? "").replace(/\s+/g, " ").trim();
+  if (clean.length <= max) return clean;
+  return clean.slice(0, max).trim() + "...";
+}
+
+function createCard(item) {
+  return `
+    <div class="program-card">
+      <a href="${escapeHtml(item.link)}" class="btn-entry">
+        <i class="fas fa-arrow-left"></i>
+        ${escapeHtml(item.buttonText)}
+      </a>
+
+      <div class="program-info">
+        ${
+          item.programTitle
+            ? `<div style="font-size:13px;color:#666;font-weight:bold;margin-bottom:4px;">
+                 מתוך: ${escapeHtml(item.programTitle)}
+               </div>`
+            : ""
+        }
+
+        <div class="program-title">${escapeHtml(item.title)}</div>
+        <div class="program-desc">${escapeHtml(item.description)}</div>
+      </div>
+
+      <img src="${escapeHtml(item.image)}" class="program-image" alt="${escapeHtml(item.title)}">
+    </div>
+  `;
+}
+
+function renderResults() {
+  programList.innerHTML = "";
+
+  const resultsToShow = allResults.slice(0, visibleCount);
+
+  resultsToShow.forEach((item) => {
+    programList.innerHTML += createCard(item);
+  });
+
+  const oldBtn = document.getElementById("loadMoreBtn");
+  if (oldBtn) oldBtn.remove();
+
+  if (visibleCount < allResults.length) {
+    const btn = document.createElement("button");
+    btn.id = "loadMoreBtn";
+    btn.innerText = "טען עוד";
+    btn.style.margin = "20px auto";
+    btn.style.display = "block";
+    btn.style.padding = "10px 24px";
+    btn.style.borderRadius = "40px";
+    btn.style.border = "none";
+    btn.style.background = "#87aee6";
+    btn.style.fontWeight = "bold";
+    btn.style.cursor = "pointer";
+
+    btn.onclick = () => {
+      visibleCount += 10;
+      renderResults();
+    };
+
+    programList.appendChild(btn);
+  }
+
+  noResults.style.display = allResults.length === 0 ? "block" : "none";
+}
+
+function performSearch() {
+  if (!isReady) return;
+
+  const queryRaw = searchInput.value.trim();
+  const query = normalize(queryRaw);
+
+  if (!query) {
+    searchResultsTitle.style.display = "none";
+    programList.innerHTML = "";
+    noResults.style.display = "none";
+    allResults = [];
+    return;
+  }
+
+  searchResultsTitle.style.display = "block";
+  searchQuerySpan.textContent = queryRaw;
+
+  allResults = searchIndex.filter((item) => {
+    return item.searchText.includes(query);
+  });
+
+  visibleCount = 10;
+  renderResults();
+}
+
+async function fetchRSSItems(rssUrl) {
+  try {
+    const api =
+      "https://api.rss2json.com/v1/api.json?rss_url=" +
+      encodeURIComponent(rssUrl);
+
+    const res = await fetch(api);
+    const data = await res.json();
+    return data.items || [];
+  } catch (err) {
+    console.error("RSS ERROR:", err);
+    return [];
+  }
+}
+
+async function loadData() {
+  try {
+    const [programsRes, seriesRes] = await Promise.all([
+      fetch("data/programs.json"),
+      fetch("data/series.json")
+    ]);
+
+    const programsData = await programsRes.json();
+    const seriesData = await seriesRes.json();
+
+    programs = programsData.programs || [];
+    series = seriesData.series || [];
+
+    // =========================
+    // תוכניות רגילות
+    // =========================
+
+    const programItems = programs.map((p) => ({
+      type: "program",
+      title: p.title || "",
+      description: p.description || "",
+      image: p.tab || p.banner || "",
+      link: `program.html?id=${encodeURIComponent(p.id)}`,
+      buttonText: "כניסה",
+      programTitle: "",
+      searchText: normalize(`${p.title} ${p.description}`)
+    }));
+
+    // =========================
+    // סדרות מקומיות
+    // =========================
+
+    const localSeriesItems = [];
+
+    series.forEach((s) => {
+
+      localSeriesItems.push({
+        type: "series",
+        title: s.title || "",
+        description: s.description || "",
+        image: s.image || "",
+        link: `programsSeries.html?id=${encodeURIComponent(s.id)}`,
+        buttonText: "כניסה לסדרה",
+        programTitle: "",
+        searchText: normalize(`${s.title} ${s.description}`)
+      });
+
+      (s.episodes || []).forEach((ep) => {
+
+        localSeriesItems.push({
+          type: "episode",
+          title: ep.title || "",
+          description: ep.description || "",
+          image: ep.image || s.image || "",
+          link: `programsSeries.html?id=${encodeURIComponent(s.id)}`,
+          buttonText: "לפרק",
+          programTitle: s.title || "",
+          searchText: normalize(`
+            ${ep.title}
+            ${ep.description}
+            ${s.title}
+            ${s.description}
+          `)
+        });
+
+      });
+
+    });
+
+    // =========================
+    // RSS
+    // =========================
+
+    const rssItems = [];
+
+    const rssPromises = programs
+      .filter((p) => p.rss)
+      .map(async (p) => {
+
+        const items = await fetchRSSItems(p.rss);
+
+        items.forEach((ep) => {
+
+          const cleanDesc = stripHtml(ep.description || "");
+
+          rssItems.push({
+            type: "episode",
+            title: ep.title || "",
+            description: truncate(cleanDesc, 180),
+            image: ep.thumbnail || p.tab || p.banner || "",
+            link: `program.html?id=${encodeURIComponent(p.id)}`,
+            buttonText: "לפרק",
+            programTitle: p.title || "",
+
+            searchText: normalize(`
+              ${ep.title}
+              ${cleanDesc}
+              ${p.title}
+              ${p.description}
+            `)
+          });
+
+        });
+
+      });
+
+    await Promise.all(rssPromises);
+
+    // =========================
+    // הכל ביחד
+    // =========================
+
+    searchIndex = [
+      ...programItems,
+      ...localSeriesItems,
+      ...rssItems
+    ];
+
+    console.log("TOTAL SEARCH ITEMS:", searchIndex.length);
+    console.log("RSS ITEMS:", rssItems.length);
+
+    isReady = true;
+
+  } catch (err) {
+
+    console.error(err);
+
+    noResults.textContent =
+      "שגיאה בטעינת נתוני החיפוש";
+
+    noResults.style.display = "block";
+  }
+}
+
+searchInput.addEventListener("input", () => {
+  clearTimeout(debounceTimer);
+  debounceTimer = setTimeout(performSearch, 250);
+});
+
+searchButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  performSearch();
+});
+
+searchInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    performSearch();
+  }
+});
+
+loadData();
+</script>
+
+
+ <div id="footer"></div>
+
+</body>
+</html>
